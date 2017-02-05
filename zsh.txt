@@ -1,0 +1,18 @@
+zsh installation packages :
+	github.com/robbyrussell/oh-my-zsh
+
+creat git hub:
+1. apt-get install github
+2. apt-get install git
+3. git config --global user.name "karthikc17"
+4. git config --global user.email "vijaykarthik52@gmail.com"
+5. echo "# repository_training" >> README.md
+6. git init
+7. git add README.md
+8. git commit -m "first commit"
+9. git remote add origin https://github.com/karthikcr17/repository_training.git
+10. git push -u origin master
+11. git push -u origin tooo
+12. git branch tooo
+13. git checkout tooo
+14.  sudo apt-get install -y curl vim git zsh
