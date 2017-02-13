@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CHILD	header_file/myheader.h	/^}CHILD;$/;"	t	typeref:struct:tree
+MEM_ALLOC	header_file/myheader.h	9;"	d
+MEM_ALLOC_S	header_file/myheader.h	14;"	d
+NUM_LENGTH	header_file/myheader.h	8;"	d
+VALIDATE_MEM_ALLOC	header_file/myheader.h	10;"	d
+create_child	source_file/create.c	/^void create_child(void) {$/;"	f
+data	header_file/myheader.h	/^	int data;$/;"	m	struct:tree
+delete_node	source_file/delete.c	/^void delete_node(void) {$/;"	f
+display_tree	source_file/display.c	/^void display_tree(CHILD *temp) {$/;"	f
+insert_child	source_file/insert.c	/^void insert_child(CHILD *create) {$/;"	f
+l_child	header_file/myheader.h	/^	struct tree *l_child;$/;"	m	struct:tree	typeref:struct:tree::tree
+main	source_file/main.c	/^int main(void) {$/;"	f
+my_atoi	source_file/validate.c	/^int my_atoi(char num[])$/;"	f
+r_child	header_file/myheader.h	/^	struct tree *r_child;$/;"	m	struct:tree	typeref:struct:tree::tree
+root	header_file/myheader.h	/^struct tree *root;$/;"	v	typeref:struct:tree
+str_len	source_file/length.c	/^int str_len(char *f_str)$/;"	f
+tree	header_file/myheader.h	/^typedef struct tree {$/;"	s

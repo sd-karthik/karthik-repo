@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX	header/header.h	17;"	d
+_header_h	header/header.h	10;"	d
+a2i	src/a2i.c	/^int a2i(char *num)$/;"	f
+create	insert.c	/^struct node *create()$/;"	f
+create_child	source_file/create.c	/^void create_child(void) {$/;"	f
+create_child	src/create.c	/^void create_child(void) {$/;"	f
+current	src/main.c	/^struct node *current = NULL;    \/\/current node pointer  $/;"	v	typeref:struct:node
+data	header/header.h	/^    int data;               \/\/data to store integer value$/;"	m	struct:node
+delet	src/delet.c	/^void delet(int ele)$/;"	f
+delete_node	source_file/delete.c	/^void delete_node(void) {$/;"	f
+display	src/display.c	/^void display(struct node *next)$/;"	f
+display_tree	source_file/display.c	/^void display_tree(CHILD *temp) {$/;"	f
+insert	insert.c	/^void insert(int element)$/;"	f
+insert_child	source_file/insert.c	/^void insert_child(CHILD *create) {$/;"	f
+insert_child	src/insert.c	/^void insert_child(CHILD	*create) {$/;"	f
+lchild	header/header.h	/^    struct node *lchild;    \/*self referential pointer for$/;"	m	struct:node	typeref:struct:node::node
+main	source_file/main.c	/^int main(void) {$/;"	f
+main	src/main.c	/^int main()$/;"	f
+my_atoi	source_file/validate.c	/^int my_atoi(char num[])$/;"	f
+next	src/main.c	/^struct node *next = NULL;		\/\/next node pointer$/;"	v	typeref:struct:node
+node	header/header.h	/^struct node{$/;"	s
+rchild	header/header.h	/^    struct node *rchild;    \/*self referential pointer for $/;"	m	struct:node	typeref:struct:node::node
+root	src/main.c	/^struct node *root = NULL;       \/\/root node pointer$/;"	v	typeref:struct:node
+str_len	source_file/length.c	/^int str_len(char *f_str)$/;"	f
+str_len	src/str_len.c	/^int str_len(char *str)$/;"	f

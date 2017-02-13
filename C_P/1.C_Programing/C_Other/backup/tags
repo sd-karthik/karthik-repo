@@ -1,0 +1,46 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX	atoi.c	6;"	d	file:
+MEM_ALLOC	bst/header_file/myheader.h	9;"	d
+MEM_ALLOC_S	bst/header_file/myheader.h	14;"	d
+NODE	bst/header_file/myheader.h	/^}NODE;$/;"	t	typeref:struct:tree
+NUM_LENGTH	bst/header_file/myheader.h	8;"	d
+VALIDATE_MEM_ALLOC	bst/header_file/myheader.h	10;"	d
+bit_ts	macro_set.c	4;"	d	file:
+count_bit_clear	7_bsc.c	/^int count_bit_clear(int n)$/;"	f
+count_bit_set	7_bsc.c	/^int count_bit_set(int n)$/;"	f
+create_child	bst/source_file/create.c	/^void create_child(void) {$/;"	f
+data	bst/header_file/myheader.h	/^	int data;$/;"	m	struct:tree
+delete_node	bst/source_file/delete.c	/^void delete_node(void) {$/;"	f
+display_tree	bst/source_file/display.c	/^void display_tree(NODE *temp) {$/;"	f
+even_bit_toggle	tog_eo.c	/^int even_bit_toggle(int num) \/\/ function to toggle even bits$/;"	f
+getbits	m_getnbits.c	4;"	d	file:
+insert_child	bst/source_file/insert.c	/^void insert_child(NODE *create) {$/;"	f
+invert	ex11.c	/^int invert(int x, int p, int n)$/;"	f
+l_child	bst/header_file/myheader.h	/^	struct tree *l_child;$/;"	m	struct:tree	typeref:struct:tree::tree
+main	7_bsc.c	/^int main()$/;"	f
+main	atoi.c	/^int main(void)$/;"	f
+main	bit2swap.c	/^int main()$/;"	f
+main	bitwise.c	/^int main()$/;"	f
+main	bst/source_file/main.c	/^int main(void) {$/;"	f
+main	ex11.c	/^int main(void)$/;"	f
+main	m_getnbits.c	/^void main(void)$/;"	f
+main	macro_set.c	/^int main(void)$/;"	f
+main	setnr.c	/^int main(void)$/;"	f
+main	test1.c	/^int main(void)$/;"	f
+main	tog_eo.c	/^int main(void)$/;"	f
+my_atoi	bst/source_file/atoi.c	/^int my_atoi(char num[])$/;"	f
+odd_bit_toggle	tog_eo.c	/^int odd_bit_toggle(int num) \/\/ function to toggle odd bit$/;"	f
+r_child	bst/header_file/myheader.h	/^	struct tree *r_child;$/;"	m	struct:tree	typeref:struct:tree::tree
+root	bst/header_file/myheader.h	/^struct tree *root;$/;"	v	typeref:struct:tree
+setbit	setnr.c	/^int setbit(int y, int p, int n)$/;"	f
+showbit	showbit.c	/^int showbit(int num)$/;"	f
+str_len	atoi.c	/^int str_len(char *str)$/;"	f
+str_len	bst/source_file/length.c	/^int str_len(char *f_str)$/;"	f
+swap	bitwise.c	/^	int swap(int num, int src, int dst)$/;"	f
+tree	bst/header_file/myheader.h	/^typedef struct tree {$/;"	s
+valid	atoi.c	/^int valid(char s[30])$/;"	f
