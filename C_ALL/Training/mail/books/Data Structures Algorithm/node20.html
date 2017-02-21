@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Object Oriented Programming in C++: Basics</TITLE>
+<META NAME="description" CONTENT="Object Oriented Programming in C++: Basics">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html512" HREF="node21.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node21.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html510" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html504" HREF="node19.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node19.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html514" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html513" HREF="node21.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node21.html">Further Reading</A>
+<B>Up:</B> <A NAME="tex2html511" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html">Object Oriented Programming</A>
+<B> Previous:</B> <A NAME="tex2html505" HREF="node19.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node19.html">Key Concepts and Terminology</A>
+<BR> <P>
+<H1><A NAME="SECTION00520000000000000000">Object Oriented Programming in C++: Basics</A></H1>
+<P>
+It is probably best to look at concrete examples of object oriented programming
+in C++ before going into further theory or concepts.
+We'll consider two kinds of examples. The first will involve
+graphical and user interface objects, the second will involve reworking
+some old list ADTs as objects.
+<P>
+Suppose we wanted to write a simple drawing program that could
+(among other things) display different shapes on the screen.
+The shapes to handle are circles and rectangles. They
+each have a position and size, though this will be defined differently
+for the different shapes. A circle will be defined by center point
+and radius, rectangle by a center point and the length and width.
+Shapes also have various characteristics such as colour.
+<P>
+Useful methods for these objects include: Initialise; Move; SetColour; Draw.
+Initialise should set the position and size, while 
+Move, SetColour and Draw should do the obvious. It should be clear that
+Initialise and Draw will be different for circles and rectangles, while
+SetColour and Move could be defined in a shape-independent way.
+(We'd also want methods to modify the size, but this won't be
+included in these tiny examples).
+<P>
+The first thing to do in object oriented programming is decide on
+a <EM>class hierarchy</EM> - that is, a hierarchy of kinds of objects, from
+very general ones to very specific kinds. In this simple example
+we can have a general class of 'shapes' and more specific classes for
+'circles' and 'rectangles' (a realistic program would of course have many
+more such classes). A particular circle with specific size, colour etc
+will be an instance of the circle class. We can now decide on which 
+operations and datafields can be defined for the most general class (shape).
+The following gives the type definition, and an example method (assuming
+that the type ``ColourType'' is defined somewhere).
+<P>
+<PRE>class Shape {
+public:
+   Move(int x, int y);
+   SetColour(ColourType c);
+private:
+   int xpos,ypos;
+   ColourType colour;
+};
+
+Shape::SetColour(ColourType c)
+{
+  colour = c;
+}</PRE>
+<P>
+Note that in the SetColour function 'colour' is not treated as
+a global variable, but as the value of the colour field of the object
+whose colour is being set. We can also access these fields when
+calling further functions within the function (e.g., we could
+call a function MovePen(xpos, ypos) and the x and y position of
+the object in question would be accessed, without these needing
+to be specified as arguments to the function.) Note too that the position
+and colour of the shape are `private' and can only be accessed or
+modified via any defined operations.
+<P>
+Now, a circle and a rectangle are both kinds of shape. To specify this
+we can use the notation ': Shape' after the class name. For reasons to
+be explained later, we need here to specify `: public Shape'. So for circle and
+rectangle we might have:
+<P>
+<PRE>class Circle : public Shape {
+public:
+    Circle();
+    Draw();
+private:
+    int rad;
+};
+
+class Rectangle : public Shape {
+public:
+     Rectangle();
+     draw();
+private:
+     int width, length;
+};</PRE>
+<P>
+Circle and rectangle would inherit the operations and datafields
+from Shape, so it is not necessary to repeat them. I'll just assume that
+the relevant operations can be straightforwardly written. Note that
+the class 'Shape' is not a class that you'd have instances of. It is
+just defined so that specific shapes like circle and rectangle can be
+defined much more simply. Such classes are referred to as <EM>abstract</EM>
+classes.
+<P>
+If we now had an object instance Ob of type Circle, and wanted to set 
+its colour, we could call Ob.SetColour. It would use the 
+SetColour function inherited from Shape. We can think of this as
+sending a message SetColour to the object Ob.
+<P>
+Now, suppose we wanted to deal with a specialised kind of rectangle:
+say, a rounded rectangle (one with rounded corners). This can
+use the standard rectangle's initialise method, but will need a
+special draw method.
+<P>
+<PRE>class RoundedRectangle : public Rectangle {
+public:
+  Draw(); 
+}</PRE>
+<P>
+The new Draw procedure will
+override, or replace, the one that would be inherited from the
+standard rectangle object.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html515" HREF="node21.html#SECTION00521000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node21.html#SECTION00521000000000000000">Further Reading</A>
+</UL>
+<HR><A NAME="tex2html512" HREF="node21.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node21.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html510" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html504" HREF="node19.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node19.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html514" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html513" HREF="node21.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node21.html">Further Reading</A>
+<B>Up:</B> <A NAME="tex2html511" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html">Object Oriented Programming</A>
+<B> Previous:</B> <A NAME="tex2html505" HREF="node19.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node19.html">Key Concepts and Terminology</A>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

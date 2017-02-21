@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Motivation</TITLE>
+<META NAME="description" CONTENT="Motivation">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1200" HREF="node76.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node76.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1198" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1192" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1202" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1201" HREF="node76.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node76.html">A Naive Algorithm</A>
+<B>Up:</B> <A NAME="tex2html1199" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html">String Searching</A>
+<B> Previous:</B> <A NAME="tex2html1193" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html">String Searching</A>
+<BR> <P>
+<H2><A NAME="SECTION00731000000000000000">Motivation</A></H2>
+<P>
+As mentioned above, string searching algorithms are important in
+all sorts of applications that we meet everyday. In text editors,
+we might want to search through a very large document (say, a million
+characters) for the occurence of a given string (maybe dozens of characters).
+In text retrieval tools, we might potentially want to search through
+thousands of such documents (though normally these files would be indexed,
+making this unnecessary). Other applications might require
+string matching algorithms as part of a more complex algorithm (e.g.,
+the Unix program ``diff'' that works out the differences between two
+simiar text files).
+<P>
+Sometimes we might want to search 
+in <EM>binary</EM> strings (ie, sequences of 0s and 1s). For example
+the ``pbm'' graphics format is based on sequences of 1s and 0s.
+We could express a task like ``find a wide white stripe in the image''
+as a string searching problem.
+<P>
+In all these applications the naive algorithm
+(that you might first think of) is rather inefficient. There are
+algorithms that are only a little more complex which give a very
+substantial increase in efficiency. In this section we'll first
+introduce the naive algorithm, then two increasingly sophisticated
+algorithms that give gains in efficiency. We'll end up discussing
+how properties of your string searching problem might influence choice
+of algorithm and average case efficiency, and how you might avoid
+having to search at all!
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Motivation</TITLE>
+<META NAME="description" CONTENT="Motivation">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1060" HREF="node67.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node67.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1058" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1052" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1062" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1061" HREF="node67.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node67.html">The Algorithm</A>
+<B>Up:</B> <A NAME="tex2html1059" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html">Topological Sort</A>
+<B> Previous:</B> <A NAME="tex2html1053" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html">Topological Sort</A>
+<BR> <P>
+<H2><A NAME="SECTION00641000000000000000">Motivation</A></H2>
+<P>
+There are many problems where we can easily say that one task has
+to be done before another, or <EM>depends</EM> on the other, 
+but can't easily then work out what order to
+do things to a whole buch of such things. For example, it is
+easy to specify/look up prerequisite relationships between modules in
+a course, but it may be hard to find an order to take all the modules so
+that all prerequisite material is covered before the modules that
+depend on it.
+<P>
+The same problem arises in spreadsheets. To <EM>recalculate</EM> cells
+after some of the values are changed, it is necessary to consider how
+one cell's value depends on the value in another, e.g.,
+<P>
+<PRE>Cell     Contents            Value
+1        100                 100
+2        (Cell 1) + 10       110
+3        (Cell 1) * 2        200
+4        (Cell 2) + (Cell 3) 310</PRE>
+<P>
+In the above example,  if you change the value in cell 1, you need
+to first recalculate the values in cell 2 and 3, and only when that is
+done can you recalculate the value in cell 4.
+<P>
+Both these problems are essentially equivalent. The data of both
+can be represented in a directed graph (see fig ?). In the first each node is
+a module; in the second example each node is a spreadsheet cell.
+Directed edges occur when one node depends on the other, because of
+prerequisite relationships among courses or dependencies among nodes.
+The problem in both is to find an acceptable ordering of the nodes
+satisfying the dependencies. This is referred to as a topological 
+ordering.
+<P>
+<P> <IMG  ALIGN=BOTTOM ALT="figure1729" SRC="img7.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img7.gif"  > <P><BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

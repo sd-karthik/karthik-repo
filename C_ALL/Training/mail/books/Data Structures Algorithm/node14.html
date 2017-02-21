@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Problems and Pitfalls</TITLE>
+<META NAME="description" CONTENT="Problems and Pitfalls">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html412" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html410" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html406" HREF="node13.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node13.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html414" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html413" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html">Object Oriented Programming</A>
+<B>Up:</B> <A NAME="tex2html411" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<B> Previous:</B> <A NAME="tex2html407" HREF="node13.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node13.html">Dynamic Data</A>
+<BR> <P>
+<H1><A NAME="SECTION00480000000000000000">Problems and Pitfalls</A></H1>
+<P>
+The problem with the programmer dynamically assigning and
+deallocating memory is that they might get it wrong. And then
+horrible things might happen. Here's some of them:
+<P>
+Inaccessible objects: are objects which no longer have a pointer
+pointing at them (so are wasted space). This might happen, for
+example, if you create a new object pointed to by an old pointer:
+<P>
+<PRE>   oldptr = new int;</PRE>
+<P>
+A dangling pointer: is a pointer pointing to something that
+has been de-allocated using delete. This might happen if you
+have two pointers p1, p2 pointing to the same object, and (say)
+p1 is deleted:
+<P>
+<PRE>    delete p1;</PRE>
+<P>
+Now p2 points nowhere.. or to some random bit of memory.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

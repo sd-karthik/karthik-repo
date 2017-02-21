@@ -1,0 +1,63 @@
+
+;; Function fun (fun)
+
+Released 0 names, 0.00%
+fun ()
+{
+  int b[2];
+  int c;
+  int a[1];
+  const char * restrict D.1704;
+  int D.1703;
+  int D.1702;
+  int D.1701;
+  int a.3;
+  int b.2;
+  int D.1698;
+  int D.1697;
+  int a.1;
+  int b.0;
+
+<bb 2>:
+  a[0] = 6;
+  c_1 = 4;
+  b[0] = 5;
+  b[1] = 7;
+  b.0_2 = (int) &b;
+  a.1_3 = (int) &a;
+  D.1697_4 = b.0_2 - a.1_3;
+  D.1698_5 = D.1697_4 /[ex] 4;
+  b[D.1698_5] = 3;
+  b.2_6 = (int) &b;
+  a.3_7 = (int) &a;
+  D.1701_8 = b.2_6 - a.3_7;
+  D.1702_9 = D.1701_8 /[ex] 4;
+  D.1703_10 = b[D.1702_9];
+  D.1704_11 = (const char * restrict) &"%d\n"[0];
+  printf (D.1704_11, D.1703_10);
+  return;
+
+}
+
+
+
+;; Function main (main)
+
+Released 0 names, 0.00%
+main ()
+{
+  int a;
+  int D.1693;
+  const char * restrict D.1692;
+
+<bb 2>:
+  fun ();
+  a_1 = 5;
+  D.1692_2 = (const char * restrict) &"%d\n"[0];
+  printf (D.1692_2, a_1);
+  D.1693_3 = 0;
+  return D.1693_3;
+
+}
+
+

@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX	q6.c	4;"	d	file:
+NODE	q6.c	/^}NODE;$/;"	t	typeref:struct:__anon2	file:
+delet	q6.c	/^void delet()$/;"	f
+display	q6.c	/^void display()$/;"	f
+head	q6.c	/^NODE *head = (NODE *) malloc(sizeof(NODE *));$/;"	v
+insert	q6.c	/^void insert()$/;"	f
+new	q6.c	/^NODE *new = (NODE *) malloc(sizeof(NODE *) * MAX);$/;"	v
+next	q6.c	/^	NODE *next;$/;"	m	struct:__anon2	file:
+next	q6.c	/^	NODe *next;$/;"	m	struct:__anon2	file:
+str	q6.c	/^	char *str;$/;"	m	struct:__anon2	file:
+temp	q6.c	/^NODE *temp = (NODE *) malloc(sizeof(NODE *) * MAX);$/;"	v

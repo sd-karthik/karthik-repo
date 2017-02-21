@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Programming Style</TITLE>
+<META NAME="description" CONTENT="Programming Style">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html709" HREF="node38.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node38.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html707" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html701" HREF="node36.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node36.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html711" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html710" HREF="node38.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node38.html">Some final points</A>
+<B>Up:</B> <A NAME="tex2html708" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html">Exploiting Inheritance when Defining </A>
+<B> Previous:</B> <A NAME="tex2html702" HREF="node36.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node36.html">Queues and Stacks derived </A>
+<BR> <P>
+<H2><A NAME="SECTION00554000000000000000">Programming Style</A></H2>
+<P>
+Most of the examples given so far have been rather minimal,
+omitting comments, documentation, or correct use of
+specification and implementation files! You might get a program
+working this way, but it won't be much use to someone else
+who wants to use your classes. So..
+<P>
+<UL><LI> Always use separate specification and implementation files.
+However, with OOP, (or indeed, whenever writing software modules
+to be used by others) we run the risk that two modules
+both try and load the same .h file. The result is that
+you get compile errors. A solution is to enclose the
+definitions in #ifndef/#endif brackets, e.g.,
+<P>
+<PRE>#ifndef MYCLASSH
+#define MYCLASSH
+
+class myclass {
+  ....
+}
+
+#endif</PRE>
+<P>
+The #ifndef statement prevents all the stuff up to #endif being
+read in if MYCLASSH (some arbitrary name) has already been #defined.
+The second line #defines MYCLASSH, stopping everything being re-read
+the next time round.
+<P>
+This method is illustrated in Friedman &amp; Koffman.<LI> Comment your code! Especially the .h files, as others may
+want to examine them to determine how to use your class library.
+Friedman &amp; Koffman illustrates a fairly minimal style of commenting.
+Other books adopt more complex conventions on how to comment
+class definitions.<LI> Use `const' declarations where appropriate. In my examples I've both been
+sloppy in using `const' in arguments (that shouldn't have values change)
+and in defining const and member functions. Constant member functions
+are functions that don't change any of the datafields of the class.
+<P>
+</UL><BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Drawing Tool</TITLE>
+<META NAME="description" CONTENT="A Drawing Tool">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html771" HREF="node43.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node43.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html769" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html763" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html773" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html772" HREF="node43.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node43.html">File and Printing Systems</A>
+<B>Up:</B> <A NAME="tex2html770" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html">Some Examples</A>
+<B> Previous:</B> <A NAME="tex2html764" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html">Some Examples</A>
+<BR> <P>
+<H3><A NAME="SECTION00562100000000000000">A Drawing Tool</A></H3>
+<P>
+Suppose you want to develop a drawing tool, allowing different shapes
+to be selected from a menu, graphically positioned and sized,
+modified (changing their colour etc), filled, and so on. This is
+a natural extension of the examples being used in the text so far, 
+so it should be clear how OO programming applies.
+A list of (pointers to) object instances could be maintained, 
+corresponding to all the
+objects on the screen, created by the user. As they select new objects
+and position them, this list would be extended. As the user chooses to
+modify an object, its datafields would be altered, and hence how it
+is drawn. Although for this application there is clearly a fair amount of
+work on the basic interface, it should be clear that an object oriented
+approach is reasonable for maintaining and manipulating the shapes 
+themselves.
+<P>
+A special purpose design tool might make more, um, special purpose
+`shapes' available. For example, a tool for office layout might have
+built in classes for desk, filing cabinet and so on. The user would be
+able to manipulate their attributes (size, colour) but would have available
+standard methods for displaying, moving etc the objects.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

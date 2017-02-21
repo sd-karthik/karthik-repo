@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Returning the path</TITLE>
+<META NAME="description" CONTENT="Returning the path">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1016" HREF="node63.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node63.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1014" HREF="node58.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node58.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1008" HREF="node61.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node61.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1018" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1017" HREF="node63.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node63.html">Example application</A>
+<B>Up:</B> <A NAME="tex2html1015" HREF="node58.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node58.html">Graph Search Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1009" HREF="node61.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node61.html">Graph search</A>
+<BR> <P>
+<H2><A NAME="SECTION00624000000000000000">Returning the path</A></H2>
+<P>
+So far, the algorithm(s) will process (visit) all the nodes in a graph,
+or with a minor modification, check whether a node satisfying a given
+property can be found in the graph, from a given starting point.
+However, what is often of more use is if the <EM>path</EM> from
+a start node to a <EM>target</EM> node can be returned. The graph is searched
+for that target node, and when reached, the loop exits and the path 
+is returned.
+<P>
+It turns out that there is a simple trick that can be used to find the
+path. Whenever we push a node onto the stack, we also make a record
+of that node's <EM>parent</EM> (ie, the current-node). As we only push
+nodes on the stack if they aren't already visited, this will result in
+a single parent being recorded for each node (so we can just hold the
+parent record in a 1-d node array). Once the target has been found,
+we can find its parent, its parent's parent, that node's parent,
+and so on to the start node. That sequence will be a path from start to target.
+<P>
+This is illustrated in the modification of the algorithm given below.
+A 'writepath' procedure would also be required to write out the resulting
+path, given path array, start node and target node.
+<P>
+<PRE>stack.push(startnode)
+do
+  {
+    currentnode = stack.pop();
+    if(! visited[currentnode])
+     {
+       visited[currentnode] = 1;
+       for {each neighbour n of currentnode}
+         if( !visited[currentnode])
+           {
+             stack.push(n);
+             parent[n] = currentnode;
+           }
+     }     
+while(! stack.empty() &amp;&amp; currentnode != target)rtnode);</PRE>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,16 @@
+
+;; Function main (main)
+
+Released 0 names, 0.00%
+main ()
+{
+  static int a;
+  int D.1689;
+
+<bb 2>:
+  D.1689_1 = 0;
+  return D.1689_1;
+
+}
+
+

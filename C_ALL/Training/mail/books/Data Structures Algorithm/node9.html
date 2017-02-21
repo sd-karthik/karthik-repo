@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Pointers and Arrays</TITLE>
+<META NAME="description" CONTENT="Pointers and Arrays">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html359" HREF="node10.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node10.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html357" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html351" HREF="node8.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node8.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html361" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html360" HREF="node10.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node10.html">Copying Pointer Variables</A>
+<B>Up:</B> <A NAME="tex2html358" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<B> Previous:</B> <A NAME="tex2html352" HREF="node8.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node8.html">Pointers</A>
+<BR> <P>
+<H1><A NAME="SECTION00430000000000000000">Pointers and Arrays</A></H1>
+<P>
+In C++ pointers and arrays are very closely related. It's important
+to understand this.
+<P>
+<PRE>   int vec[5];</PRE>
+<P>
+essentially makes the variable vec a pointer to the first cell
+of a block of memory big enough to store 5 integers. Space
+for those 5 integers is reserved, so it doesnt get clobbered:
+<P>
+<PRE>       12    14     16    17    18    
+      --------------------------------------------
+       |5    |6    |     |     |     |     |     |  
+      --------------------------------------------
+        -------- RESERVED ------------</PRE>
+<P>
+In the above example vec=12 (an address) (but we wouldn't
+usually think about this).
+<P>
+We could have declared vec in the almost equivalent way:
+<P>
+<PRE>   int* vec;</PRE>
+<P>
+Note that in principle we STILL can set and access the `elements' 
+in the `array' in the same manner:
+<P>
+<PRE>    vec[1] = 2;</PRE>
+<P>
+etc. The difference is that we havent reserved any space.
+This is a source of errors. If you declare strings or
+arrays in this manner, and fail to allocate space, your
+program won't work. You need to allocate space (as described in
+more detail below) with something like:
+<P>
+<PRE>   vec = new int[5];</PRE>
+<P>
+An exception to this is where you make your pointer point to
+something that already exists. For example, a string constant.
+If &quot;alison&quot; explicitly appears in your code, C++ will
+allocate space for it. In the following code:
+<P>
+<PRE>  char* str;
+  str = &quot;alison&quot;;</PRE>
+<P>
+the result is that the pointer str ends up pointing to the
+same address as the (previously allocated) string constant
+&quot;alison&quot;. This is fine. However, it might not be fine if
+you, say, read in someone's name into str, without allocating
+space. The following causes the program to crash:
+<P>
+<PRE>   char* str;
+   cin &gt;&gt; str;</PRE>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

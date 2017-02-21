@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Edge Lists</TITLE>
+<META NAME="description" CONTENT="Edge Lists">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html947" HREF="node57.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node57.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html945" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html939" HREF="node55.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node55.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html949" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html948" HREF="node57.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node57.html">Which to use?</A>
+<B>Up:</B> <A NAME="tex2html946" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html">Implementing a Graph ADT</A>
+<B> Previous:</B> <A NAME="tex2html940" HREF="node55.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node55.html">Adjacency Matrix</A>
+<BR> <P>
+<H3><A NAME="SECTION00614200000000000000">Edge Lists</A></H3>
+<P>
+The above representation is very simple, but it is inneficient (in terms
+of space) for <EM>sparse</EM> graphs, ie, those without many edges compared
+with nodes (vertices). Such a graph would still need an NxN matrix, but
+would be almost full of 'False's. So an alternative is to have associated
+with each node a list (or set) of all the nodes it is linked to via
+an edge. So, in this representation we have a one dimensional array, where
+each element in the array is a list of nodes.
+<P>
+For the same graph as the
+one illustrated above this would give:
+<P>
+<PRE>1   (2 4)
+2   (3)
+3   ()
+4   (3 5)
+5   ()</PRE>
+<P>
+Now comes the question of how to represent the list of nodes.
+One way is to use linked lists. The graph would
+involve an array, where each element of that array is a linked list.
+Some of the graph operations are a little more tricky using this
+representation. However if you have a linked list ADT defined, you
+can just 'use' this, rather than redefining basic operations.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

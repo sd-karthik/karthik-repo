@@ -1,0 +1,15 @@
+
+;; Function main (main)
+
+main ()
+{
+  static int a;
+  int D.1689;
+
+<bb 2>:
+  D.1689_1 = 0;
+  return D.1689_1;
+
+}
+
+

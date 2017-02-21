@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Basic Outline and Terminology</TITLE>
+<META NAME="description" CONTENT="A Basic Outline and Terminology">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1543" HREF="node106.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node106.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1541" HREF="node103.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node103.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1535" HREF="node104.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node104.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1545" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1544" HREF="node106.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node106.html">Simple Symmetric Methods</A>
+<B>Up:</B> <A NAME="tex2html1542" HREF="node103.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node103.html">Cryptography</A>
+<B> Previous:</B> <A NAME="tex2html1536" HREF="node104.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node104.html">Motivation</A>
+<BR> <P>
+<H2><A NAME="SECTION00772000000000000000">A Basic Outline and Terminology</A></H2>
+<P>
+Encryption/decryption systems fit into the following framework.
+The <EM>sender</EM> (of the secret message) <EM>encrypts</EM>
+their message (the <EM>plaintext</EM>) 
+using an encryption method and a <EM>key</EM>.
+The resulting string (the <EM>cyphertext</EM>) is sent to
+the <EM>receiver</EM>, who uses a matching decryption method,
+and a key, to tranform the cyphertext back into the original message.
+<P>
+The aim is to develop encryption methods such that someone can't
+work out the message given the code (cyphertext) without knowing the
+key.
+<P>
+In practice, for many applications we might be willing to have a
+system where, in principle, one could decode it without the
+key, but it would be so very expensive it wouldnt be worth it.
+(Internet financial applications fit this: People are
+probably not going to use many computer-years of effort to
+obtain credit card details which might result in a few hundred
+pounds gain).
+<P>
+Encryption methods can be divided into <EM>symmetric</EM> and <EM>asymmetric</EM>
+systems. In symmetric systems the same key is used by both the
+sender and the receiver. In asymmetric systems the sender uses one
+key (the <EM>public</EM>) key, and the receiver uses another (the
+<EM>private</EM> key. Symmetric systems are simpler, so will be described
+first, but asymmetric methods are now more important for most applications.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Destructors</TITLE>
+<META NAME="description" CONTENT="Destructors">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html678" HREF="node35.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node35.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html676" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html670" HREF="node33.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node33.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html680" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html679" HREF="node35.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node35.html">Copy Constructors</A>
+<B>Up:</B> <A NAME="tex2html677" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html">ConstructorsDestructors and Dynamic </A>
+<B> Previous:</B> <A NAME="tex2html671" HREF="node33.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node33.html">Constructors</A>
+<BR> <P>
+<H4><A NAME="SECTION00552020000000000000">Destructors</A></H4>
+<P>
+Suppose you have defined a class MyType, and, say, xptr is a pointer to an
+object of type MyType, and memory has been allocated for an object of
+type MyType:
+<P>
+<PRE>MyType* xptr = new MyType;</PRE>
+<P>
+Assume that objects of MyType have two datafields str and s. str is a pointer
+to char; s is an integer (maybe representing the size of the string).
+<P>
+<PRE>int s;
+char* str;</PRE>
+<P>
+We automatically allocate space for s and str by invoking new, but NOT
+for what str points to (just for the pointer itself). Space for
+what str points to will only be allocated if that is done explicitly in
+the constructor. Let's further suppose the constructor results in space
+for a large block of chars being assigned:
+<P>
+<PRE>MyType::MyType(int n)
+{
+  str = new char[n];
+  s = n;
+}</PRE>
+<P>
+A bit later we've finished with the object and want to get rid of it.
+So we call:
+<P>
+<PRE>delete xptr;</PRE>
+<P>
+This results in the space allocated for str and s being de-allocated.
+But the space we allocated that str points to is not de-allocated.
+Only the immediate contents of the private datafields.
+We end up with a large block of memory that is not pointed to
+by anything. To get rid of the unwanted block of chars we need
+a destructor:
+<P>
+<PRE>MyType::~MyType()
+{
+  delete str;
+}</PRE>
+<P>
+If we have that, when we call <TT>delete xptr</TT> then the block
+allocated for the string will be removed too.
+<P>
+Now, you might think that this is not too vital if we rarely
+want to explicitly delete things of type MyType, but 
+suppose we have a function which has an object of MyType as a local
+var:
+<P>
+<PRE>myfn()
+{
+   MyType st;
+   ....
+}</PRE>
+<P>
+When st is created, memory is allocated. When the function exits,
+we want it thrown away (as it was a local variable). But UNLESS
+we have defined a destructor, the memory pointed to by
+datafields won't be de-allocated!
+<P>
+In the above example, the detructor was quite simple. For linked
+lists it will be a touch more complex. For a linked-list based
+stack something like:
+<P>
+<PRE>  mylist::~mylist()
+  {
+    while(! empty())
+       pop();
+  }</PRE>
+<P>
+(assuming pop de-allocates memory).
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

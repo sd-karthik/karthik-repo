@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Graph search</TITLE>
+<META NAME="description" CONTENT="Graph search">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1005" HREF="node62.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node62.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1003" HREF="node58.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node58.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html997" HREF="node60.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node60.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1007" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1006" HREF="node62.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node62.html">Returning the path</A>
+<B>Up:</B> <A NAME="tex2html1004" HREF="node58.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node58.html">Graph Search Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html998" HREF="node60.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node60.html">Tree search</A>
+<BR> <P>
+<H2><A NAME="SECTION00623000000000000000">Graph search</A></H2>
+<P>
+If we are searching a general graph rather than a tree it is necessary to
+keep track of which nodes have already been searched, as they might be
+met again. If we don't do this, then if there are cycles in the graph
+the loop might never terminate. Even if there are no cycles, redundant
+work is done, re-visiting old nodes. 
+Avoiding revisitted previously visited nodes leads to the following 
+modified algorithm, which keeps track of nodes visited (using
+an array visited[], which would be initialised appropriately). Again,
+I'll leave it a an exercise for the reader to work through how it works
+for some example graphs, and how it is modified for breadth first.
+<P>
+Note that for any of these algorithms, it will only result in nodes in
+a <EM>connected</EM> region of the graph being traversed. To traverse
+the whole of a not fully connected graph you would have to try different
+starting nodes.
+<P>
+<PRE>stack.push(startnode);
+do
+  {
+    currentnode = stack.pop();
+    if(! visited[currentnode])
+     {
+       visited[currentnode] = 1;
+       for {each neighbour n of currentnode}
+         if( !visited[n])
+            stack.push(n);
+     }
+while(! stack.empty() &amp;&amp; currentnode != target)</PRE>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

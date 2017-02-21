@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Weighted Graphs and Shortest Path Algorithms</TITLE>
+<META NAME="description" CONTENT="Weighted Graphs and Shortest Path Algorithms">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1036" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1034" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1028" HREF="node63.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node63.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1038" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1037" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html">Topological Sort</A>
+<B>Up:</B> <A NAME="tex2html1035" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html">Graph Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1029" HREF="node63.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node63.html">Example application</A>
+<BR> <P>
+<H1><A NAME="SECTION00630000000000000000">Weighted Graphs and Shortest Path Algorithms</A></H1>
+<P>
+For many applications it is useful if edges in a graph can be labelled
+with a <EM>weight</EM>. For example, we could have a graph representing
+possible routes between cities, where the weight might be the distance
+along a given route. In other applications the weight might represent
+the time taken to traverse an edge (e.g., time to get from one
+city to another, or to do some task), or the <EM>cost</EM> of traversing
+an edge (e.g., the cost of taking some action corresponding to an edge).
+<P>
+Such a graph is referred to as a <EM>weighted</EM> graph. A weighted graph
+is generally implemented using an adjacency matrix: whereas before the
+matrix was an NxN array of booleans, now we use an NxN array of integers or
+reals, where the number indicates the weight of an edge (where there
+is no edge between two nodes this corresponds in principle with a weight of
+infinity, but some convention can be adopted for what to put in the matrix
+for such cases). The ADT definition would be much as before, but
+with further operations to modify and access weights.
+<P>
+Given a weighted graph, we may want to find the <EM>shortest path</EM> between
+two nodes, where the 'length' of the path is just defined as the sum of
+the weights on the relevant edges. This might be used to, say: find
+the shortest route between cities; the quickest train journey; the cheapest
+way to do a sequence of tasks.
+<P>
+If the weights on every edge are the same (e.g., a weight of 1) then
+we already have an algorithm that will do the trick: Breadth first search.
+This always explores paths of length N before paths of length N+1, and
+so will find the shortest path first.
+<P>
+For arbitrary weights, things are a little more complex (at least, if
+we want to do the task reasonably efficiently). It is necessary
+to keep track, as we search, of the shortest distance we have found so
+far connecting the start node to each other node. This information
+can be kept in an array (say, called shortest). Then, as we search,
+given a number of possible nodes to explore, the one that is
+the shortest distance from the start node is explored first. (This
+is like breadth first, but it is kind of 'shortest' first). If we
+do this we find that when we find the target node, the path
+we have effectively traversed is guaranteed to be the shortest.
+<P>
+I'll go through how this works with an example.
+Suppose we are searching the graph in the figure, in order to find the
+shortest path from node 1 to node 5. We'll use a set W to denote the
+nodes so far examined. We could have alternatively used an
+array ``visited'' like we used in the search algorithms. That
+implicitly represented a set (all the nodes such as visited[n] = 1
+are in the set).
+<P>
+<P><A NAME="1719">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1717" SRC="img6.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img6.gif"  > <BR>
+<STRONG>Figure 4.3:</STRONG> Example weighted graph<BR>
+<P>
+<P>
+<PRE>W={1}</PRE>
+<P>
+We then look at the nodes connected to 1, and record the shortest
+distance from node 1 to these nodes, ie:
+<P>
+<PRE>shortest[2] = 3; shortest[6]=5</PRE>
+<P>
+The one with the shortest distance is added to W, and the 'shortest'
+array updated to also hold information about the nodes connected to 2:
+<P>
+<PRE>W = {1, 2}; shortest[3]=10</PRE>
+<P>
+Now, the node with the shortest distance, not already in W is 6, so this
+is added, and shortest updated as before:
+<P>
+<PRE>W = {1, 2, 6}; shortest[4]=7</PRE>
+<P>
+note that we will also have discovered another path to node 3 via 6,
+but the distance is 13, so more than shortest[3]=10 (added earlier). So
+this path is ignored.
+<P>
+Now the best node not in W is 4:
+<P>
+<PRE>W= {1, 2, 6, 4}; shortest[5]=7+6=13</PRE>
+<P>
+Best is now node 3:
+<P>
+<PRE>W = {1, 2, 6, 4, 3}; shortest[5]=11 (overwriting old value)</PRE>
+<P>
+Best is now node 5, with shortest path length 11. If that's the node
+we were looking for, we now know its shortest path from node 1. 
+Or we could continue
+to find the shortest paths for all the nodes. With a small
+extension to the approach, we could have recorded the path taken,
+which could be returned.
+<P>
+C++ doesn't have a built in `set' datatype, so to implement
+the algorithm directly we'd have to define one. We'll assume that
+a set datatype has been defined (using the C++ class mechanism), 
+with operations `intersection',
+`iselement' (is given element in given set?), `insert' 
+(adds single element to set), and `union'. Small sets may
+be implemented using bit operations on ordinary numbers. For
+example, a set of 16 possible elements could be represented using
+a single (2 byte) integer, where each bit in that integer indicates
+whether a particular item is in the set. Bitwise operations (like OR
+and AND) can be used to implement union and intesection.
+<P>
+Anyway, the actual algorithm for this is as follows. T[i][j] gives the weight
+between two nodes; V is the set of all nodes.
+Psuedo code is used here for conciseness.
+<P>
+<PRE>Initialise shortest array so shortest[i]=T[start][i]
+V is set of all nodes in graph.
+W = {startnode}
+
+while(W != V)
+   {
+     find the vertex w in V-W at minimum distance from start-node,
+        ie, where shortest[w] is lowest
+     Add w to set W
+     for each u in V-W
+         shortest[u] = min(shortest[u], shortest[w]+T[w][u])
+   }</PRE>
+<P>
+It is possible to <EM>prove</EM> that this algorithm (known as Dijkstra's algorithm)
+works correctly.  Essentially you use <EM>induction</EM> to show that
+if the shortest distances are correct for all the nodes in W at one
+stage, they are still correct after you add a new node to W as specified.
+<P>
+<HR><A NAME="tex2html1036" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1034" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1028" HREF="node63.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node63.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1038" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1037" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html">Topological Sort</A>
+<B>Up:</B> <A NAME="tex2html1035" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html">Graph Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1029" HREF="node63.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node63.html">Example application</A>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

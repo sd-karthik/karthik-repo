@@ -1,0 +1,60 @@
+
+;; Function fun (fun)
+
+fun (union obj * obj1)
+{
+  const char * restrict D.1754;
+  int D.1753;
+  char D.1752;
+  const char * restrict D.1751;
+  unsigned int D.1750;
+  char * D.1749;
+
+<bb 2>:
+  D.1749_2 = &obj1_1(D)->c;
+  D.1750_3 = (unsigned int) D.1749_2;
+  D.1751_4 = (const char * restrict) &"%08x\n"[0];
+  printf (D.1751_4, D.1750_3);
+  D.1752_5 = obj1_1(D)->c;
+  D.1753_6 = (int) D.1752_5;
+  D.1754_7 = (const char * restrict) &"%d\n"[0];
+  printf (D.1754_7, D.1753_6);
+  return;
+
+}
+
+
+
+;; Function main (main)
+
+main ()
+{
+  union a obj;
+  int D.1747;
+  const char * restrict D.1746;
+  unsigned int D.1745;
+  const char * restrict D.1744;
+  int D.1743;
+  const char * restrict D.1742;
+  unsigned int D.1741;
+
+<bb 2>:
+  bzero (&obj, 4);
+  obj.a = 383;
+  obj.c = 97;
+  D.1741_1 = (unsigned int) &obj.a;
+  D.1742_2 = (const char * restrict) &"%08x\n"[0];
+  printf (D.1742_2, D.1741_1);
+  D.1743_3 = obj.a;
+  D.1744_4 = (const char * restrict) &"%d\n"[0];
+  printf (D.1744_4, D.1743_3);
+  D.1745_5 = (unsigned int) &obj.c;
+  D.1746_6 = (const char * restrict) &"%08x\n"[0];
+  printf (D.1746_6, D.1745_5);
+  fun (&obj);
+  D.1747_7 = 0;
+  return D.1747_7;
+
+}
+
+

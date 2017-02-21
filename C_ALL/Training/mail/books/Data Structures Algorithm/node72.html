@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A String ADT</TITLE>
+<META NAME="description" CONTENT="A String ADT">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1161" HREF="node73.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node73.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1159" HREF="node70.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1153" HREF="node71.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node71.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1163" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1162" HREF="node73.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node73.html">Comparing Representations</A>
+<B>Up:</B> <A NAME="tex2html1160" HREF="node70.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node70.html">String Processing Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1154" HREF="node71.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node71.html">Introduction</A>
+<BR> <P>
+<H1><A NAME="SECTION00720000000000000000">A String ADT</A></H1>
+<P>
+Most languages have strings as a built in datatype, and a set of
+operations defined on that type. However, it is also possible for
+the programmer to implement their own string datatype. The use
+of that datatype in string processing applications 
+shouldn't depend on how it is implemented, or whether it is
+built in or user defined. The programmer only has to know
+what operations are allowed on the string.
+<P>
+The following is a set of 
+the operations we might want to do on strings. We might need operations
+to access individual characters, obtain the length, copy, compare
+and concatenate strings, and find the position of a substring
+within a string:
+<P>
+<DL ><DT><DD> <TT>Getchar(str, n)</TT> <BR> 
+Return the nth character in the string. 
+<DT><DD> <TT>Putchar(str, n, c)</TT> <BR> 
+Set the nth character in the string to c.
+<DT><DD> <TT>Length(str)</TT> <BR> 
+Return The number of characters in the string.
+<DT><DD> <TT>Pos(str1, str2)</TT> <BR> 
+The position of the first occurence of str2 found in str1, or 0 if
+no match. 
+<DT><DD> <TT>Concat(str1, str2)</TT> <BR> 
+Returns a new string consisting of characters in S1 followed by characters in S2
+<DT><DD> <TT>Substring(str1, i, m)</TT> <BR> 
+A substring of length m starting at position i in string str. 
+<DT><DD> <TT>Delete(str, i, m)</TT><BR> 
+Deletes m characters from str starting at position i.
+<DT><DD> <TT>Insert(str1, str2, i)</TT>; <BR> 
+Changes str1 into a new string with str2 inserted in position i
+<DT><DD> <TT>Compare(str1, str2)</TT> <BR> 
+Return an integer indicating whether str1 &gt; str2.
+<P>
+ </DL>
+<P>
+There are a number of ways that strings may be implemented:
+<P>
+<UL><LI> As a fixed length array, where the first element denotes the
+length of the string, e.g., [6,a,l,i,s,o,n,.....]. This is used
+as the standard string type in Pascal.<LI> As an array, but with the end of the string
+indicated using a special `null' character (denoted ' <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2840" SRC="img8.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img8.gif"  > 0'), e.g.,
+[a,l,i,s,o,n, <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2840" SRC="img8.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img8.gif"  > 0,.....]. Memory can be dynamically allocated
+for the string once we know its length.<LI> As a (variable length) linked list of characters, 
+dynamically allocating and de-allocating storage as required.
+(This is in fact rarely used, but illustrates a plausible alternative).
+</UL>
+<P>
+C++ has only a very basic built in string data type with few
+operations defined on strings. The second implementation method
+above is used, which means that you either have to declare in advance the
+maximum length of a string, or deal with allocating/de-allocating
+memory dynamically.
+<P>
+C++'s string library string.h provides a wider range of operations on
+this string datatype, beyond those built in. Some of these are listed
+on pg 651 of Friedman &amp; Koffman. Many are variants of the list
+of useful string operations given above.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

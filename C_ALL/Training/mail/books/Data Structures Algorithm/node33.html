@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Constructors</TITLE>
+<META NAME="description" CONTENT="Constructors">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html667" HREF="node34.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node34.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html665" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html659" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html669" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html668" HREF="node34.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node34.html">Destructors</A>
+<B>Up:</B> <A NAME="tex2html666" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html">ConstructorsDestructors and Dynamic </A>
+<B> Previous:</B> <A NAME="tex2html660" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html">ConstructorsDestructors and Dynamic </A>
+<BR> <P>
+<H4><A NAME="SECTION00552010000000000000">Constructors</A></H4>
+<P>
+Whenever the data fields of an object include pointers we must
+normally have a constructor to allocate space for the pointed to data
+(unless the object's datafields will always point to pre-existing
+objects). This was illustrated in the last example:
+<P>
+<PRE>    namedstack::namedstack(char* name)
+    {
+        stkname = new char[strlen(name) + 1];
+        strcpy(stkname, name);
+    }</PRE>
+<P>
+Linked list examples from last term should also illustrate the use
+of constructors for objects based on dynamic data.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

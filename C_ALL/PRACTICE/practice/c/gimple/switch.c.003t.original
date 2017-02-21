@@ -1,0 +1,49 @@
+
+;; Function main (null)
+;; enabled by -tree-original
+
+
+{
+  int a = 1;
+  int b = 3;
+  int c = 4;
+  int d = 0;
+  int e = 10;
+
+    int a = 1;
+    int b = 3;
+    int c = 4;
+    int d = 0;
+    int e = 10;
+  switch (a)
+    {
+      {
+        int a = 5;
+        int b = 5;
+
+                int a = 5;
+                int b = 5;
+        case 1:;
+        printf ((const char * restrict) "%d %d\n", a, b);
+        a = ((b + c) + d) + e;
+        switch (1)
+          {
+            case 1:;
+            printf ((const char * restrict) "Inside a ==> %d\n", a);
+            goto <D.1694>;
+          }
+        <D.1694>:;
+        goto <D.1695>;
+        case 2:;
+        printf ((const char * restrict) "Hello\n");
+        goto <D.1695>;
+        default:;
+        printf ((const char * restrict) "Default\n");
+        goto <D.1695>;
+      }
+    }
+  <D.1695>:;
+  return 0;
+}
+
+

@@ -1,0 +1,31 @@
+
+;; Function fun (null)
+;; enabled by -tree-original
+
+
+{
+  printf ((const char * restrict) "%08x\n", (unsigned int) &obj1->c);
+  printf ((const char * restrict) "%d\n", (int) obj1->c);
+  return;
+}
+
+
+
+;; Function main (null)
+;; enabled by -tree-original
+
+{
+  union a obj;
+
+    union a obj;
+  bzero ((void *) &obj, 4);
+  obj.a = 383;
+  obj.c = 97;
+  printf ((const char * restrict) "%08x\n", (unsigned int) &obj.a);
+  printf ((const char * restrict) "%d\n", obj.a);
+  printf ((const char * restrict) "%08x\n", (unsigned int) &obj.c);
+  fun ((union obj *) &obj);
+  return 0;
+}
+
+

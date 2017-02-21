@@ -1,0 +1,97 @@
+
+#include <stdio.h>
+#include <pthread.h>
+pthread_mutex_t lock ;//= PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cond ;//= PTHREAD_COND_INITIALIZER;
+
+int global;
+
+void *thread2(void *p)
+{
+		int loops = *(int *)p;
+		int j;
+		int local;
+//		sleep(4);
+		//pthread_mutex_lock(&lock);
+		pthread_mutex_lock(&lock);
+//		pthread_cond_wait (&cond , &lock);
+		//pthread_cond_wait (&cond , &lock);
+		for (j = 0; j < loops ; j++)
+		{
+			local = global;
+			local++;
+			global = local;
+			printf("in thread2--->%d\n",global);
+			sleep(1);
+		}
+		pthread_mutex_unlock(&lock);
+		pthread_exit(NULL);
+		
+}
+void *thread1(void *p)
+{
+		int loops = *(int *)p;
+		int j;
+		int local;
+		pthread_mutex_lock(&lock);
+//		pthread_cond_wait (&cond , &lock);
+		//pthread_mutex_lock(&lock);
+		for (j = 0; j < loops ; j++)
+		{
+			local = global;
+			local++;
+			global = local;
+			printf("in thread1--->%d\n",global);
+			sleep(1);
+		}
+		pthread_mutex_unlock(&lock);
+	//	pthread_cond_signal(&cond);
+		pthread_exit(NULL);
+		
+}
+void *thread(void *p)
+{
+		int loops = *(int *)p;
+		int j;
+		int local;
+		pthread_mutex_lock(&lock);
+	//	pthread_mutex_lock(&lock);
+//		pthread_cond_signal(&cond);
+		for (j = 0; j < loops ; j++)
+		{
+			local = global;
+			local++;
+			global = local;
+			printf("in thread %d\n",global);
+			sleep(1);
+		}
+		pthread_mutex_unlock(&lock);
+//		printf ("i am in thread\n");
+
+		pthread_exit(NULL);
+		
+}
+
+int main(void)
+{
+		pthread_t thid;
+		pthread_t thid1;
+		int loc  = 10;
+
+		pthread_t thid2;
+		pthread_cond_init(&cond , NULL);
+		pthread_mutex_init (&lock , NULL);
+		pthread_create (&thid ,NULL ,thread , &loc);
+		pthread_create (&thid1 ,NULL ,thread1 ,&loc );
+	//	sleep(6);
+		pthread_create (&thid2 ,NULL ,thread2 ,&loc );
+		pthread_join (thid , NULL);
+		pthread_join (thid2 , NULL);
+		pthread_join (thid1 , NULL);
+		pthread_cond_destroy(&cond);
+		pthread_mutex_destroy(&lock);
+		return 0;
+
+}
+		
+

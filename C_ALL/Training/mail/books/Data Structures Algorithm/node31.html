@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Named Stack</TITLE>
+<META NAME="description" CONTENT="A Named Stack">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html642" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html640" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html634" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html644" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html643" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html">ConstructorsDestructors and Dynamic </A>
+<B>Up:</B> <A NAME="tex2html641" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html">Exploiting Inheritance when Defining </A>
+<B> Previous:</B> <A NAME="tex2html635" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html">Exploiting Inheritance when Defining </A>
+<BR> <P>
+<H2><A NAME="SECTION00551000000000000000">A Named Stack</A></H2>
+<P>
+Suppose we have defined and implemented (as a class) a stack ADT,
+with operations <TT>IsEmpty</TT>, <TT>IsFull</TT>, <TT>Push</TT>, and
+<TT>Pop</TT>. We'll assume it has a defined constructor,
+and constructor.
+<P>
+Now, for some reason, we need a `named stack' ADT, which also
+has a name or label associated with it. How would we create this?
+Obviously all the above operations are still relevant, we
+just need an additional datafield to store the name, and
+a `getname' operation to access the name. We might also want
+to modify the constructor so that it can take a name
+as argument, e.g.,
+<P>
+<PRE>    namedstack s(&quot;a useful stack&quot;);</PRE>
+<P>
+We want the name to be of arbitrary length, so the type of the datafield
+for the name should be a pointer to chars (not a fixed length array
+of chars). So the basic class definition might be:
+<P>
+<PRE>class namedstack : public stack {
+public:
+   namedstack(char* name);   // constructor
+   char* getname();
+   ~namedstack();  // destructor
+private:
+   char* stkname;
+};</PRE>
+<P>
+Note that as `stack' is a `public base class' of named stack,
+all public operations of stack are available as public operations
+of named stack. So you can push/pop things in named stack! If stack had been a
+private base class, public operations of stack would only be
+available as <EM>private</EM> operations in named stack.
+<P>
+The new constructor now needs defining. One possibility is the
+following:
+<P>
+<PRE>    namedstack::namedstack(char* name)
+    {
+        stkname = new char[strlen(name) + 1];
+        strcpy(stkname, name);
+    }</PRE>
+<P>
+Note two things about this implementation. First, we make
+stkname a <EM>copy</EM> of the name argument passed to the constructor
+(rather than just pointing at the same object).
+This is a good idea, in case the argument passed to it, 
+goes out of scope, gets destroyed, or gets re-used
+for something else, e.g.,:
+<P>
+<PRE>    cin &gt;&gt; name;
+    namedstackptr1 = new namedstack(name);
+    cin &gt;&gt; name;
+    namedstackptr2 = new namedstack(name);</PRE>
+<P>
+[What would happen here if we <EM>didnt</EM> use strcpy in the
+namedstack constructor, but rather just set <TT>stkname = name</TT>?]
+<P>
+Second, we dynamically assign memory here, as required, rather
+than using fixed length arrays. This is a good idea as it allows
+strings of aribitrary length without wastage of space. To get the
+right size of memory required, we use the `strlen' function from
+the string.h library. This basic pattern, of finding the length of
+an existing string using strlen, asigning memory using new, and
+using strcpy to copy the string into the new chunk of memory, is
+very commonly used in C/C++.
+<P>
+Now, the `getname' function is fairly trivial:
+<P>
+<PRE>   char* namedstack::getname();
+   {
+       return stkname;
+   }</PRE>
+<P>
+But a little more work needs doing on the destructor. Remember 
+that destuctors are needed to de-allocate dynamically
+allocated memory. We've used just such for stkname. We can rely on the
+general `stack' destructor to do whatever is required in de-allocating
+the main stack memory, but we need to, in addition, de-allocate the
+memory assigned for the name. This is just:
+<P>
+<PRE>   namedstack~::namedstack()
+   {
+       delete stkname;
+   }</PRE>
+<P>
+Note that nowhere did we have to know how stack was implemented.
+It could be that stack is implemented using an array, or using
+a linked list. This is an essential feature of object oriented
+programming. We are able to derive new specialised classes
+<EM>without knowing how the base class is implemented</EM>, just
+what operations are provided for the base class.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

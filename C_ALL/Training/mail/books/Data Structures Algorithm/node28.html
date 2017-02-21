@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Objects, Pointers and Virtual Functions</TITLE>
+<META NAME="description" CONTENT="Objects, Pointers and Virtual Functions">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html602" HREF="node29.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node29.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html600" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html594" HREF="node27.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node27.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html604" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html603" HREF="node29.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node29.html">Virtual functions</A>
+<B>Up:</B> <A NAME="tex2html601" HREF="node15.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node15.html">Object Oriented Programming</A>
+<B> Previous:</B> <A NAME="tex2html595" HREF="node27.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node27.html">Inline functions:</A>
+<BR> <P>
+<H1><A NAME="SECTION00540000000000000000">Objects, Pointers and Virtual Functions</A></H1>
+<P>
+Now, let us suppose we want to start with some (rather more
+sophisticated) set of classes for various shapes, and
+develop a drawing package based
+on the shape objects. We want the user to be able to select
+from a menu of shapes, then position the selected shape, and
+adjust its size and colour. We want the details of
+the displayed shapes to be stored in an array, so we could
+in principle redisplay, print, or generally manipulate them.
+<P>
+How do we declare a suitable array. We could
+easily enough declare:
+<P>
+<PRE>square s[20];</PRE>
+<P>
+to give us an array s which can contain 20 squares. All 20 squares
+will be initialised (size=0, col=red) so if we try:
+<P>
+<PRE>s[5].display();</PRE>
+<P>
+an appropriate description of a square will be printed out.
+<P>
+However, if we wanted to initialise the values by invoking the
+constructors with extra arguments (discussed in the last section)
+you'd have to explicitly do things like:
+<P>
+<PRE>  s[5].square(green, 4);</PRE>
+<P>
+rather than just including arguments in the array declaration somehow.
+<P>
+That would be OK, but another problem is that for the outlined
+application you won't know in advance whether the shapes you want
+are squares, or something else (circles, rectangles..). So
+an array of squares isnt much good. We kind of want an array of
+items that can be shapes, cicles or rectangles, so how about:
+<P>
+<PRE> shape s[20];</PRE>
+<P>
+But now, memory is allocated for shapes such that there is room
+to hold the colour of each shape, but no room for anything else.
+[When an instance is created, space is allocated for its
+private data items]. So there's no room for, say, the size, if the
+shape required is a square. We want a more <EM>dynamic</EM> way of
+assigning things, so that when we know what the user wants,
+the appropriate memory can be assigned for any possible shape
+and their required data items.
+<P>
+You've guessed it. We use pointers. The following should 
+create in this case pointers to 20 blue shapes:
+<P>
+<PRE>  shape* s[20];</PRE>
+<P>
+Then we can tell the system that we actually want a square
+for the first item:
+<P>
+<PRE>  s[0] = new square;</PRE>
+<P>
+This is allowed because ``A pointer of a derived class object 
+may be converted, without a cast operation, to a pointer to an
+object of its base class.''. Which means in this case that
+we can create a square, and assign it to a pointer
+to a shape.
+<P>
+Because memory is being dynamically assigned, at run time,
+and we don't have to statically declare an object to be an 
+instance of a particular derived class, this means that
+we could have a flexible program involving statements like:
+<P>
+<PRE>   if(userwants='s')
+     s[n] = new square;
+   else if(userwants='c')
+     s[n] = new circle;</PRE>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html605" HREF="node29.html#SECTION00541000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node29.html#SECTION00541000000000000000">Virtual functions</A>
+</UL>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

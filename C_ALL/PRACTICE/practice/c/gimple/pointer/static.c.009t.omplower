@@ -1,0 +1,13 @@
+
+;; Function main (main)
+
+main ()
+{
+  int D.1689;
+  static int a;
+
+  D.1689 = 0;
+  return D.1689;
+}
+
+

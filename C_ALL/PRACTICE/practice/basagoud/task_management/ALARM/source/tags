@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+LIST	alarm.c	/^}LIST;$/;"	t	typeref:struct:list	file:
+consume_data	consume_node.c	/^LIST * consume_data(LIST * head)$/;"	f
+create_node	create_node.c	/^LIST * create_node()$/;"	f
+data	alarm.c	/^my_struct_t * data;$/;"	v
+head	alarm.c	/^	struct list * head;$/;"	m	struct:my_struct_tag	typeref:struct:my_struct_tag::list	file:
+head	alarm.c	/^LIST * head;$/;"	v
+insert_node	insert_node.c	/^LIST * insert_node(LIST * head, LIST * new)$/;"	f
+line	alarm.c	/^int line [128];$/;"	v
+list	alarm.c	/^typedef struct list {$/;"	s	file:
+main	alarm.c	/^int main(int argc, char *argv[])$/;"	f
+message	alarm.c	/^	char message[64];$/;"	m	struct:list	file:
+mutex	alarm.c	/^	pthread_mutex_t mutex;$/;"	m	struct:my_struct_tag	file:
+my_struct_t	alarm.c	/^} my_struct_t;$/;"	t	typeref:struct:my_struct_tag	file:
+my_struct_tag	alarm.c	/^typedef struct my_struct_tag {$/;"	s	file:
+next	alarm.c	/^	struct list * next;$/;"	m	struct:list	typeref:struct:list::list	file:
+seconds	alarm.c	/^	int seconds;$/;"	m	struct:list	file:
+thread_function	alarm.c	/^void * thread_function(void * p)$/;"	f

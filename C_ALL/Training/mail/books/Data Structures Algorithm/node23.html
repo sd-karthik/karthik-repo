@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Derived classes:</TITLE>
+<META NAME="description" CONTENT="Derived classes:">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html549" HREF="node24.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node24.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html547" HREF="node22.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node22.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html541" HREF="node22.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node22.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html551" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html550" HREF="node24.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node24.html">Inheritance and Accessibility:</A>
+<B>Up:</B> <A NAME="tex2html548" HREF="node22.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node22.html">Further Important C++ OOP </A>
+<B> Previous:</B> <A NAME="tex2html542" HREF="node22.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node22.html">Further Important C++ OOP </A>
+<BR> <P>
+<H2><A NAME="SECTION00531000000000000000">Derived classes:</A></H2>
+ A more specific class such as `square'
+is referred to as a derived class, and the more general class
+it is derived from is referred to as the base class (e.g., `shape').
+If a class declaration begins with:
+<P>
+<PRE>class DerivedClass : BaseClass {</PRE>
+<P>
+This means that BaseClass is a <EM>private</EM> base class of
+DerivedClass, and the derived class can't invoke the base classes
+member functions. But usually we DO want derived classes to access
+base classes functions, so what we want is:
+<P>
+<PRE>class DerivedClass : public BaseClass {</PRE>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

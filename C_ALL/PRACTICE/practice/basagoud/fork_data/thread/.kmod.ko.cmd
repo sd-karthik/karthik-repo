@@ -1,0 +1,1 @@
+cmd_/home/biradarpatil/practice/basagoud/fork_data/thread/kmod.ko := ld -r -m elf_i386 -T /usr/src/linux-3.12.40/scripts/module-common.lds --build-id  -o /home/biradarpatil/practice/basagoud/fork_data/thread/kmod.ko /home/biradarpatil/practice/basagoud/fork_data/thread/kmod.o /home/biradarpatil/practice/basagoud/fork_data/thread/kmod.mod.o

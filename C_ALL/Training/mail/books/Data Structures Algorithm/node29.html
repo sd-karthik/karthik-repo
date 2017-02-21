@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Virtual functions</TITLE>
+<META NAME="description" CONTENT="Virtual functions">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html612" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html610" HREF="node28.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node28.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html606" HREF="node28.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node28.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html614" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html613" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html">Exploiting Inheritance when Defining </A>
+<B>Up:</B> <A NAME="tex2html611" HREF="node28.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node28.html">ObjectsPointers and Virtual </A>
+<B> Previous:</B> <A NAME="tex2html607" HREF="node28.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node28.html">ObjectsPointers and Virtual </A>
+<BR> <P>
+<H2><A NAME="SECTION00541000000000000000">Virtual functions</A></H2>
+<P>
+This is all very well, but look what happens if we run the following
+program:
+<P>
+<PRE>  shape* s[20];
+  s[1] = new square;
+  s[1]-&gt;display();</PRE>
+<P>
+results in:
+<P>
+<PRE>Shape of: 
+colour: 2</PRE>
+<P>
+It's using the wrong `display' function! That's because,
+unless we tell it otherwise, it decides which version of
+`overloaded functions' to use at <EM>compile time</EM>.
+And all it knows at compile time is that s[1] is a pointer
+to a shape. So it compiles it such that `display' is 
+shape::display.
+<P>
+Fortunately, all is not lost, as we can tell it to make such decisions
+at run time. To do this we declare `display' a <EM>virtual</EM> function,
+by prefixing it with the word virtual in the class definitions, e.g.,:
+<P>
+<PRE>   virtual display();</PRE>
+<P>
+This fixes everything. Now when we run the above it gives:
+<P>
+<PRE>Square of: 
+colour: 2
+size: 0</PRE>
+<P>
+as required.
+<P>
+It is tempting sometimes to stick ``virtual'' in front of every
+function in the class definition. However, the more things calculated
+at run-time obviously the slower your program will run. So you
+should only use virtual functions in cases where some confusion may
+arise (such as when a function may be overridden in a derived class).
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

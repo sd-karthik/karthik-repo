@@ -1,0 +1,6 @@
+test:  
+	 ifeq("a", "a")
+	echo "equal"
+	 else
+	 echo "not equal"
+	 endif

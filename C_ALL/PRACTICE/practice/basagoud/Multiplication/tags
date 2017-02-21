@@ -1,0 +1,18 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	Makefile	/^CC=gcc -Wall$/;"	m
+DEGIT_LENGTH	header/header.h	11;"	d
+FREE	header/header.h	9;"	d
+INCLUDE	Makefile	/^INCLUDE=header$/;"	m
+OBJ	Makefile	/^OBJ= $(SRC:.c=.o)$/;"	m
+SRC	Makefile	/^SRC= $(shell ls .\/source)$/;"	m
+VPATH	Makefile	/^VPATH=.\/source .\/object .\/header$/;"	m
+header	header/header.h	3;"	d
+main	source/main.c	/^int main()$/;"	f
+multiplication	source/multiply.c	/^void multiplication()$/;"	f
+number_validation	source/validation.c	/^void number_validation(char *number)$/;"	f
+read_number	source/read_num.c	/^char *read_number()$/;"	f

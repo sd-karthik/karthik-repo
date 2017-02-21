@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Graphs ADTs and OOP</TITLE>
+<META NAME="description" CONTENT="Graphs ADTs and OOP">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1080" HREF="node69.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node69.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1078" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1072" HREF="node67.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node67.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1082" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1081" HREF="node69.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node69.html">Summary: Graph Algorithms</A>
+<B>Up:</B> <A NAME="tex2html1079" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html">Graph Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1073" HREF="node67.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node67.html">The Algorithm</A>
+<BR> <P>
+<H1><A NAME="SECTION00650000000000000000">Graphs ADTs and OOP</A></H1>
+<P>
+In this section we've considered various types of graph: directed vs 
+undirected; labelled vs unlabelled; weighted vs not weighted.
+How could we exploit inheritance and OOP to define these abstract
+datatypes? There are two approaches you might take. One would be
+to start with a very minimal (say, directed, unlabelled, unweighted)
+graph ADT and create derived classes to define the more complex
+graph types (analogous to the ``named stack'' example). These
+derived types could have additional datafields (e.g., for labels)
+and could, where necessary, override some of the basic graph
+ADTs methods (e.g., to make a directed graph into an undirected one).
+Multiple inheritance could even be used to create, say, labelled
+undirected graphs.
+<P>
+The second approach (illustrated in the ``stack from list'' example
+in the OOP section) would be to create a graph ADT that has
+all possible operations and datafields (labels, weights,
+methods to modify weights and labels etc) and directed edges.
+This could be made a <EM>private</EM> base class for more
+specialised graph types, such as a labelled undirected non-weighted
+graph, which would define its operations using the operations
+defined for the supporting base class. This might provide a better
+basis for defining the more complex graph types, but would
+be inefficient for the simple ones, as simple things would be
+defined in terms of a complex underlying class definition.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

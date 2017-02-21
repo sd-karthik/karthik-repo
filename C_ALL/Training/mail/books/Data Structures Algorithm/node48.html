@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Summary</TITLE>
+<META NAME="description" CONTENT="Summary">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html831" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html829" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html825" HREF="node47.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node47.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html833" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html832" HREF="node49.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node49.html">Graph Algorithms</A>
+<B>Up:</B> <A NAME="tex2html830" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html">Conclusion</A>
+<B> Previous:</B> <A NAME="tex2html826" HREF="node47.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node47.html">Advantages and Disadvantages of </A>
+<BR> <P>
+<H2><A NAME="SECTION00572000000000000000">Summary</A></H2>
+<P>
+Object oriented programming focusses on defining a hierarchy
+of <EM>classes</EM> of objects, each with associated data fields
+and methods. Subclasses inherit data fields and methods from their
+parent and ancestor classes, but can <EM>override</EM> these with more
+specific versions. When one method can override another it is a good
+idea to define it as a <EM>virtual</EM> method, which means that
+the version chosen will determined at run-time. Otherwise the wrong
+version might be used when, for example, one method is called from within
+another.
+<P>
+Objects are normally accessed via pointers, with memory allocated
+<EM>dynamically</EM>. Using this approach, a variable of a given (pointer) type
+can contain pointers to subclasses of the declared type. Explicit
+<EM>typecasting</EM> may be needed to allow this. Dynamic memory allocation
+also means that space can be allocated and deallocated in a flexible way.
+(You could have memory allocated and de-allocated for an object by
+declaring the object  variable locally within a procedure - when that
+procedure exited the memory would be de-allocated. But this is less flexible).
+Constructors, destructors and copy-constructors are required to
+handle memory allocation in objects where the datafields are pointers
+with memory to be dynamically allocated.
+<P>
+Object oriented programming is generally considered good for
+<EM>software re-use</EM> and maintenance, as objects with clearly defined interfaces
+can be used and modified with relatively little effort. It has been
+particularly widely used in creating user interface libraries and
+toolkits. Although there are some <EM>time penalties</EM> in OOP, these
+are becoming less significant as machine speed increases.
+<P>
+However, to navigate round a large object-oriented program requires the
+use of good <EM>object browsers</EM>. It is very difficult to follow
+a large OO program simply by inspecting the code.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

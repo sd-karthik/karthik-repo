@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Comparing Representations</TITLE>
+<META NAME="description" CONTENT="Comparing Representations">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1170" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1168" HREF="node72.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node72.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1164" HREF="node72.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node72.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1172" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1171" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html">String Searching</A>
+<B>Up:</B> <A NAME="tex2html1169" HREF="node72.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node72.html">A String ADT</A>
+<B> Previous:</B> <A NAME="tex2html1165" HREF="node72.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node72.html">A String ADT</A>
+<BR> <P>
+<H2><A NAME="SECTION00721000000000000000">Comparing Representations</A></H2>
+<P>
+Looking at strings gives us an opportunity to consider the
+advantages and disadvantages of different implementations of
+a given abstract datatype.
+<P>
+Obviously, if we pre-allocate an array of a given size, it will
+have the following problems:
+<P>
+<UL><LI> If the actual string is smaller than the space allocated,
+that extra space is wasted..<LI> and if the actual string is larger than the space allocated,
+errors will occur, so care must always be taken to ensure that this
+does not occur.
+</UL>
+<P>
+For some applications this is critical, and it is necessary to
+allocate memory dynamically.
+<P>
+However, the different representations will also have different
+efficiency for the different operations. Consider the following:
+<P>
+<UL><LI> How would you find out the length of a string in each of the
+three representations? In which representation would this be
+most efficient?<LI> How would you insert a new string (say ``xyz'') into a string 
+(say ``abcd'') in a given position (say, after 2nd char, to give
+``abxyzcd'')? In which representation would this be easiest and most
+efficient?<LI> How would you access the nth character of the string in each 
+implementation?
+</UL>
+<P>
+Clearly the choice of string implementation depends in part on the
+application. In some applications, some operations might be more
+common, so the use of a representation that makes that operation
+efficient will be better. In other applications the underlying
+representation may be relatively unimportant, so long as a
+convenient set of string handling operations are available.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

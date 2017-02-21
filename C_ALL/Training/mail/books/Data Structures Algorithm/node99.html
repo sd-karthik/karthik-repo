@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Substitutional Compressors</TITLE>
+<META NAME="description" CONTENT="Substitutional Compressors">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1475" HREF="node100.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node100.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1473" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1467" HREF="node98.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node98.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1477" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1476" HREF="node100.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node100.html">JPEG and MPEG</A>
+<B>Up:</B> <A NAME="tex2html1474" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html">File Compression</A>
+<B> Previous:</B> <A NAME="tex2html1468" HREF="node98.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node98.html">Variable-Length Encoding</A>
+<BR> <P>
+<H2><A NAME="SECTION00764000000000000000">Substitutional Compressors</A></H2>
+<P>
+  The basic idea behind a substitutional compressor is to replace an 
+occurrence of a particular phrase or group of bytes in a piece of data with a 
+reference to a previous occurrence of that phrase.  There are two main 
+classes of schemes, named after Jakob Ziv and Abraham Lempel, who first 
+proposed them in 1977 and 1978.
+<P>
+The LZ78 family of compressors
+<P>
+LZ78-based schemes work by entering phrases into a *dictionary* and then, 
+when a repeat occurrence of that particular phrase is found, outputting the 
+dictionary index instead of the phrase. The dictionary is
+constructed as the string is traversed.  New strings are only added
+if they extend a current string in the dictionary. By this
+means, you will tend only to get long strings in the dictionary
+if they occur frequently in the text.
+<P>
+The LZ77 family of compressors
+<P>
+LZ77-based schemes keep track of the last n bytes of data seen, and when a 
+phrase is encountered that has already been seen, they output a pair of 
+values corresponding to the position of the phrase in the previously-seen 
+buffer of data, and the length of the phrase.So, we might
+replace the string 'the cat ate the dog' with 'the cat ate (1,4)dog'.
+<P>
+Substitutional compressors are good for strings with frequently
+reoccuring subsequences. So, they are useful for text files, but
+also for graphics files where a certain texture or colour may be
+represented by a repeated sequence. Many popular compression
+and archive programs (e.g., zip, gzip, compress) are based primarily on
+substitututional methods.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

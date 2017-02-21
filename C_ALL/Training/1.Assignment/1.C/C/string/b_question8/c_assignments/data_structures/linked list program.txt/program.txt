@@ -1,0 +1,190 @@
+#include <stdio.h>                                                              
+#include <stdlib.h>                                                             
+#define MAX 50                                                                  
+                                                                                
+struct node{                                                                    
+    int data;                                                                   
+    struct node *next;                                                          
+    };                                                                          
+                                                                                
+                                                                                
+void endnode(int ele);                                                          
+void insbeg(int ele);                                                           
+void display(void);                                                             
+void posnode(int ele,int num);                                                  
+                                                                                
+struct node *current = NULL;// (struct node *)malloc(MAX*sizeof(struct node));   
+struct node *head = NULL;//(struct node *)malloc(MAX*sizeof(struct node));      
+                                                                                
+                                                                                
+                                                                                
+int main()                                                                      
+{                                                                               
+    int ele;                                                                    
+    int ch;                                                                     
+    int num;                                                                    
+    int no=0;                                                                   
+    while(1){                                                                   
+        printf("1.insert at begining\n2.endnode\n");                            
+        printf("3.insert at position\n4.display\n5.exit\n");                    
+        printf("6.insert after given position\n7.position before inserted\n");  
+        printf("8.enter mid node\n9.penultimate node\n10.Insert before a given number\n");
+                                           
+        scanf("%d",&ch);                                                        
+    //  printf("enter value for node\n");                                       
+    //  scanf("%d",&ele);                                                       
+                                                                                
+        switch(ch)                                                              
+        {                                                                       
+            case 1 :printf("enter value for node\n");                           
+                    scanf("%d",&ele);                                           
+                    no++;                                                       
+                    insbeg(ele);                                                
+                    break;                                                      
+                                                                                
+            case 2 :printf("enter value for node\n");                           
+                    scanf("%d",&ele);                                           
+                    endnode(ele);
+		    no++;                                               
+                    break;                                                      
+                                                                                
+            case 3 :printf("enter value for node\n");                           
+                    scanf("%d",&ele);                                           
+                    no++;                                                       
+                    printf("position to be inserted\n");                        
+                    scanf("%d",&num);                                           
+                    posnode(ele,num);                                           
+                    break;                                                      
+                                                                                
+            case 4 :display();                                                  
+                    break;                                                      
+                                                                                
+            case 5 :exit(0);                                                    
+                                                                                
+            case 6 :printf("enter value for node\n");                           
+                    scanf("%d",&ele);                                           
+                    no++;                                                       
+                    printf("position after to be inserted\n");                  
+                    scanf("%d",&num);                                           
+                    posnode(ele,num+1);                                         
+                    break;                                                      
+                                                                                
+            case 7 :printf("enter value for node\n");                           
+                    scanf("%d",&ele);                                           
+                    no++;                                                       
+                    printf("position before to be inserted\n");                 
+                    scanf("%d",&num);                                           
+                    posnode(ele,num-1);                                         
+                    break;                                                      
+                                                                                
+            case 8 :printf("enter value for node\n");                           
+                    scanf("%d",&ele);                                           
+                    posnode(ele,(no/2)+1);                                        
+                    no++;                                                       
+                    break;
+	   case 9 :printf("enter value for node\n");                           
+                    scanf("%d",&ele);                                           
+                    no++;                                                       
+                    posnode(ele,(no-1));                                        
+                    break;                                                        
+           case 10 :printf("value of node\n");                                 
+                     scanf("%d",&ele);                                          
+                     printf("enter search element\n");                          
+                     scanf("%d",&sele);                                         
+                     no++;                                                      
+                     seleinb(ele,sele);                                         
+                     break;                                                                          
+                                                                                
+            default:printf("invalid input\n");                                  
+                     break;                                                     
+        }                                                                       
+    }                                                                           
+    return 0;                                                                   
+}                                                                               
+                                                                                
+void endnode(int ele)                                                           
+{                                                                               
+    struct node *temp = (struct node *)malloc(MAX*sizeof(struct node));         
+    if(head == NULL){                                                           
+        temp->data = ele;                                                       
+        temp->next = NULL;                                                      
+        head = temp;                                                            
+        current = temp;                                                         
+    }                                                                           
+    else{                                                                       
+    temp->data = ele;                                                           
+    temp->next = NULL;                                                          
+    current->next =  temp;                                                      
+    current = current->next;                                                    
+    }                                                                           
+}                                                                               
+                                                                                
+void display(void)                                                              
+{                                                                               
+    int num1=0;                                                                 
+    struct node *disp;                                                          
+    disp = head;                                                                
+    while(disp != NULL){                                                        
+    num1++;                                                                     
+    printf("linked list element %d is %d\n",num1,disp->data);                   
+    disp = disp->next;                                                          
+    }                                                                           
+}                                                                                                                                                             
+                                                                                
+void insbeg(int ele)                                                            
+{                                                                               
+    struct node *temp = (struct node *)malloc(MAX*sizeof(struct node));         
+    if(head == NULL){                                                           
+        temp->data = ele;                                                       
+        temp->next = NULL;                                                      
+        head = temp;                                                            
+        current = temp;                                                         
+    }                                                                           
+    else{                                                                       
+    temp->data = ele;                                                           
+    temp->next = head;                                                          
+    head = temp;                                                                
+    }                                                                           
+}                                                                               
+                                                                                
+void posnode(int ele,int num)                                                   
+{                                                                               
+    struct node *pos=NULL;                                                      
+    struct node *temp = (struct node *)malloc(MAX*sizeof(struct node));         
+    int nval=1;                                                                 
+    pos = head;                                                                 
+                                                                                
+    while(nval < (num-1)){                                                      
+    pos = pos->next;                                                            
+    nval++;                                                                     
+    }                                                                           
+    temp->data = ele;                                                           
+    temp->next = pos->next;                                                     
+    pos->next = temp;                                                           
+                                                                                
+}                                                                               
+                                                                                
+                                                                                
+void seleinb(int ele,int sele)                                                  
+{                                                                               
+    struct node *pos=NULL;                                                      
+    struct node *temp = (struct node *)malloc(MAX*sizeof(struct node));         
+    struct node *prv=NULL;                                                      
+    pos = head;                                                                 
+                                                                                
+    while(pos->data != sele){                                                   
+    prv = pos;                                                                  
+    pos = pos->next;                                                            
+    }                                                                           
+    temp->data = ele;                                                           
+    temp->next = pos;                                                           
+    prv->next = temp;                                                           
+                                                                                
+}                                                                               
+                                                                                
+                                                                                
+                                                                                
+                             
+                                                                          
+                                                                                                       
+                                                                          

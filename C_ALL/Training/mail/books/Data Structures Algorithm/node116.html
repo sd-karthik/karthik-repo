@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Finding the Convex Hull</TITLE>
+<META NAME="description" CONTENT="Finding the Convex Hull">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1668" HREF="node117.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node117.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1666" HREF="node111.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node111.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1660" HREF="node115.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node115.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1670" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1669" HREF="node117.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node117.html">Range Searching</A>
+<B>Up:</B> <A NAME="tex2html1667" HREF="node111.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node111.html">Geometric Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1661" HREF="node115.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node115.html">Inclusion in a Polygon</A>
+<BR> <P>
+<H1><A NAME="SECTION00850000000000000000">Finding the Convex Hull</A></H1>
+<P>
+The <EM>convex hull</EM> of a set of points, is really its natural boundary
+or enclosure, as illustrated in the figure. It is defined to be the
+smallest convex polygon enclosing all the points. (Convex has its
+usual meaning. One way to describe a convex polygon is that it is one such 
+that any line connecting two points within the polygon also fall within the
+polygon. Another description could be one such that, if you follow
+round the polygon, each line segment bends in the same (clockwise or
+anticlockwise) direction.)
+<P>
+<P><A NAME="1952">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1950" SRC="img20.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img20.gif"  > <BR>
+<STRONG>Figure 6.3:</STRONG> Convex hulls<BR>
+<P>
+<P>
+A function for finding a convex hull takes an array of points, and
+returns a polygon (another array of points) (a subset of the points in
+the first array). Sometimes it may be easier to modify the original
+point array, rather than returning a new one.
+<P>
+The most natural algorithm for finding the convex hull is referred to
+as package wrapping. Starting with some point guaranteed to be on
+the hull (say, the one with smallest y coordinate), 
+take a horizontal line in positive direction and sweep it
+up until it hits a point. This point is guaranteed to be on the hull.
+Record this point, anchor the line at this point, and continue sweeping
+until another point is hit. Continue in this way until the `package' is
+fully `wrapped', as illustrated.
+<P>
+<P><A NAME="1956">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1954" SRC="img21.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img21.gif"  > <BR>
+<STRONG>Figure 6.4:</STRONG> `Package Wrapping' a Convex Hull<BR>
+<P>
+<P>
+So, how do we find the next point on the hull, assuming we have a suitable
+line which is to be `wrapped' round to this point? Basically, the next
+point is the one for which the angle between the current line, and
+the line from the last point on the hull to the point considered, is
+a minimum. (This angle is labelled theta ( <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2886" SRC="img22.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img22.gif"  > ) on the diagram).
+If we have a function theta, that takes two points and returns the angle
+between the associate line and the horizontal, then this results 
+in the following algorithm:
+<P>
+<PRE>int wrap(points p[], int N)
+  {
+   int i, min=0, M;
+   float th, v;                  // v will be current 'sweep' angle;
+                                 // th will keep track of minimum angle
+   for (i=1; i&lt; N; i++);
+      if(p[i].y &lt; p[min].y) min = i;  // find starting point
+   th = 0.0; p[N] = p[min];           // initialise 'th' and p[n]
+   m := 0; finished := false;
+   for (M=0; M&lt;N; M++)        // we'll be looking at the m'th point on hull
+     {
+       swap(points, M, min);  // Move the next point into the M'th position
+                              // and vice versa}
+      min = N; v = th; th = 360.0;  // set sweep angle, initialise min &amp; th
+      for (i = M+1; i &lt;= N; i++)
+                  // if the angle to this point is &gt; current sweep angle, 
+                  // and is the lowest such angle come across, then set 
+                  // it as a new min
+         if ((theta(p[m],p[i]) &gt; v) &amp;&amp;
+             (theta(p[m], p[i]) &lt; th))
+           { min = i; th = theta(p[m], p[i]) }
+      if( min==N ) return M;
+     }
+}</PRE>
+<P>
+Some steps of the above may not be obvious. As points on the hull are found,
+they are swapped with an actual point in the array, so at any point the
+array contains the first m points of the hull plus the rest of the points.
+So that the algorithm can exit when the hull is complete, the starting
+point in the hull is placed in the N'th position in the array. When the
+current point on the hull just found is that one, then exit.
+<P>
+The algorithm should look vaguely like the sort algorithms which you
+should have already met. This is not surprising, as we are basically
+sorting a bunch of points according to their position around the hull.
+Like other simplistic sort procedures (selection sort), this algorithm
+doesnt have very good worst case complexity (N*N). Other methods
+for finding convex hull can have N log N complexity, and have analogs in
+other sorting methods.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

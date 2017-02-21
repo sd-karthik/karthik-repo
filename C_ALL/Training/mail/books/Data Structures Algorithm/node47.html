@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Advantages and Disadvantages of OOP</TITLE>
+<META NAME="description" CONTENT="Advantages and Disadvantages of OOP">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html822" HREF="node48.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node48.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html820" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html814" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html824" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html823" HREF="node48.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node48.html">Summary</A>
+<B>Up:</B> <A NAME="tex2html821" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html">Conclusion</A>
+<B> Previous:</B> <A NAME="tex2html815" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html">Conclusion</A>
+<BR> <P>
+<H2><A NAME="SECTION00571000000000000000">Advantages and Disadvantages of OOP</A></H2>
+<P>
+OOP has the following advantages over conventional approaches:
+<P>
+<UL><LI> Provides a clear <EM>modular</EM> structure for programs. This makes it
+good for defining abstract datatypes, where implementation details
+are hidden and the unit has a clearly defined interface.<LI> Provides a good framework for code libraries, where supplied software
+components can be easily adapted and modified by the programmer. This
+is particularly useful for developing graphical user interfaces.<LI> Makes it easy to maintain and modify existing code, as new objects
+can be created with small differences to existing ones.
+</UL>
+<P>
+However, there is a slight cost in terms of efficiency. As objects
+are normally referenced by pointers, with memory allocated dynamically,
+there is a small space ovearhead to store the pointers, and a small
+speed overhead to find space on the heap (at run-time) to store the
+objects. For dynamic methods there is an additional small time penalty,
+as the method to choose is found at run time, by searching through
+the object hierarchy (using the class precedence list for the object).
+These days, these efficiency penalties seem to be of relatively little
+importance compared with the software engineering benefits.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

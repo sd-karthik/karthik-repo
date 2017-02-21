@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Window and User Interface Systems</TITLE>
+<META NAME="description" CONTENT="Window and User Interface Systems">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html791" HREF="node45.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node45.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html789" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html785" HREF="node43.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node43.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html793" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html792" HREF="node45.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node45.html">Object Browsers</A>
+<B>Up:</B> <A NAME="tex2html790" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html">Some Examples</A>
+<B> Previous:</B> <A NAME="tex2html786" HREF="node43.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node43.html">File and Printing Systems</A>
+<BR> <P>
+<H3><A NAME="SECTION00562300000000000000">Window and User Interface Systems</A></H3>
+<P>
+Another thing required by almost all applications these days is a nice
+graphical user interface (GUI). This is regarded as so important that most
+professional programming environments provide some kind of interface toolkit.
+Anyway, an interface toolkit will normally provide
+a library of user interface objects, and some kind of pallette/menu
+through which the user can select the interface objects they want and
+arrange them in a new window. The figure below gives the general idea.
+The left hand box contains a selection of user interface objects: some text,
+a clickable `radio button', a check box (with text), a scroll bar, and a button. The `programmer' can pick these up with their mouse, move them into the
+other window (right box), and change their attributes (e.g., the text that
+goes with them; what procedure to call when a button is pressed).
+As selecting some of the interface objects will result in code being
+run (e.g., procedure called when button pressed), 
+the interface can be easily linked in with the main program.
+<P>
+Generally the interface objects themselves are defined as object classes.
+This provides advantages for the developer of the interface toolkit,
+as inheritance can be exploited both to simply the programming and
+also (as an added extra) encourage some uniformity between different
+user interface objects. Typically user interface objects such
+as buttons and check boxes (as illustrated above) are subclasses of
+the class of `dialog item'. All dialog items share the code concerning
+how they are positioned in a window, sized, have colour set, and so on.
+A particular dialog item (e.g., button) will have additional data fields
+(e.g., the procedure to call) and special display/draw methods.
+<P>
+ <IMG  ALIGN=BOTTOM ALT="tex2html_wrap2830" SRC="img3.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img3.gif"  > 
+<P>
+Dialog items themselves are often a subclass of a a more general class,
+which might include (among its subclasses) the class of windows.
+A window, like buttons and things, can be positioned, has a particular
+text font, and so on. It also needs special code to allow windows to
+be opened and closed, to be brought to the front, iconified, etc.
+A particular toolkit might also provide special purpose subclasses
+for, say, a text window or a graphics window.
+<P>
+Although these different user interface objects are defined as classes,
+using inheritance, a naive user of a given toolkit may only be vaguely
+of the class hierarchy, just selecting options from a menu/pallette to
+create their application interface. However, a more sophisticated
+applications programmer would probably want to get under the surface a bit,
+and be able to create special purpose subclasses with slightly different
+behaviour to the that provided in the toolkit/library. The underlying OO
+implementation of the interface objects should make that easy.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

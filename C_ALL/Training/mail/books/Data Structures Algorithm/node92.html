@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Top-Down Parser</TITLE>
+<META NAME="description" CONTENT="A Top-Down Parser">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1395" HREF="node93.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node93.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1393" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1387" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1397" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1396" HREF="node93.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node93.html">A Bottom-Up Parser</A>
+<B>Up:</B> <A NAME="tex2html1394" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html">Simple Parsing Methods</A>
+<B> Previous:</B> <A NAME="tex2html1388" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html">Simple Parsing Methods</A>
+<BR> <P>
+<H3><A NAME="SECTION00753100000000000000">A Top-Down Parser</A></H3>
+<P>
+A simple top-down parser (with one char look ahead) can be written
+by effectively translating the grammar rules into procedures.
+We don't bother with an explicit sequence of symbols
+(we're basically relying on the sequence being implicitly represented
+as the internal stack of procedures still to be executed). We assume that
+we are traversing an input string S, and that the current position in that
+sequence is held in a global variable j.
+<P>
+As an example, the grammar rule above could be implemented as:
+<P>
+<PRE>void ParseFactor();
+{
+  if (s[j] == '(')
+    {
+      j++;
+      ParseExpression();
+      if (s[j] == ')')
+        j++;
+      else error();
+    }
+  else if (LetterOrDigit(s[j]) 
+        j++;
+  else error();
+}</PRE>
+<P>
+This assumes that there is some error function that will, at least,
+set a flag to indicate failure. Although rather inelegant, the
+approach is at least simple, and illustrates the 'one char lookahead'
+very explicitly in selecting between alternatives in the relevant grammar rule.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Copy Constructors</TITLE>
+<META NAME="description" CONTENT="Copy Constructors">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html687" HREF="node36.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node36.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html685" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html681" HREF="node34.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node34.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html689" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html688" HREF="node36.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node36.html">Queues and Stacks derived </A>
+<B>Up:</B> <A NAME="tex2html686" HREF="node32.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node32.html">ConstructorsDestructors and Dynamic </A>
+<B> Previous:</B> <A NAME="tex2html682" HREF="node34.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node34.html">Destructors</A>
+<BR> <P>
+<H4><A NAME="SECTION00552030000000000000">Copy Constructors</A></H4>
+<P>
+When defining classes where the datafields
+include pointers, and memory is allocated dynamically, you really
+need to also define a <EM>copy constructor</EM>. This is a function that specifies
+how you should copy the fields. If you don't specify this, then
+whenever a class is copied (e.g., when using it as a call-by-value
+argument) it may not be copied right; datafields may point to
+an original version of some data, rather than a copy. This
+may cause weird errors.
+<P>
+When an object is copied, 
+space is allocated for the contents of each datafield,
+so in the copy we'd have space for str and s. But
+no new space would be allocated for what str points to,
+and indeed that is not copied. This is called ``shallow''
+copying, as only the top level is copied; the copied pointers
+in datafields will still point to the exact same bit of memory.
+<P>
+This is probably not what we want. And to avoid this we
+need to define a `copy constructor' that does a `deep' copy.
+Here's an example:
+<P>
+<PRE>MyType::MyType(const MyType&amp; another)
+{
+  int i;
+  s = another.s;
+  str = new char[s];
+  for(i = 0; i&lt;size; i++)
+    str[i] = another.str[i];
+}</PRE>
+<P>
+This may be particularly important if we are going to use
+arguments of MyType as call-by-value arguments to functions:
+<P>
+<PRE>myfn(MyType x)
+{
+  some stuff
+}</PRE>
+<P>
+(This is legal, but much more often you'd be dealing with pointers
+to objects of type MyType, or use call by reference).
+<P>
+Anyway, if you WERE using call-by-value then copies of the object
+would be created when the function was called. If you want call by
+value to behave as you would expect (not resulting in the parameter being
+modified when the fn exits) then you'd have to define a copy constructor.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

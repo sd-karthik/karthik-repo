@@ -1,0 +1,1 @@
+cmd_/home/karthik/Training/3.linux/pseudo_char_D/kmod.ko := ld -r -m elf_i386 -T ../scripts/module-common.lds --build-id  -o /home/karthik/Training/3.linux/pseudo_char_D/kmod.ko /home/karthik/Training/3.linux/pseudo_char_D/kmod.o /home/karthik/Training/3.linux/pseudo_char_D/kmod.mod.o ;  true

@@ -1,0 +1,1 @@
+cmd_/home/biradarpatil/practice/basagoud/task_management/FORK/kmod.ko := ld -r -m elf_i386 -T /usr/src/linux-3.12.40/scripts/module-common.lds --build-id  -o /home/biradarpatil/practice/basagoud/task_management/FORK/kmod.ko /home/biradarpatil/practice/basagoud/task_management/FORK/kmod.o /home/biradarpatil/practice/basagoud/task_management/FORK/kmod.mod.o

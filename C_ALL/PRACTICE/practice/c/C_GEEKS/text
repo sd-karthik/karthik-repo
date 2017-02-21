@@ -1,0 +1,44 @@
+080483e4 <main>:
+80483e4:       55                      push   %ebp
+80483e5:       89 e5                   mov    %esp,%ebp
+80483e7:       83 e4 f0                and    $0xfffffff0,%esp
+80483ea:       83 ec 20                sub    $0x20,%esp
+80483ed:       c7 44 24 14 00 00 00    movl   $0x0,0x14(%esp)
+80483f4:       00 
+80483f5:       c7 44 24 18 00 00 00    movl   $0x0,0x18(%esp)
+80483fc:       00 
+80483fd:       c7 44 24 1c 00 00 00    movl   $0x0,0x1c(%esp)
+8048404:       00 
+8048405:       b8 00 85 04 08          mov    $0x8048500,%eax
+804840a:       8b 54 24 14             mov    0x14(%esp),%edx
+804840e:       89 54 24 04             mov    %edx,0x4(%esp)
+8048412:       89 04 24                mov    %eax,(%esp)
+8048415:       e8 e6 fe ff ff          call   8048300 <printf@plt>
+804841a:       b8 00 00 00 00          mov    $0x0,%eax
+804841f:       c9                      leave  
+
+
+
+
+
+
+080483e4 <main>:
+80483e4:       55                      push   %ebp
+80483e5:       89 e5                   mov    %esp,%ebp
+80483e7:       83 e4 f0                and    $0xfffffff0,%esp
+80483ea:       83 ec 20                sub    $0x20,%esp
+80483ed:       c7 44 24 14 00 00 00    movl   $0x0,0x14(%esp)
+80483f4:       00 
+80483f5:       8b 44 24 14             mov    0x14(%esp),%eax
+80483f9:       89 44 24 18             mov    %eax,0x18(%esp)
+80483fd:       8b 44 24 18             mov    0x18(%esp),%eax
+8048401:       89 44 24 1c             mov    %eax,0x1c(%esp)
+8048405:       b8 00 85 04 08          mov    $0x8048500,%eax
+804840a:       8b 54 24 1c             mov    0x1c(%esp),%edx
+804840e:       89 54 24 04             mov    %edx,0x4(%esp)
+8048412:       89 04 24                mov    %eax,(%esp)
+8048415:       e8 e6 fe ff ff          call   8048300 <printf@plt>
+804841a:       b8 00 00 00 00          mov    $0x0,%eax
+804841f:       c9                      leave  
+8048420:       c3                      ret    
+

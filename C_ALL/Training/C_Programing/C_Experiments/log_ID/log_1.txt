@@ -1,0 +1,1001 @@
+17,system_13,printer
+26,system_27,Access denied
+26,system_23,Access denied
+13,system_16,keyboard
+2,system_9,Hardware
+8,system_2,cd rom drive
+20,system_20,SMPS
+17,system_23,printer
+7,system_1,storage inefficiency
+17,system_22,printer
+9,system_11,audio drivers
+10,system_27,Graphic card
+21,system_2,virus foun
+14,system_2,mouse
+26,system_7,Access denied
+13,system_29,keyboard
+19,system_12,RAM
+28,system_29,speakers not working
+17,system_13,printer
+23,system_1,firewall breached
+4,system_9,power pins
+30,system_21,wifi driver not working
+8,system_14,cd rom drive
+15,system_8,usb port
+1,system_5,Networking issue
+17,system_23,printer
+21,system_1,virus foun
+4,system_26,power pins
+21,system_2,virus foun
+2,system_16,Hardware
+16,system_15,audio jack
+28,system_14,speakers not working
+6,system_26,hard disk
+10,system_16,Graphic card
+18,system_13,cooling fan
+16,system_24,audio jack
+16,system_12,audio jack
+28,system_14,speakers not working
+15,system_14,usb port
+21,system_3,virus foun
+19,system_7,RAM
+9,system_6,audio drivers
+25,system_8,System not opening
+12,system_3,Email issue
+20,system_14,SMPS
+1,system_12,Networking issue
+19,system_26,RAM
+23,system_19,firewall breached
+7,system_16,storage inefficiency
+30,system_24,wifi driver not working
+11,system_15,timer
+29,system_14,drivers fault
+22,system_17,Malware detected
+3,system_17,Display
+13,system_27,keyboard
+27,system_22,password error
+21,system_1,virus foun
+2,system_26,Hardware
+30,system_15,wifi driver not working
+30,system_4,wifi driver not working
+10,system_10,Graphic card
+8,system_21,cd rom drive
+12,system_27,Email issue
+6,system_21,hard disk
+8,system_9,cd rom drive
+17,system_27,printer
+4,system_17,power pins
+6,system_6,hard disk
+24,system_16,file corrupted
+15,system_29,usb port
+22,system_28,Malware detected
+30,system_2,wifi driver not working
+30,system_3,wifi driver not working
+19,system_1,RAM
+6,system_28,hard disk
+10,system_10,Graphic card
+24,system_6,file corrupted
+26,system_8,Access denied
+22,system_26,Malware detected
+6,system_1,hard disk
+29,system_29,drivers fault
+9,system_14,audio drivers
+21,system_1,virus foun
+11,system_13,timer
+5,system_14,heating
+5,system_24,heating
+27,system_17,password error
+22,system_3,Malware detected
+26,system_17,Access denied
+17,system_9,printer
+12,system_22,Email issue
+29,system_17,drivers fault
+18,system_5,cooling fan
+2,system_24,Hardware
+26,system_8,Access denied
+8,system_29,cd rom drive
+14,system_15,mouse
+9,system_8,audio drivers
+22,system_3,Malware detected
+10,system_18,Graphic card
+5,system_26,heating
+14,system_13,mouse
+9,system_23,audio drivers
+11,system_26,timer
+29,system_4,drivers fault
+19,system_18,RAM
+28,system_9,speakers not working
+7,system_17,storage inefficiency
+4,system_14,power pins
+24,system_1,file corrupted
+30,system_20,wifi driver not working
+6,system_22,hard disk
+1,system_4,Networking issue
+30,system_5,wifi driver not working
+17,system_14,printer
+3,system_9,Display
+15,system_12,usb port
+28,system_7,speakers not working
+5,system_15,heating
+12,system_8,Email issue
+19,system_2,RAM
+4,system_29,power pins
+9,system_16,audio drivers
+23,system_10,firewall breached
+11,system_11,timer
+2,system_15,Hardware
+1,system_1,Networking issue
+6,system_28,hard disk
+27,system_1,password error
+7,system_4,storage inefficiency
+6,system_12,hard disk
+17,system_8,printer
+9,system_12,audio drivers
+28,system_14,speakers not working
+15,system_12,usb port
+7,system_1,storage inefficiency
+30,system_2,wifi driver not working
+11,system_9,timer
+12,system_8,Email issue
+12,system_3,Email issue
+11,system_21,timer
+15,system_13,usb port
+4,system_10,power pins
+12,system_19,Email issue
+17,system_29,printer
+4,system_9,power pins
+19,system_13,RAM
+26,system_20,Access denied
+27,system_26,password error
+1,system_14,Networking issue
+15,system_10,usb port
+13,system_6,keyboard
+8,system_6,cd rom drive
+7,system_15,storage inefficiency
+19,system_19,RAM
+3,system_17,Display
+23,system_28,firewall breached
+10,system_9,Graphic card
+21,system_26,virus foun
+18,system_12,cooling fan
+22,system_6,Malware detected
+13,system_13,keyboard
+26,system_1,Access denied
+20,system_29,SMPS
+15,system_21,usb port
+2,system_19,Hardware
+18,system_20,cooling fan
+19,system_5,RAM
+21,system_17,virus foun
+29,system_24,drivers fault
+5,system_1,heating
+30,system_22,wifi driver not working
+2,system_26,Hardware
+15,system_1,usb port
+13,system_22,keyboard
+21,system_2,virus foun
+16,system_25,audio jack
+20,system_2,SMPS
+3,system_10,Display
+24,system_8,file corrupted
+21,system_8,virus foun
+21,system_24,virus foun
+22,system_29,Malware detected
+17,system_9,printer
+26,system_12,Access denied
+5,system_14,heating
+30,system_29,wifi driver not working
+27,system_3,password error
+26,system_1,Access denied
+23,system_10,firewall breached
+5,system_29,heating
+26,system_13,Access denied
+8,system_11,cd rom drive
+14,system_14,mouse
+15,system_1,usb port
+10,system_6,Graphic card
+23,system_4,firewall breached
+27,system_22,password error
+2,system_14,Hardware
+19,system_12,RAM
+20,system_18,SMPS
+19,system_22,RAM
+19,system_18,RAM
+19,system_6,RAM
+9,system_13,audio drivers
+14,system_3,mouse
+9,system_13,audio drivers
+25,system_1,System not opening
+7,system_7,storage inefficiency
+10,system_8,Graphic card
+7,system_20,storage inefficiency
+18,system_18,cooling fan
+11,system_29,timer
+14,system_13,mouse
+18,system_3,cooling fan
+23,system_23,firewall breached
+16,system_6,audio jack
+17,system_2,printer
+9,system_25,audio drivers
+10,system_27,Graphic card
+1,system_16,Networking issue
+22,system_14,Malware detected
+15,system_1,usb port
+8,system_8,cd rom drive
+9,system_20,audio drivers
+3,system_16,Display
+28,system_14,speakers not working
+14,system_19,mouse
+3,system_29,Display
+4,system_18,power pins
+12,system_20,Email issue
+19,system_17,RAM
+12,system_19,Email issue
+15,system_5,usb port
+3,system_19,Display
+28,system_15,speakers not working
+30,system_24,wifi driver not working
+25,system_19,System not opening
+20,system_5,SMPS
+26,system_23,Access denied
+11,system_27,timer
+12,system_28,Email issue
+10,system_29,Graphic card
+29,system_17,drivers fault
+6,system_12,hard disk
+25,system_23,System not opening
+11,system_9,timer
+21,system_12,virus foun
+10,system_21,Graphic card
+3,system_26,Display
+13,system_11,keyboard
+28,system_1,speakers not working
+12,system_3,Email issue
+10,system_21,Graphic card
+16,system_1,audio jack
+28,system_26,speakers not working
+25,system_17,System not opening
+17,system_1,printer
+18,system_4,cooling fan
+9,system_14,audio drivers
+9,system_15,audio drivers
+17,system_2,printer
+7,system_10,storage inefficiency
+25,system_6,System not opening
+3,system_16,Display
+20,system_18,SMPS
+11,system_6,timer
+11,system_17,timer
+1,system_21,Networking issue
+14,system_11,mouse
+8,system_7,cd rom drive
+17,system_2,printer
+26,system_24,Access denied
+21,system_2,virus foun
+10,system_12,Graphic card
+20,system_20,SMPS
+15,system_9,usb port
+12,system_5,Email issue
+4,system_20,power pins
+29,system_27,drivers fault
+17,system_28,printer
+5,system_10,heating
+28,system_26,speakers not working
+11,system_6,timer
+18,system_19,cooling fan
+20,system_15,SMPS
+19,system_17,RAM
+4,system_5,power pins
+9,system_13,audio drivers
+18,system_23,cooling fan
+14,system_9,mouse
+19,system_7,RAM
+5,system_27,heating
+10,system_21,Graphic card
+20,system_1,SMPS
+29,system_8,drivers fault
+19,system_5,RAM
+24,system_24,file corrupted
+2,system_7,Hardware
+19,system_3,RAM
+20,system_10,SMPS
+20,system_7,SMPS
+14,system_29,mouse
+5,system_22,heating
+8,system_13,cd rom drive
+23,system_21,firewall breached
+21,system_12,virus foun
+2,system_2,Hardware
+16,system_17,audio jack
+18,system_11,cooling fan
+12,system_4,Email issue
+2,system_7,Hardware
+2,system_21,Hardware
+21,system_17,virus foun
+21,system_24,virus foun
+6,system_8,hard disk
+17,system_1,printer
+23,system_16,firewall breached
+10,system_21,Graphic card
+5,system_26,heating
+11,system_8,timer
+22,system_18,Malware detected
+13,system_1,keyboard
+10,system_22,Graphic card
+26,system_27,Access denied
+25,system_26,System not opening
+4,system_6,power pins
+20,system_17,SMPS
+5,system_27,heating
+22,system_9,Malware detected
+11,system_17,timer
+11,system_26,timer
+6,system_18,hard disk
+10,system_3,Graphic card
+22,system_14,Malware detected
+15,system_5,usb port
+16,system_1,audio jack
+25,system_5,System not opening
+29,system_19,drivers fault
+9,system_3,audio drivers
+23,system_15,firewall breached
+23,system_2,firewall breached
+21,system_17,virus foun
+15,system_3,usb port
+14,system_16,mouse
+4,system_6,power pins
+25,system_23,System not opening
+4,system_14,power pins
+18,system_29,cooling fan
+6,system_12,hard disk
+10,system_8,Graphic card
+3,system_20,Display
+18,system_24,cooling fan
+6,system_26,hard disk
+22,system_7,Malware detected
+24,system_13,file corrupted
+9,system_13,audio drivers
+2,system_15,Hardware
+19,system_20,RAM
+7,system_7,storage inefficiency
+6,system_23,hard disk
+9,system_10,audio drivers
+25,system_1,System not opening
+22,system_11,Malware detected
+16,system_3,audio jack
+4,system_19,power pins
+2,system_24,Hardware
+11,system_5,timer
+24,system_18,file corrupted
+27,system_15,password error
+30,system_15,wifi driver not working
+21,system_19,virus foun
+27,system_7,password error
+28,system_13,speakers not working
+22,system_6,Malware detected
+1,system_25,Networking issue
+6,system_26,hard disk
+19,system_1,RAM
+13,system_21,keyboard
+17,system_2,printer
+22,system_19,Malware detected
+15,system_20,usb port
+18,system_22,cooling fan
+11,system_24,timer
+3,system_3,Display
+11,system_28,timer
+18,system_23,cooling fan
+1,system_1,Networking issue
+15,system_13,usb port
+13,system_19,keyboard
+15,system_27,usb port
+16,system_12,audio jack
+5,system_12,heating
+4,system_4,power pins
+7,system_8,storage inefficiency
+29,system_20,drivers fault
+3,system_19,Display
+4,system_12,power pins
+29,system_11,drivers fault
+15,system_13,usb port
+13,system_22,keyboard
+16,system_24,audio jack
+18,system_21,cooling fan
+28,system_15,speakers not working
+27,system_1,password error
+29,system_9,drivers fault
+14,system_11,mouse
+24,system_13,file corrupted
+10,system_17,Graphic card
+27,system_18,password error
+1,system_7,Networking issue
+19,system_24,RAM
+29,system_24,drivers fault
+7,system_21,storage inefficiency
+6,system_18,hard disk
+12,system_12,Email issue
+30,system_9,wifi driver not working
+1,system_26,Networking issue
+5,system_16,heating
+10,system_19,Graphic card
+29,system_1,drivers fault
+4,system_29,power pins
+5,system_11,heating
+30,system_18,wifi driver not working
+8,system_6,cd rom drive
+14,system_17,mouse
+12,system_7,Email issue
+3,system_2,Display
+16,system_1,audio jack
+20,system_1,SMPS
+5,system_20,heating
+22,system_1,Malware detected
+28,system_3,speakers not working
+12,system_14,Email issue
+4,system_1,power pins
+24,system_20,file corrupted
+12,system_2,Email issue
+6,system_27,hard disk
+16,system_16,audio jack
+23,system_4,firewall breached
+22,system_22,Malware detected
+23,system_27,firewall breached
+22,system_24,Malware detected
+26,system_16,Access denied
+9,system_7,audio drivers
+20,system_15,SMPS
+8,system_12,cd rom drive
+17,system_3,printer
+18,system_4,cooling fan
+28,system_19,speakers not working
+3,system_12,Display
+7,system_21,storage inefficiency
+11,system_13,timer
+22,system_12,Malware detected
+17,system_25,printer
+11,system_5,timer
+4,system_1,power pins
+17,system_24,printer
+11,system_16,timer
+16,system_12,audio jack
+20,system_18,SMPS
+1,system_5,Networking issue
+1,system_26,Networking issue
+24,system_8,file corrupted
+29,system_17,drivers fault
+22,system_12,Malware detected
+26,system_1,Access denied
+6,system_28,hard disk
+11,system_5,timer
+24,system_27,file corrupted
+3,system_18,Display
+11,system_3,timer
+28,system_27,speakers not working
+7,system_27,storage inefficiency
+2,system_29,Hardware
+10,system_21,Graphic card
+19,system_20,RAM
+9,system_9,audio drivers
+11,system_18,timer
+28,system_23,speakers not working
+7,system_1,storage inefficiency
+23,system_19,firewall breached
+18,system_1,cooling fan
+30,system_27,wifi driver not working
+17,system_27,printer
+8,system_22,cd rom drive
+26,system_11,Access denied
+9,system_18,audio drivers
+16,system_14,audio jack
+6,system_6,hard disk
+29,system_16,drivers fault
+29,system_14,drivers fault
+24,system_8,file corrupted
+28,system_28,speakers not working
+23,system_25,firewall breached
+26,system_24,Access denied
+6,system_20,hard disk
+14,system_17,mouse
+8,system_22,cd rom drive
+12,system_12,Email issue
+5,system_23,heating
+5,system_19,heating
+30,system_21,wifi driver not working
+28,system_5,speakers not working
+12,system_14,Email issue
+23,system_2,firewall breached
+17,system_1,printer
+11,system_12,timer
+3,system_2,Display
+28,system_29,speakers not working
+24,system_24,file corrupted
+7,system_15,storage inefficiency
+25,system_21,System not opening
+14,system_20,mouse
+3,system_1,Display
+18,system_17,cooling fan
+29,system_29,drivers fault
+21,system_21,virus foun
+27,system_27,password error
+12,system_10,Email issue
+13,system_1,keyboard
+2,system_25,Hardware
+8,system_29,cd rom drive
+24,system_11,file corrupted
+3,system_1,Display
+27,system_20,password error
+28,system_18,speakers not working
+10,system_24,Graphic card
+15,system_22,usb port
+16,system_14,audio jack
+2,system_9,Hardware
+9,system_2,audio drivers
+17,system_29,printer
+27,system_20,password error
+1,system_4,Networking issue
+5,system_29,heating
+25,system_5,System not opening
+27,system_6,password error
+10,system_23,Graphic card
+26,system_19,Access denied
+2,system_12,Hardware
+1,system_13,Networking issue
+30,system_29,wifi driver not working
+14,system_1,mouse
+16,system_14,audio jack
+16,system_28,audio jack
+24,system_17,file corrupted
+9,system_23,audio drivers
+6,system_9,hard disk
+14,system_5,mouse
+27,system_28,password error
+4,system_10,power pins
+17,system_13,printer
+29,system_21,drivers fault
+11,system_17,timer
+22,system_15,Malware detected
+21,system_11,virus foun
+11,system_13,timer
+15,system_20,usb port
+5,system_15,heating
+15,system_22,usb port
+10,system_19,Graphic card
+5,system_29,heating
+9,system_9,audio drivers
+7,system_1,storage inefficiency
+30,system_13,wifi driver not working
+24,system_3,file corrupted
+17,system_24,printer
+16,system_1,audio jack
+12,system_6,Email issue
+23,system_17,firewall breached
+30,system_2,wifi driver not working
+9,system_12,audio drivers
+3,system_1,Display
+18,system_14,cooling fan
+7,system_28,storage inefficiency
+18,system_23,cooling fan
+23,system_7,firewall breached
+18,system_13,cooling fan
+16,system_22,audio jack
+28,system_23,speakers not working
+19,system_6,RAM
+24,system_21,file corrupted
+15,system_26,usb port
+4,system_1,power pins
+19,system_25,RAM
+21,system_25,virus foun
+30,system_9,wifi driver not working
+11,system_28,timer
+5,system_2,heating
+1,system_19,Networking issue
+13,system_11,keyboard
+11,system_10,timer
+24,system_26,file corrupted
+11,system_19,timer
+14,system_8,mouse
+8,system_8,cd rom drive
+22,system_23,Malware detected
+21,system_1,virus foun
+1,system_5,Networking issue
+2,system_23,Hardware
+11,system_18,timer
+28,system_21,speakers not working
+12,system_9,Email issue
+4,system_1,power pins
+20,system_15,SMPS
+19,system_4,RAM
+7,system_24,storage inefficiency
+13,system_29,keyboard
+11,system_29,timer
+1,system_23,Networking issue
+24,system_23,file corrupted
+10,system_7,Graphic card
+30,system_14,wifi driver not working
+12,system_29,Email issue
+15,system_29,usb port
+11,system_12,timer
+26,system_16,Access denied
+26,system_29,Access denied
+22,system_6,Malware detected
+15,system_21,usb port
+18,system_3,cooling fan
+28,system_2,speakers not working
+24,system_23,file corrupted
+23,system_9,firewall breached
+25,system_4,System not opening
+20,system_14,SMPS
+14,system_9,mouse
+24,system_28,file corrupted
+20,system_12,SMPS
+5,system_5,heating
+10,system_3,Graphic card
+20,system_14,SMPS
+6,system_5,hard disk
+4,system_7,power pins
+21,system_19,virus foun
+23,system_17,firewall breached
+13,system_7,keyboard
+1,system_19,Networking issue
+21,system_5,virus foun
+2,system_14,Hardware
+30,system_7,wifi driver not working
+17,system_13,printer
+12,system_12,Email issue
+26,system_2,Access denied
+30,system_23,wifi driver not working
+19,system_21,RAM
+28,system_8,speakers not working
+6,system_1,hard disk
+8,system_2,cd rom drive
+22,system_9,Malware detected
+27,system_19,password error
+27,system_13,password error
+25,system_8,System not opening
+7,system_26,storage inefficiency
+3,system_7,Display
+15,system_7,usb port
+21,system_1,virus foun
+7,system_1,storage inefficiency
+25,system_24,System not opening
+18,system_23,cooling fan
+15,system_23,usb port
+3,system_27,Display
+28,system_11,speakers not working
+6,system_29,hard disk
+9,system_26,audio drivers
+16,system_19,audio jack
+3,system_5,Display
+6,system_11,hard disk
+30,system_19,wifi driver not working
+27,system_11,password error
+12,system_2,Email issue
+26,system_10,Access denied
+3,system_23,Display
+10,system_1,Graphic card
+17,system_27,printer
+13,system_18,keyboard
+17,system_1,printer
+4,system_14,power pins
+7,system_13,storage inefficiency
+11,system_9,timer
+29,system_14,drivers fault
+12,system_25,Email issue
+30,system_22,wifi driver not working
+4,system_17,power pins
+21,system_28,virus foun
+23,system_29,firewall breached
+2,system_23,Hardware
+18,system_18,cooling fan
+12,system_4,Email issue
+24,system_26,file corrupted
+16,system_28,audio jack
+21,system_5,virus foun
+13,system_1,keyboard
+15,system_16,usb port
+26,system_18,Access denied
+3,system_16,Display
+13,system_15,keyboard
+30,system_6,wifi driver not working
+24,system_11,file corrupted
+2,system_3,Hardware
+3,system_5,Display
+30,system_16,wifi driver not working
+5,system_4,heating
+1,system_16,Networking issue
+5,system_7,heating
+28,system_23,speakers not working
+21,system_19,virus foun
+13,system_10,keyboard
+27,system_2,password error
+21,system_19,virus foun
+6,system_13,hard disk
+29,system_15,drivers fault
+22,system_17,Malware detected
+21,system_27,virus foun
+1,system_6,Networking issue
+12,system_14,Email issue
+1,system_3,Networking issue
+30,system_2,wifi driver not working
+11,system_26,timer
+4,system_29,power pins
+15,system_15,usb port
+27,system_23,password error
+4,system_4,power pins
+30,system_1,wifi driver not working
+21,system_21,virus foun
+5,system_19,heating
+27,system_25,password error
+6,system_2,hard disk
+22,system_9,Malware detected
+8,system_17,cd rom drive
+2,system_14,Hardware
+10,system_11,Graphic card
+14,system_1,mouse
+28,system_8,speakers not working
+30,system_24,wifi driver not working
+2,system_23,Hardware
+9,system_13,audio drivers
+10,system_27,Graphic card
+29,system_3,drivers fault
+25,system_8,System not opening
+21,system_10,virus foun
+7,system_28,storage inefficiency
+23,system_8,firewall breached
+19,system_3,RAM
+21,system_5,virus foun
+20,system_25,SMPS
+7,system_22,storage inefficiency
+16,system_28,audio jack
+29,system_12,drivers fault
+7,system_13,storage inefficiency
+29,system_27,drivers fault
+3,system_7,Display
+27,system_6,password error
+10,system_12,Graphic card
+21,system_17,virus foun
+28,system_3,speakers not working
+24,system_2,file corrupted
+12,system_25,Email issue
+29,system_7,drivers fault
+5,system_29,heating
+17,system_11,printer
+4,system_24,power pins
+15,system_15,usb port
+28,system_18,speakers not working
+24,system_13,file corrupted
+11,system_25,timer
+25,system_21,System not opening
+28,system_5,speakers not working
+18,system_20,cooling fan
+30,system_28,wifi driver not working
+24,system_29,file corrupted
+25,system_19,System not opening
+15,system_16,usb port
+16,system_5,audio jack
+27,system_5,password error
+17,system_20,printer
+7,system_12,storage inefficiency
+20,system_19,SMPS
+30,system_12,wifi driver not working
+26,system_16,Access denied
+4,system_15,power pins
+7,system_28,storage inefficiency
+4,system_27,power pins
+11,system_26,timer
+17,system_12,printer
+4,system_9,power pins
+29,system_10,drivers fault
+27,system_27,password error
+3,system_5,Display
+11,system_4,timer
+17,system_20,printer
+26,system_18,Access denied
+30,system_14,wifi driver not working
+27,system_14,password error
+24,system_28,file corrupted
+14,system_22,mouse
+13,system_26,keyboard
+25,system_12,System not opening
+1,system_7,Networking issue
+20,system_4,SMPS
+6,system_16,hard disk
+27,system_14,password error
+13,system_4,keyboard
+2,system_15,Hardware
+12,system_6,Email issue
+28,system_3,speakers not working
+22,system_27,Malware detected
+12,system_22,Email issue
+29,system_20,drivers fault
+11,system_29,timer
+14,system_21,mouse
+19,system_24,RAM
+29,system_25,drivers fault
+3,system_12,Display
+17,system_20,printer
+7,system_13,storage inefficiency
+21,system_21,virus foun
+18,system_25,cooling fan
+3,system_24,Display
+1,system_10,Networking issue
+14,system_13,mouse
+11,system_19,timer
+4,system_4,power pins
+25,system_13,System not opening
+5,system_2,heating
+24,system_5,file corrupted
+22,system_18,Malware detected
+14,system_11,mouse
+16,system_11,audio jack
+2,system_8,Hardware
+14,system_23,mouse
+8,system_29,cd rom drive
+25,system_25,System not opening
+20,system_24,SMPS
+28,system_26,speakers not working
+2,system_12,Hardware
+2,system_10,Hardware
+8,system_3,cd rom drive
+17,system_27,printer
+30,system_23,wifi driver not working
+21,system_21,virus foun
+2,system_14,Hardware
+19,system_11,RAM
+15,system_6,usb port
+15,system_3,usb port
+28,system_7,speakers not working
+8,system_20,cd rom drive
+16,system_4,audio jack
+21,system_23,virus foun
+13,system_27,keyboard
+10,system_9,Graphic card
+21,system_13,virus foun
+18,system_2,cooling fan
+30,system_19,wifi driver not working
+13,system_25,keyboard
+9,system_20,audio drivers
+6,system_3,hard disk
+7,system_9,storage inefficiency
+17,system_15,printer
+11,system_13,timer
+21,system_22,virus foun
+5,system_7,heating
+4,system_27,power pins
+22,system_20,Malware detected
+18,system_16,cooling fan
+18,system_25,cooling fan
+9,system_18,audio drivers
+21,system_29,virus foun
+19,system_17,RAM
+14,system_20,mouse
+11,system_1,timer
+27,system_13,password error
+24,system_7,file corrupted
+23,system_2,firewall breached
+16,system_1,audio jack
+24,system_3,file corrupted
+3,system_28,Display
+26,system_28,Access denied
+11,system_28,timer
+7,system_8,storage inefficiency
+4,system_19,power pins
+8,system_23,cd rom drive
+24,system_4,file corrupted
+22,system_27,Malware detected
+10,system_3,Graphic card
+5,system_26,heating
+11,system_12,timer
+20,system_22,SMPS
+18,system_25,cooling fan
+27,system_4,password error
+30,system_24,wifi driver not working
+23,system_11,firewall breached
+2,system_23,Hardware
+22,system_18,Malware detected
+19,system_3,RAM
+23,system_19,firewall breached
+6,system_14,hard disk
+11,system_21,timer
+12,system_20,Email issue
+24,system_23,file corrupted
+21,system_20,virus foun
+3,system_20,Display
+13,system_22,keyboard
+18,system_14,cooling fan
+19,system_29,RAM
+25,system_5,System not opening
+9,system_17,audio drivers
+11,system_16,timer
+27,system_10,password error
+14,system_24,mouse
+6,system_7,hard disk
+22,system_28,Malware detected
+20,system_10,SMPS
+1,system_23,Networking issue
+17,system_22,printer
+14,system_24,mouse
+7,system_28,storage inefficiency
+21,system_7,virus foun
+22,system_18,Malware detected
+19,system_29,RAM
+27,system_1,password error
+19,system_4,RAM
+21,system_5,virus foun
+16,system_21,audio jack
+8,system_9,cd rom drive
+17,system_20,printer
+19,system_12,RAM
+16,system_29,audio jack
+23,system_1,firewall breached
+23,system_7,firewall breached
+2,system_8,Hardware
+8,system_27,cd rom drive
+28,system_29,speakers not working
+19,system_19,RAM
+20,system_18,SMPS
+21,system_28,virus foun
+3,system_15,Display
+13,system_1,keyboard
+14,system_14,mouse
+24,system_27,file corrupted
+11,system_20,timer
+26,system_1,Access denied
+1,system_28,Networking issue
+21,system_10,virus foun
+18,system_14,cooling fan
+24,system_5,file corrupted
+25,system_11,System not opening
+11,system_22,timer
+4,system_21,power pins
+11,system_20,timer
+19,system_14,RAM
+23,system_22,firewall breached
+23,system_20,firewall breached
+6,system_4,hard disk
+25,system_28,System not opening
+19,system_20,RAM
+23,system_4,firewall breached
+25,system_5,System not opening
+8,system_22,cd rom drive
+8,system_15,cd rom drive
+13,system_25,keyboard
+29,system_22,drivers fault
+7,system_6,storage inefficiency
+21,system_1,virus foun
+22,system_9,Malware detected
+17,system_22,printer
+15,system_9,usb port
+23,system_8,firewall breached
+13,system_28,keyboard
+19,system_27,RAM
+18,system_6,cooling fan
+11,system_7,timer
+5,system_9,heating
+25,system_5,System not opening
+13,system_12,keyboard
+30,system_23,wifi driver not working
+16,system_16,audio jack
+15,system_27,usb port
+20,system_13,SMPS
+15,system_4,usb port
+27,system_10,password error
+13,system_1,keyboard
+9,system_2,audio drivers
+24,system_4,file corrupted
+2,system_21,Hardware
+20,system_11,SMPS
+11,system_10,timer
+13,system_1,keyboard
+28,system_15,speakers not working
+20,system_6,SMPS
+30,system_1,wifi driver not working
+18,system_18,cooling fan
+16,system_6,audio jack
+12,system_1,Email issue
+29,system_4,drivers fault
+8,system_25,cd rom drive
+27,system_16,password error
+12,system_19,Email issue
+24,system_4,file corrupted
+18,system_26,cooling fan

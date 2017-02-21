@@ -1,0 +1,1 @@
+cmd_/home/karthik/Training/4.Task_Management/Assign/threads/q3/3f/kmod.ko := ld -r -m elf_i386 -T ../scripts/module-common.lds --build-id  -o /home/karthik/Training/4.Task_Management/Assign/threads/q3/3f/kmod.ko /home/karthik/Training/4.Task_Management/Assign/threads/q3/3f/kmod.o /home/karthik/Training/4.Task_Management/Assign/threads/q3/3f/kmod.mod.o ;  true

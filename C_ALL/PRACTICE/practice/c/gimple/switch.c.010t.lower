@@ -1,0 +1,54 @@
+
+;; Function main (main)
+
+main ()
+{
+  int b;
+  int a;
+  int e;
+  int d;
+  int c;
+  int b;
+  int a;
+  int D.1704;
+  const char * restrict D.1702;
+  int D.1701;
+  int D.1700;
+  const char * restrict D.1699;
+
+  a = 1;
+  b = 3;
+  c = 4;
+  d = 0;
+  e = 10;
+  switch (a) <default: <D.1697>, case 1: <D.1692>, case 2: <D.1696>>
+  a = 5;
+  b = 5;
+  <D.1692>:
+  D.1699 = (const char * restrict) &"%d %d\n"[0];
+  printf (D.1699, a, b);
+  D.1700 = b + c;
+  D.1701 = D.1700 + d;
+  a = D.1701 + e;
+  switch (1) <default: <D.1703>, case 1: <D.1693>>
+  <D.1693>:
+  D.1702 = (const char * restrict) &"Inside a ==> %d\n"[0];
+  printf (D.1702, a);
+  goto <D.1694>;
+  <D.1703>:
+  <D.1694>:
+  goto <D.1695>;
+  <D.1696>:
+  __builtin_puts (&"Hello"[0]);
+  goto <D.1695>;
+  <D.1697>:
+  __builtin_puts (&"Default"[0]);
+  goto <D.1695>;
+  <D.1695>:
+  D.1704 = 0;
+  goto <D.1705>;
+  <D.1705>:
+  return D.1704;
+}
+
+

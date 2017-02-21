@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void)
+{
+		int i;
+		int *ptr = (int *) malloc(5 * sizeof(int));
+
+		for (i=0; i<5; i++)
+				*(ptr + i) = i;
+
+		printf("%d ", *ptr++);
+		printf("%d ", (*ptr)++);
+		printf("%d ", *ptr);
+		printf("%d ", *++ptr);
+		printf("%d ", ++*ptr);
+}

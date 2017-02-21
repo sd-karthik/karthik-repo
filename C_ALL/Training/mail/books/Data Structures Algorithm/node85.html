@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Representing Patterns</TITLE>
+<META NAME="description" CONTENT="Representing Patterns">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1312" HREF="node86.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node86.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1310" HREF="node83.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node83.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1304" HREF="node84.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node84.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1314" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1313" HREF="node86.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node86.html">A Simple Pattern Matcher</A>
+<B>Up:</B> <A NAME="tex2html1311" HREF="node83.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node83.html">Pattern Matching</A>
+<B> Previous:</B> <A NAME="tex2html1305" HREF="node84.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node84.html">Motivation</A>
+<BR> <P>
+<H2><A NAME="SECTION00742000000000000000">Representing Patterns</A></H2>
+<P>
+A pattern can be represented as a <EM>regular expression</EM>, using
+special symbols to describe optional repetition and alternatives.
+etc. A regular expression language may be based on just 
+two special symbols (+ brackets):
+<P>
+<DL ><DT><STRONG> <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2826" SRC="img1.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img1.gif"  > </STRONG>
+<DD> to represent alternatives (OR), e.g., 'a <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2826" SRC="img1.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img1.gif"  > bcd' will match
+acd or bcd. '(a <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2826" SRC="img1.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img1.gif"  > bc)d' will match 'ad' or 'bcd'.
+<DT><STRONG>'*'</STRONG>
+<DD> to allow zero or more occurences of the last character (or bracketted expressin). e.g., 'ab*' matches 'a', 'ab', 'abb' etc, '(ab)*' matches
+ab, abab, ababab, etc.
+<P>
+ </DL>
+<P>
+Other special symbols are often included  for representing regular 
+expressions (e.g., `.' to match any character,  '+' for 1 or more 
+occurences, often a character
+to represent any character <EM>except</EM> the last one, etc). However, the
+above is sufficient, just may be rather verbose.
+<P>
+This simple language is in fact very flexible. We can build up quite
+complex expressions, such as '(ab <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2826" SRC="img1.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img1.gif"  > c)*z' to match 'cz', 'abababz', 
+'ccabccz' and a whole lot more.
+<P>
+A regular expression may be represented graphically as a <EM>finite state
+machine</EM> as illustrated below. (The numbers in brackets are just so we can
+go discuss it more easily). Each possible string corresponds to
+a path from start (right arrow on LHS) to end node (box on RHS) of the network.
+So, for example 'abcabz' corresponds to following the path between
+nodes numbered 1,2,3,5,1,4,5,1,2,3,5,6.
+<P>
+<P><A NAME="1807">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1805" SRC="img9.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img9.gif"  > <BR>
+<STRONG>Figure 5.1:</STRONG> finite state machine for pattern '(ab <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2826" SRC="img1.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img1.gif"  > c)+z'<BR>
+<P>
+<P>
+We can implement a datastructure based on this graphical representation
+by having an array holding, for each state, the possible next
+states. So, state 1 has possible next states 2 and 4. (We could use
+a Nx2 array, where N is number of states, and agree on what to
+put in the second position where there is only one successor). 
+There is then a fairly simple algorithm for checking matches
+of strings with this representation of
+a pattern. It is based on using a variant of the
+queue datastructure to hold a representation of the states in the
+network to check when matching along the string.  A `double ended
+queue' (or `deq') is used, so items may be added to the front or
+the end. A queue such as 
+(1 2 + 5 6) means ``Possible states to go to in order to process the current
+character are 1 and 2, and possible next states assuming current character
+already matched are 5 and 6.''. So the representation allows you to
+explore many paths simultaneously, by keeping the alternatives next
+states on the list.
+The special symbol + is used essentially
+to separate possible states corresponding to the current character from states
+corresponding to the next character.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

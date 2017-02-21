@@ -1,0 +1,12 @@
+
+;; Function fun (fun)
+
+Analyzing function body size: fun
+Overall function body time: 24-2 size: 16-3
+With function call overhead time: 24-12 size: 16-4
+
+;; Function main (main)
+
+Analyzing function body size: main
+Overall function body time: 25-2 size: 8-3
+With function call overhead time: 25-13 size: 8-5
