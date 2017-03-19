@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Tradeoffs and Issues</TITLE>
+<META NAME="description" CONTENT="Tradeoffs and Issues">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1244" HREF="node80.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node80.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1242" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1236" HREF="node78.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node78.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1246" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1245" HREF="node80.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node80.html">Conclusion</A>
+<B>Up:</B> <A NAME="tex2html1243" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html">String Searching</A>
+<B> Previous:</B> <A NAME="tex2html1237" HREF="node78.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node78.html">The Boyer-Moore Algorithm</A>
+<BR> <P>
+<H2><A NAME="SECTION00735000000000000000">Tradeoffs and Issues</A></H2>
+<P>
+There are other string search algorithms that use different methods,
+but the Boyer-Moore algorithm outlined above is the most well known,
+fairly simple, and widely used. Even today, new algorithms are
+being developed based on the Boyer-Moore one, but (for example) to work with
+patterns rather than fixed search strings.
+<P>
+The best choice of algorithm (and the average case efficiency of your
+algorithm) will depend on your 'alphabet size' (how many
+different characters may appear in a string), and the amount
+of repetition in the strings. For normal natural language text (e.g.,
+an English document), the KMP algorithm gives little advantage over the
+naive algorithm, but Boyer-Moore does very significantly better.
+For a binary string where subsequences of the search string may
+occur frequently, KMP may do quite alot better than the naive algorithm,
+while Boyer-Moore may do little better than KMP.
+<P>
+For applications such as text retrieval, where you may be (conceptually) searching
+though many text files for the occurence of a given string, approaches
+that go through each file from start to end are likely to be too inefficient.
+The only practical thing is to create a giant index which indicates for
+each word/character sequence just which files contain this sequence (and where
+in the file). You could have a large hash table, that allowed you to 
+rapidly get from a given sequence to the list of files and locations.
+This obviously requires alot of preprocessing of files, and a fair
+amount of storage for the index/hash table. However, for any application
+where many users will be searching the same (fixed) set of texts such
+indexing will be worthwhile. I won't discuss details of how you'd do it
+here, just point out that in such cases we would pre-process the files
+to create indexes rather than searching them on-the-fly from the raw text.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

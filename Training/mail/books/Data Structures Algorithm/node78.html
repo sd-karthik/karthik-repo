@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The Boyer-Moore Algorithm</TITLE>
+<META NAME="description" CONTENT="The Boyer-Moore Algorithm">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1233" HREF="node79.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node79.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1231" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1225" HREF="node77.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node77.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1235" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1234" HREF="node79.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node79.html">Tradeoffs and Issues</A>
+<B>Up:</B> <A NAME="tex2html1232" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html">String Searching</A>
+<B> Previous:</B> <A NAME="tex2html1226" HREF="node77.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node77.html">The Knuth-Morris-Pratt Algorithm</A>
+<BR> <P>
+<H2><A NAME="SECTION00734000000000000000">The Boyer-Moore Algorithm</A></H2>
+<P>
+Although the above algorithm is quite cunning, it doesnt help that
+much unless the strings you are searching involve alot of repeated
+patterns. It'll still require you to go all along the document (s1) 
+to be searched 
+in. For most text editor type applications, the average case complexity is
+little better than the naive algorithm (O(N), where N is the length of s1).
+(The worst case for the KMP is N+M comparisons - much better than naive, so it's
+useful in certain cases).
+<P>
+The Boyer-Moore algorithm is significantly better, and works by
+searching the target string s2 from right to left, while moving it
+left to right along s1.
+The following example illustrates the general idea:
+<P>
+<PRE>'the caterpillar'    Match fails:
+'pill'               There's no space (' ') in the search string, so move it
+    ^                right along 4 places
+
+'the caterpillar'   Match fails. There's no e either, so move along 4
+    'pill'
+        ^
+
+'the caterpillar'    'l' matches, so  continue trying to match right to left
+        'pill'
+            ^
+
+'the caterpillar'    Match fails. But there's an 'i' in 'pill' so move along
+        'pill'       to position where the 'i's line up.
+           ^
+'the caterpillar'    Matches, as do all the rest..
+         'pill'
+             ^</PRE>
+<P>
+This still only requires knowledge of the second string, but we
+require an array containing an indication, for each possible
+character that may occur, where it occurs in the search string 
+and hence how much to move along. 
+So, index['p']=0, index['i']=1, index['l'] = 3 (index the rightmost 'l' where
+repetitions) but index['r']=-1 (let the value be -1 for all
+characters not in the string). When a match fails
+at a position i in the document, at a character C we move along the 
+search string to a position where the current character in the
+document is above the index[C]th character in the string (which we
+know is a C), and start matching again at the right hand end of the string.
+(This is only done when this actually results in the string being
+moved right - otherwise the string is just moved up one place, and
+the search started again from the right hand end.)
+<P>
+The Boyer-Moore algorithm in fact combines this method of skipping
+over characters with a method similar to the KMP algorithm (useful
+to improve efficiency after you've partially matched a string).
+However, we'll just assume the simpler version that skips based on
+the position of a character in the search string.
+<P>
+It should be reasonably clear that, if it is normally the case that
+a given letter doesnt appear at all in the search string, then this
+algorithm only requires approx N/M character comparisons 
+(N=length(s1), M=length(s2)) - a big improvement on the KMP algorithm,
+which still requires N. However, if this is not the case then
+we may need up to N+M comparisons again (with the full version of the
+algorithm). Fortunately, for many applications
+we get close to the N/M performance. If the search string is very
+large, then it is likely that a given character WILL appear in it, but
+we still get a good improvement compared with the other algorithms
+(approx N*2/alphabet_size if characters are randomly distributed in a string).
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

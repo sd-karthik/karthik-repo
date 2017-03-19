@@ -1,0 +1,7 @@
+core + modules
+
+core-> keywords, operators, constructs + builtins
+modules->math,os,sys,
+
+core->available by default
+modules->need to ask(importing) 

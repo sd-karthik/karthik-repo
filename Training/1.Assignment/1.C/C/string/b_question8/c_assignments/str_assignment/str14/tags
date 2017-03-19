@@ -1,0 +1,13 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX	header/header1.h	7;"	d
+main	src/asgn14.c	/^void main()$/;"	f
+rmstr	src/rmstr.c	/^char *rmstr(char *sbu,char *dbu)$/;"	f
+squeeze	src/squeeze.c	/^char *squeeze(char *str1)$/;"	f
+str_cpy	src/str_cpy.c	/^void str_cpy(char *sbuf, char *dbuf)$/;"	f
+str_len	src/str_len.c	/^int str_len (char *str)$/;"	f
+strsp	src/strspn.c	/^int strsp(char *sbu, char *dbu)$/;"	f

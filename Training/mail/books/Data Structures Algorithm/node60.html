@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Tree search</TITLE>
+<META NAME="description" CONTENT="Tree search">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html994" HREF="node61.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node61.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html992" HREF="node58.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node58.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html986" HREF="node59.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node59.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html996" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html995" HREF="node61.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node61.html">Graph search</A>
+<B>Up:</B> <A NAME="tex2html993" HREF="node58.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node58.html">Graph Search Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html987" HREF="node59.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node59.html">Breadth first and depth </A>
+<BR> <P>
+<H2><A NAME="SECTION00622000000000000000">Tree search</A></H2>
+<P>
+For trees (which are, as we said, just a specialised kind of graph, where
+each node has only one 'parent' and cycles arent allowed))
+this distinction is clear graphically. As we see in figure 3.2, in
+breadth first we search across the tree before we search down. In depth
+first we follow a path down, before we search across.
+<P>
+<P><A NAME="1692">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1690" SRC="img5.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img5.gif"  > <BR>
+<STRONG>Figure 4.2:</STRONG> Depth first and depth first search<BR>
+<P>
+<P>
+For trees, there is a very simple algorithm for depth first search,
+which uses a <EM>stack</EM> of nodes. The following assumes we are
+searching for some target node, and will quit when it is found.
+<P>
+<PRE>stack.push(startnode); {(assumes stack initially empty..)}
+do
+  {
+    currentnode = stack.pop();
+    for {each neighbour n of current node}
+     stack.push(n);
+  }
+while(! stack.empty() &amp;&amp; currentnode != target)</PRE>
+<P>
+Pseudocode has been used to describe putting all neighbours of the node
+on the stack; you'd actually need to either use list traversal of
+neighbours or check through all possible nodes and add them if they are 
+a neighbour.
+<P>
+We can see how this will work for the tree in the figure above.
+(The trace below shows 'stack' on entering the body of the
+loop each time, and 'current node' after it has been popped off stack).
+<P>
+<PRE>Stack           Current-node    Neighbours
+(1)             1               2,3,4
+(2 3 4)         2               5,6
+(5 6 3 4)       5               none
+(6 3 4)         6               none
+(3 4)           3               7
+(7 4)           7               none
+(4)             4               8,9
+(8 9)           8               none
+(9)             9               none
+()</PRE>
+<P>
+Note that the order of current-nodes is correct for depth first.
+<P>
+The algorithm for breadth first is exactly the same BUT we use a
+queue rather than a stack of nodes: put the neighbours on
+the BACK of the queue, but remove current-node from the front.
+I'll leave it as an exercise for the reader to verify that this
+leads to the right search. Depth first search also has a simple
+recursive version of the algorithm, but using a stack
+makes it more explicit what is going on.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

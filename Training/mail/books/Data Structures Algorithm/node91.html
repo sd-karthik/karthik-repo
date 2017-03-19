@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Simple Parsing Methods</TITLE>
+<META NAME="description" CONTENT="Simple Parsing Methods">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1382" HREF="node92.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node92.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1380" HREF="node88.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1374" HREF="node90.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node90.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1384" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1383" HREF="node92.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node92.html">A Top-Down Parser</A>
+<B>Up:</B> <A NAME="tex2html1381" HREF="node88.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node88.html">Parsing</A>
+<B> Previous:</B> <A NAME="tex2html1375" HREF="node90.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node90.html">Context Free Grammars</A>
+<BR> <P>
+<H2><A NAME="SECTION00753000000000000000">Simple Parsing Methods</A></H2>
+<P>
+Parsing methods can be divided into <EM>top-down</EM> methods and <EM>bottom-up</EM> 
+methods. These are illustrated schematically in figure 2.2, for a tiny
+grammar of English. The illustration for bottom up parsing starts with
+the sentence itself, and uses the grammar rules to determine how
+combinations of words can be rewritten as more abstract grammatical
+categories (e.g., ``The dog'' is a noun phrase). The parse succeeds
+if this rewriting process concludes with the whole sentence rewritten
+to the start symbol (sentence). Top down parsing, on the other hand,
+starts with this start symbol, and rewrites/expands symbols until
+it finally gets down to a sequence matching the sequence being parsed.
+<P>
+<P><A NAME="1850">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1848" SRC="img11.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img11.gif"  > <BR>
+<STRONG>Figure 5.2:</STRONG> Top Down and Bottom up Parses, for a fragment of English<BR>
+<P>
+<P>
+Both top-down and bottom-up parsing are based on the idea of
+repeatedly modifying a sequence of symbols (based on allowed
+rewrites in the grammar rules), with the aim of getting
+from a sequence consisting of just the start symbol, to our
+sequence to be parsed. This can be illustrated as follows:
+<P>
+<PRE>Top Down
+
+(Sentence)                       apply rule 1
+(NounPhrase VerbPhrase)          apply rule 2
+(Article Noun VerbPhrase)        apply rule 4
+(the Noun VerbPhrase)            apply rule 5
+(the dog VerbPhrase)             apply rule 3
+(the dog Verb)                   apply rule 6
+(the dog jumps)                  SUCCEEDS
+
+Bottom up
+
+(the dog jumps)                  apply rule 6
+(the dog Verb)                   apply rule 3
+(the dog VerbPhrase)             apply rule 5
+(the Noun VerbPhrase)            apply rule 4
+(Article Noun VerbPhrase)        apply rule 2
+(NounPhrase VerbPhrase)          apply rule 1
+(Sentence)                       SUCEEDS</PRE>
+<P>
+Now, of course, the grammar in the figure is a bit limited! In fact, 
+it can ONLY recognise the sentence 'The dog jumps'. There are no
+options or alternatives. In any real grammar there will be many
+alternative structures to explore, and that's where the difficulty
+in parsing arises. This is particularly a problem when parsing natural
+language. For artificial languages such as programming languages
+it is not so bad, but we still need ways of choosing between
+alternatives. For example, if we have the rule:
+<P>
+<PRE>&lt;factor&gt;     ::= ( &lt;expression&gt; ) | v</PRE>
+<P>
+and we are doing a top-down parse, how do we know whether to rewrite
+&lt;<I>factor</I>&gt;  to ( &lt;<I>expression</I>&gt; ) or to v (letter/digit). For programming
+languages, it is often possible to do this by <EM>looking ahead</EM>
+one character. In the above rule, if the next character in the sequence
+you are parsing is '(' then the first option is correct, otherwise
+it is the second option. Often, in order to make this one-char lookahead
+work, the grammar must be modified into an equivalent, but easier to
+process form.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1385" HREF="node92.html#SECTION00753100000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node92.html#SECTION00753100000000000000">A Top-Down Parser</A>
+<LI> <A NAME="tex2html1386" HREF="node93.html#SECTION00753200000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node93.html#SECTION00753200000000000000">A Bottom-Up Parser</A>
+</UL>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Inclusion in a Polygon</TITLE>
+<META NAME="description" CONTENT="Inclusion in a Polygon">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1657" HREF="node116.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node116.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1655" HREF="node111.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node111.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1649" HREF="node114.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node114.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1659" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1658" HREF="node116.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node116.html">Finding the Convex Hull</A>
+<B>Up:</B> <A NAME="tex2html1656" HREF="node111.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node111.html">Geometric Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1650" HREF="node114.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node114.html">Line Intersection</A>
+<BR> <P>
+<H1><A NAME="SECTION00840000000000000000">Inclusion in a Polygon</A></H1>
+<P>
+A basic approach to finding if a given point is within a polygon is
+as follows. Draw a line out from that point, and count how many
+times it intersects lines in the polygon. If it is an odd number,
+the point must be within the polygon. See figure.
+<P>
+<P><A NAME="1944">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1942" SRC="img19.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img19.gif"  > <BR>
+<STRONG>Figure 6.2:</STRONG> Determining if point is included in polygon<BR>
+<P>
+<P>
+This is slightly complicated by the fact that the line might intersect
+a vertex of the polygon. If so, it may sometimes be counted as two
+counts and sometimes as one, as illustrated by the two such examples
+in the figure. Without this complication, the algorithm to determine
+inclusion is the following (which ignores such points). 'n' is the
+number of points in the polygon.
+<P>
+<PRE>int inside(point p, point poly[], int n)
+{
+   int i, j, count;
+   line lt, lp;
+
+   count = 0; j = 0;
+   lt.p1 = p; lt.p2 = p; lt.p2.x = MAXINT; // Defines horizontal line
+                                           // out from p
+   for(i=0, i&lt;=n, i++)
+     {
+       lp.p1 = p[i]; lp.p2 = p[i+1];     // Create line for segment in
+                                         // polygon
+       if(intersect(lp, lt))
+         count++;
+     }
+   return ((count % 2) != 0)             // odd?
+}</PRE>
+<P>
+To handle the case where our line intersects a vertex, we need to check
+whether the two points in the polygon either side of the vertex are
+on the same 'side' of the test line. (Convince yourself that this is
+right). Implementation details are left to the reader, or to look up in
+Sedgewick.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

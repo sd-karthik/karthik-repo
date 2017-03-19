@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The Knuth-Morris-Pratt Algorithm</TITLE>
+<META NAME="description" CONTENT="The Knuth-Morris-Pratt Algorithm">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1222" HREF="node78.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node78.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1220" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1214" HREF="node76.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node76.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1224" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1223" HREF="node78.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node78.html">The Boyer-Moore Algorithm</A>
+<B>Up:</B> <A NAME="tex2html1221" HREF="node74.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html">String Searching</A>
+<B> Previous:</B> <A NAME="tex2html1215" HREF="node76.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node76.html">A Naive Algorithm</A>
+<BR> <P>
+<H2><A NAME="SECTION00733000000000000000">The Knuth-Morris-Pratt Algorithm</A></H2>
+<P>
+The Knuth-Morris-Pratt (KMP) algorithm uses information about the
+characters in the string you're looking for to determine how
+much to `move along' that string after a mismatch occurs.
+To illustrate this, consider one of the examples above: 
+s1= 'aaaabaaaabaaaaab', s2 = 'aaaaa'. Using the naive algorithm you
+would start off something like this:
+<P>
+<PRE>'aaaabaaaabaaaaab'
+'aaaaa'
+ ^
+
+'aaaabaaaabaaaaab'
+'aaaaa'
+  ^
+
+'aaaabaaaabaaaaab'
+'aaaaa'
+   ^
+
+'aaaabaaaabaaaaab'
+'aaaaa'
+    ^
+
+'aaaabaaaabaaaaab'   
+'aaaaa'
+     ^                  match fails, move s2 up one..
+
+'aaaabaaaabaaaaab'
+ 'aaaaa'
+  ^
+
+etc etc</PRE>
+<P>
+but in fact if we look at s2 (and the 'b' in s1 that caused the bad match)
+we can tell that there is no chance that
+a match starting at position 2 will work. The 'b' will end up being
+matched against the 4th character in s2, which is an 'a'. Based on our
+knowledge of s2, what we really want is the last iteration above replaced with:
+<P>
+<PRE>'aaaabaaaabaaaaab'
+     'aaaaa'
+      ^</PRE>
+<P>
+We can implement this idea quite efficiently by
+associating with each element position in the searched for string
+the amount that you can safely move that string forward if you get a
+mismatch in that element position. For the above example..
+<P>
+<PRE>a 1     If mismatch in first el, just move string on 1 place.
+a 2     If mismatch here, no point in trying just one place, as
+        that'll involve matching with the same el (a) so move 2 places
+a 3
+a 4
+a 5</PRE>
+<P>
+In fact the KMP algorithm is a little more cunning than this.
+Consider the following case:
+<P>
+<PRE>'aaaab'   i=2,j=2
+'aab'
+   ^</PRE>
+<P>
+We can only move the second string up 1, but we KNOW that the first
+character will then match, as the first two elements are identical, so
+we want the next iteration to be:
+<P>
+<PRE>'aaaab'  i=2,j=1
+ 'aab'
+   ^</PRE>
+<P>
+Note that i has not changed. It turns out that we can make things
+work by never decrementing i (ie, just moving forward along s1),
+but, given a mismatch, just decrementing j by the appropriate amount,
+to capture the fact that we are moving s2 up a bit along s1, so the
+position on s2 corresponding to i's position is lower. We can
+have an array giving, for each position in s2, the position in s2
+that you should backup to in s2 given a mismatch 
+(while holding the position in s1 constant). We'll call this array next[j].
+<P>
+<PRE>j       s2[j]   next[j]
+0       a       -1
+1       b       0
+2       a       0
+3       b       1
+4       b       2
+5       a       0
+6       a       1</PRE>
+<P>
+In fact next[0] is a special case. If the
+first match fails we want to keep j fixed and increment i.
+If we are incrementing i and j each time round the loop this
+is achieved easily if next[0]=-1.
+<P>
+<PRE>'abababbaa'      i=4, j=4
+'ababbaa'
+     ^          mismatch, so j = next[j]=2
+
+'abababbaa'      i=4, j=2
+  'ababbaa'
+     ^
+-------------------
+'abaabbaa'      i=3, j=3
+'ababbaa'
+    ^           mismatch, so j = next[j]= 1
+
+'abaababbaa'      i=3, j=1
+  'ababbaa'
+    ^
+-------------------
+'bababbaa'      i=0, j=0
+'ababbaa'
+ ^              mismatch, so j = next[j]= -1, increment i and j.
+
+'abaababbaa'      i=1, j=0
+ 'ababbaa'
+  ^</PRE>
+<P>
+It's easy enough to implement this algorithm once you have the
+next[..] array. The bit that is mildly more tricky is how to
+calculate next[..] given a string. We can do this
+by trying to match a string against itself. When
+looking for next[j] we'd find the first index k such that
+s2[0..k-1] = s2[j-k..j-1], e.g:
+<P>
+<PRE>'ababbaa'      s2[0..1] = s2[2..3]
+  'aba....'    so next[4] = 2.
+     ^</PRE>
+<P>
+If there is is no matching region, return 0. If j=0, return -1.
+<P>
+(Essentially we find next[j] by sliding forward the pattern
+along itself, until we find a match of the first k characters
+with the k characters before (and not including) position j).
+<P>
+The detailed implementations of these algorithms are left as
+an exercise for the reader - it's pretty easy, so long as you
+get the boundary cases right and avoid out-by-one errors.
+<P>
+The KMP algorithm is extremely simple once we have the
+next table:
+<P>
+<PRE>  int i, j, M=strln(s2), N = strln(s1);
+  for(i = 0, j=0; j &lt; M &amp;&amp; i &lt; N; i++, j++)
+    while ((j &gt;= 0) &amp; (s1[i] != s2[j]))
+       j = next[j];
+  if (j == M) return i-M;
+  else return -1;</PRE>
+<P>
+(If j = length(s1) when the loop exits we have a match and can return
+something appropriate, such as the index in s1 where the match starts).
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

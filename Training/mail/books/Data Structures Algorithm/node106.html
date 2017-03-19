@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Simple Symmetric Methods</TITLE>
+<META NAME="description" CONTENT="Simple Symmetric Methods">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1554" HREF="node107.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node107.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1552" HREF="node103.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node103.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1546" HREF="node105.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node105.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1556" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1555" HREF="node107.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node107.html">Asymmetric Systems: Public Key </A>
+<B>Up:</B> <A NAME="tex2html1553" HREF="node103.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node103.html">Cryptography</A>
+<B> Previous:</B> <A NAME="tex2html1547" HREF="node105.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node105.html">A Basic Outline and </A>
+<BR> <P>
+<H2><A NAME="SECTION00773000000000000000">Simple Symmetric Methods</A></H2>
+<P>
+One of the simplest methods, called the ``Caesar cipher'' is to encode
+the message such that the Nth letter in the alphabet is
+replaced by the N+Kth. (The key is jut K). So, for K=2:
+<P>
+<PRE>message: attack
+code:    cvvcem</PRE>
+<P>
+However, this is pretty easy to decode: Just try the 26 possibilities
+until you get one that results in a meaningful message.
+<P>
+A better approach is to use a key that gives a mapping from
+letters of the alphabet (plus spaces) to letters that should replace them:
+<P>
+<PRE> abcdefghij....
+zqjprtoisva...
+
+message: a cab
+code:    qzpqj</PRE>
+<P>
+but this is also pretty easy to break: we could use letter frequency 
+information (e.g., spaces, ts and es are common) to guess at the key.
+<P>
+To avoid this we could use a method closer to the first,
+but with a repeated key to decide on the value of K. This
+is called the ``Vigenere cipher'':
+<P>
+<PRE>key:     abcabc
+message: attack
+code:    bvwben</PRE>
+<P>
+One can also use a method that combines these two ideas, with an offset 
+depending both on a repeated key and the letter itself.
+<P>
+If the key is as long as the message itself (and only used once) 
+then this encyption method is provably secure (called the
+``vernam cipher'' or one-time pad). But there is the problem of 
+distributing the key. It is only really useful in applications where
+a long key can be distributed ahead of time, in order to allow
+urgent messages to be safely transmitted at a later date.
+<P>
+For simple encryption methods it is often possible to decode
+a message if you know (or can guess) part of the message.
+Perhaps you know that an email message starts with a standard header
+(From: ... Return-Path ..). Obviously if a simple repeated key
+encryption method is used, with a short key, then this would
+allow someone to break it. Speech signals often have large
+areas of silence. This too may be used to find the key.
+<P>
+Many encryption methods involve ``generating'' a long key 
+from a shorter key. So, rather than just
+repeating a short key, we have some cunning method for creating
+a longer key out of the shorter one, that creates a ``pseudo-key''
+that is hard to break, even if some plaintext is known.
+<P>
+If you don't know any of the plaintext, breaking the code
+will be harder whatever encryption method: 
+possible strategies are brute force methods
+(try all keys until one produces something with dictionary words in),
+and statistical methods (use knowledge of letter/word frequencies).
+However, these strategies will also tend to be foxed if a long pseudo
+key has been generated.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

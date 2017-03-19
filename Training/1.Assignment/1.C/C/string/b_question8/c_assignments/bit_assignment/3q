@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+#define maxmin(num1,num2)        \
+	int i;                    \
+	for(i=31;i>=0;i--){       \
+	if((num1>>i)^(num2>>i)==0)\
+	{  if(i==0)               \
+        {printf("numbers are equal\n");\
+          break;               }}  \
+	if(((num1>>i)&1)) {   \
+		printf("num1 greater\n");   \
+                printf("num2 smalller\n");break;} \
+	if(((num2>>i)&1)){  \
+                printf("num1 smaller\n");   \
+                printf("num2 greater\n");break; }} 
+
+/*#define set_right(num)
+	int i;
+	for(i=31;i>=0;i--){
+		if((n&(1<<i)==1){
+		showbits
+*/		
+int main()
+{
+int num1,num2;
+printf("enter num1\n");
+scanf("%d",&num1);
+printf("enter num2\n");
+scanf("%d",&num2);
+maxmin(num1,num2);
+}
+

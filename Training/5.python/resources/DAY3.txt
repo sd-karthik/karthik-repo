@@ -1,0 +1,213 @@
+<------------------------------------- DAY 3 ------------------------------------>
+DATE : 10 / 03 / 17
+TIME : 9.30am
+-----------------------------------------------------------------------------------
+NOTE: set tabspace = 4 for reading this document with format
+------------------------------------------------------------------------
+---
+1. FILE HANDLING:
+
+	1) open(" ", " ", " ")
+		NAmeoftheFile mode Buffering
+	-> Buffering is not needed
+
+	Eg:
+	(1)	f1 = open("a.txt", "r")
+
+	open->__builtins__
+	
+	(2)	f1 = open("a.txt","r")
+		dir(f1)
+		type(f1.read)
+		help(f1.read)
+		f1.read()
+			or
+		print f1.read()
+
+EXP:
+	1. $cat a.txt
+		$./sample.py a.txt
+	
+	2. $cp a.txt b.txt
+		$./sample.py a.txt b.txt
+	
+	3. $wc  a.txt
+		$./sample.py c.txt
+
+	4. write and readback
+		a) without seek
+		b) with seek
+
+	NOTE: exceptions :
+		import os
+		1.	os.path.exists(.. )
+			-> returns true for all files
+	
+		2.	os.path.isfile(..)
+			-> returns true for regular files
+
+		3.	Exce[tion handling
+---------------------------------------------------------------------
+TIME: 11:40am
+---------------------------------------------------------------------
+
+2. IMPORT
+	-> Only first time global symbols will be executed imported
+		name will be part of symbol table
+	-> interpreter will look for the modules in set of available standard path
+	-> globals()
+	-> for function globals give function and its address
+	-> for modules globals give name and its path
+
+	TYPES of IMPORT:
+
+		> import math
+		> from math import pi,sin	//pi, sin is imported into the symbol table
+		> from math import pi as p1_1	
+		> from math import *	//All the symbols will be imported
+
+	->check all the above in interactive mode and use globals()
+
+	-> .pyc is object/byte-compiled file which will be created when a file is imported multiple times in another program
+
+	-> if already imported use del and then reload() -> re - importing
+
+	-> global is a keyword (similar to extern in c)
+	-> globals is a builtin which returns symbol table
+
+VERIFY:
+	Types of imports
+	Symbol table
+	pyc usage
+	reimporting, unimporting
+---------------------------------------------------------------------------
+TIME : 02:10pm
+---------------------------------------------------------------------------
+
+3. PACKAGES :
+		COllection of modules
+	-> create a folder and keep the files inside it. 
+	-> Name of the package is name of the folder
+	-> __init__.py 
+	-> It can also be blank but it should exist.
+	
+	Eg:
+
+		/home/karthik/python/phone
+								/isdn.py
+								/pots.py
+								/__init__.py
+							/sample.py
+		isdn.py
+		-------
+		def isdn():
+				print"isdn"
+		similarly for pots
+		--------
+
+		__init__.py
+		---------
+		from isdn import isdn
+		from pots import pots
+		--------
+
+		sample.py
+		--------
+		import phone
+		phone.isdn()
+		phone.pots()
+
+		phone.isdn.isdn()
+		--------
+----------------------------------------------------------------------
+EXCERCIE 2:
+	TIck tack game
+
+	-> List	
+
+EXERCISE 3:	
+	Read the contents of an excel sheet
+
+EXERCISE 1 EXTENDED:
+	use fileoperation for input operation
+
+----------------------------------------------------------------------
+
+4.	ERRORs:
+
+	1.	Command not found	$phython sample.py
+	2.	Bad interpreter 	#! usr/bin/python
+	3.	Syntax error		: missing
+	4.	Exceptions			NameError
+	5.	Logical bugs		
+		(code malfunctioning)
+		a)	code review
+		b)	print messages
+		c)	debugger
+
+--------------------------
+
+5.	DEBUGGER
+	-------------------------
+	|	#!/usr/bin/python	|
+	|						|
+	|	import pdb			|
+	|						|
+	|	a = "aaa"			|
+	|	print a				|
+	|	pdb.set_trace()		|
+	|	b = "bbb"			|
+	|	print b				|
+	|	c = a + b			|
+	|	print c				|
+	-------------------------
+	$./sample.py
+
+	aaa
+	> help
+	p n b
+	> help p
+	> p a
+	> n
+
+
+6. EXCEPTION HANDLING
+
+	(1)
+		try:
+			a = 10/0
+				#raise ZeroDivision Error
+				#	b = 10%0
+			except ZeroDivision Error,detail:
+			print "dib=vide by 0 error",detail
+		else:
+			print "in else block"
+	
+		finally:
+			print "in finally block"
+
+	(2)    
+		try:
+            a = 10/1
+                #raise ZeroDivision Error
+                #   b = 10%0
+        	except ZeroDivision Error,detail:
+       	    print "dib=vide by 0 error",detail
+  	  	else:
+            print "in else block"
+			import sys
+			sys.exit()
+   		 finally:
+            print "in finally block"	
+
+	// This block is executed even after the execution of the else
+
+
+	-> interpreter will throw
+	-> try is similar to catch in c++
+	
+	->Except exception:		//exceptions
+	->Except :				//exceptions
+
+EXERCISE 1 EXTENDED:
+	Calculator make it work for exceptions like ValueError, divideZeroError ..!!

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Bottom-Up Parser</TITLE>
+<META NAME="description" CONTENT="A Bottom-Up Parser">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1404" HREF="node94.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node94.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1402" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1398" HREF="node92.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node92.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1406" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1405" HREF="node94.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node94.html">Further Reading</A>
+<B>Up:</B> <A NAME="tex2html1403" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html">Simple Parsing Methods</A>
+<B> Previous:</B> <A NAME="tex2html1399" HREF="node92.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node92.html">A Top-Down Parser</A>
+<BR> <P>
+<H3><A NAME="SECTION00753200000000000000">A Bottom-Up Parser</A></H3>
+<P>
+A simple bottom-up parser, known as a <EM>shift-reduce</EM> parser can
+be implemented using a <EM>stack</EM> to hold a sequence of terminal
+and non-terminal symbols. Symbols from the input string can be <EM>shifted</EM>
+onto this stack, or the items on the stack can be <EM>reduced</EM> by
+applying a grammar rule, such that the right-hand-side of the rule matches
+symbols on the top of the stack.
+<P>
+The basic mechanism can best be illustrated using an example.
+(Note that this is similar to the example near the beginning of this
+section, but we are specifying more precisely the actions to be taken at
+each iteration). I'll give examples both for natural language, and
+for arithmetic expressions (I'll use square brackets in the arithmetic
+expressions as otherwise its confusing).
+<P>
+<PRE>Stack                  Input Sequence
+()                     (the dog jumps)
+(the)                  (dog jumps)      SHIFT word onto stack
+(Art)                  (dog jumps)      REDUCE using grammar rule
+(Art dog)              (jumps)          SHIFT..
+(Art Noun)             (jumps)          REDUCE..
+(NounPhrase)           (jumps)          REDUCE
+(NounPhrase jumps)     ()               SHIFT
+(NounPhrase Verb)      ()               REDUCE
+(NounPhrase VerbPhrase)()               REDUCE
+(Sentence)             ()               SUCCESS
+
+()                       (2 * [ 1 + 3 ])  SHIFT
+(2)                      (* [ 1 + 3 ])    REDUCE using rule 3
+(&lt;Factor&gt;)               (* [ 1 + 3])     SHIFT
+(&lt;Factor&gt; *)             ([ 1 + 3])       SHIFT
+(&lt;Factor&gt; * [)           (1 + 3])         SHIFT
+(&lt;Factor&gt; * [ 1)         (1 + 3])         REDUCE (2 times..)
+(&lt;Factor&gt; * [ &lt;Term&gt;)     (+ 3 ])         SHIFT (twice)
+(&lt;Factor&gt; * [ &lt;Term&gt; + 3) ( ])            REDUCE (3 times)
+(&lt;Factor&gt; * [ &lt;Term&gt; + &lt;Expression&gt;) ( ]) REDUCE using rule 1
+(&lt;Factor&gt; * [ &lt;Expression&gt;) ( ])          SHIFT
+(&lt;Factor&gt; * [ &lt;Expression&gt; ]) ()          REDUCE using rule 3
+(&lt;Factor&gt; * &lt;Factor&gt;)     ()              REDUCE using rule 2
+(&lt;Factor&gt; * &lt;Term&gt;)       ()              REDUCE using rule 2
+(&lt;Term&gt;)                  ()              REDUCE using rule 1
+(&lt;Expression&gt;)            ()              SUCCESS</PRE>
+<P>
+In the second example, there were many cases where it was unclear
+whether to shift or reduce. This is a complicated issue. We can
+build shift-reduce parsers (for certain types of grammar) that use 
+some look-ahead to determine whether to shift or reduce, in a similar
+manner to that outlined in the example for top down parsers. However, 
+we'll leave it as an important issue to be discussed in further courses.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

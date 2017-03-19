@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Arrays and Functions</TITLE>
+<META NAME="description" CONTENT="Arrays and Functions">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html392" HREF="node13.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node13.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html390" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html384" HREF="node11.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node11.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html394" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html393" HREF="node13.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node13.html">Dynamic Data</A>
+<B>Up:</B> <A NAME="tex2html391" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<B> Previous:</B> <A NAME="tex2html385" HREF="node11.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node11.html">PointersFunctions and Call </A>
+<BR> <P>
+<H1><A NAME="SECTION00460000000000000000">Arrays and Functions</A></H1>
+<P>
+An array name is generally equivalent to a pointer to the 
+first element, and arrays are passed to functions as pointers. When 
+elements in the array are modified in the function, they are also
+modified in the calling procedure:
+<P>
+<PRE>  void test(int c[])
+  {
+    c[0] =1;
+  }
+ 
+  void main()
+  {
+     int a[5];
+     test(a);
+     cout &lt;&lt; a[0];
+  }</PRE>
+<P>
+results in `1' being written out.
+<P>
+The test function may be written entirely equivalently as:
+<P>
+<PRE>  void test(int* c)
+  {
+    c[0] =1;
+  }</PRE>
+<P>
+If we want a function to return an array, the pointer version
+is essential. The following illustrates this:
+<P>
+<PRE>  int* test()
+  {
+    int* a;
+    a = new int[1];
+    a[0]=1; a[1]=2;
+    return a;
+  }
+
+  void main()
+  {
+     int* b;
+     b = test();
+     cout &lt;&lt; b[0] &lt;&lt; b[1];
+  }</PRE>
+<P>
+Note that space for the array (being created) is explicitly
+allocated within the function using new. We'll come on to that 
+more in the next bit.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

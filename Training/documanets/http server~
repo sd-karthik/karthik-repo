@@ -1,0 +1,4 @@
+1. $sudo apt-get install apche2
+
+	goto su mode
+2. #cd /var/www/html

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Constructors:</TITLE>
+<META NAME="description" CONTENT="Constructors:">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html571" HREF="node26.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node26.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html569" HREF="node22.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node22.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html563" HREF="node24.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node24.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html573" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html572" HREF="node26.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node26.html">Destructors</A>
+<B>Up:</B> <A NAME="tex2html570" HREF="node22.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node22.html">Further Important C++ OOP </A>
+<B> Previous:</B> <A NAME="tex2html564" HREF="node24.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node24.html">Inheritance and Accessibility:</A>
+<BR> <P>
+<H2><A NAME="SECTION00533000000000000000">Constructors:</A></H2>
+ The square and shape
+classes both have two alternative constructors. The one without
+arguments is referred to as the default constructor. We'll consider that
+first. When an instance of
+a derived class is created, the base class constructor is
+called as well as the derived class constructor (before it).
+Therefore the derived class constructor need only include
+the additional intialisation code, beyond that used by
+the base class constructor. That's why the `square' default constructor
+only needed to initialise size, but not colour.
+<P>
+If the base class constructor requires parameters, these
+must be passed by the derived class in a special way. The
+alternative constructor for square
+takes parameters c (colour) and s (size),
+but the shape constructor just took a parameter c (colour).
+Again, the base class (shape) constructor will be called when 
+an instance of the derived class (square) is created. So we
+need to `tell' the system what arguments to use for the
+constructor of the base class. This is done as follows.
+<P>
+<PRE>square::square(int s, colour c) : shape(c)</PRE>
+<P>
+When s1 is created, both its size and colour are set correctly,
+the former using a call to shape(red).
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

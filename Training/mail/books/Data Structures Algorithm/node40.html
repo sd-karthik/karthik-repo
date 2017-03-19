@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Methodology</TITLE>
+<META NAME="description" CONTENT="Methodology">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html746" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html744" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html738" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html748" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html747" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html">Some Examples</A>
+<B>Up:</B> <A NAME="tex2html745" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html">Object Oriented Design</A>
+<B> Previous:</B> <A NAME="tex2html739" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html">Object Oriented Design</A>
+<BR> <P>
+<H2><A NAME="SECTION00561000000000000000">Methodology</A></H2>
+<P>
+The development of a large software system for a customer involves 
+three main stages: determining requirement, design, and
+implementation. The main methodology adopted is structured (top down)
+design, which emphasises control flow issues, and decomposition 
+based on functions. Data is just something you pass between 
+software modules.
+<P>
+Object oriented design changes the focus to start with looking
+at the objects or entities needed to solve the problem. (The emphasis
+is on the data, and what you do with it). You
+identify the key objects, then the operations required on those
+objects.
+<P>
+It may be hard to work out what the objects and operations should be.
+If you have a specification of what is required, often the
+necessary objects will correspond to nouns in the specification,
+and operations will correpond to verbs. For example, in the
+`vehicle database' problem, the nouns `vehicle', `car', `lorry'
+etc are all objects.
+<P>
+A common first stage is to sketch an `object table' which lists
+objects and the operations required (e.g., vehicle: getenginesize).
+<P>
+The second stage may be to identify <EM>relationships</EM> between
+objects. We've already looked at `isa' relationships (e.g.,
+car isa vehicle) and inheritance. But in general there may
+be other relationships between objects. Any datafield in
+an object may contain another object (or more likely a pointer to one)
+so we can capture any relationships. Perhaps we have a `tyre' class
+that captures data about tires; a datafield `TyreType' might
+contain an object of this class. This can be viewed as a kind of
+`has-a' relationship (carA has-a TyreB); a very common kind of
+relationship between objects in OOP.
+<P>
+The third stage is designing the `driver': the top level
+code that glues all the objects together and achieves the overal
+design purpose. A driver may do little more than process user
+commands and delegate tasks to the objects.
+<P>
+As with any software design process, the three stages above
+need not always be sequential, and an iterative process may
+well be involved (ie, redoing earlier decisions once later design
+decisions are made).
+<P>
+The final stages should be implementation and testing of the design.
+Hopefully these should be straightforward once a good design
+has been developed. To implement the design, obviously specific
+datafields/datatypes must be selected to implement each object's
+data, and specific algorithms developed to implement the operations.
+The required datatypes may include ADTs such as stack/queue/tree that
+are not built in, but which are likely to be available in a library.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

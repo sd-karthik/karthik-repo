@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Adjacency Matrix</TITLE>
+<META NAME="description" CONTENT="Adjacency Matrix">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html936" HREF="node56.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node56.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html934" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html928" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html938" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html937" HREF="node56.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node56.html">Edge Lists</A>
+<B>Up:</B> <A NAME="tex2html935" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html">Implementing a Graph ADT</A>
+<B> Previous:</B> <A NAME="tex2html929" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html">Implementing a Graph ADT</A>
+<BR> <P>
+<H3><A NAME="SECTION00614100000000000000">Adjacency Matrix</A></H3>
+<P>
+For a graph of N nodes, a simple representation is just an NxN matrix of 
+boolean values -say G[1..Max,1..Max] of boolean.
+An edge between nodes n and m is indicated by a 'True' entry in the array
+G[n,m] (lack of an edge by 'false'). For a labelled graph, a further
+1d array can give the labels of each node. Finally, an integer
+can be used to represent the size (number of nodes) of a specific graph.
+<P>
+The first graph in the figure would be represented as follows:
+<P>
+<PRE>  1 2 3 4 5
+1 F T F T F
+2 F F T F F
+3 F F F F F
+4 F F T F T
+5 F F F F F</PRE>
+<P>
+The details of this are left as an exercise. In fact, exercise 2.
+All the ADT operations specified above can be straightforwardly
+implemented using this representation.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

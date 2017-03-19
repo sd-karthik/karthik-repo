@@ -1,0 +1,41 @@
+<-------------------  M E T H O D 1  ------------------------>
+
+1. To add commands
+
+	#vi /etc/environment
+
+2. add the path inside root
+	->pycharm/bin/pycharm.sh
+
+3.source /etc/environment && export PATH
+
+<------------------------------------------------------------->
+
+
+<--------------------  M E T H O D 2  ------------------------>
+
+1. change the mode of file to execuatble for user permisiion
+
+	to change the owner:
+	# chown -hR karthik:$karthik <path>/<file> ./
+
+	to change the permission to execuatble:
+	# chmod +x <path>/<file> 
+
+2. Open bashrc file
+
+	#vi .bashrc
+	
+	type this line at last line
+	->alias <New name>='<path/oldname>'
+
+	save and close.
+
+3. Type this command to apply changes in .bashrc file
+
+	#source ~/.bashrc
+<----------------------------------------------------------------->
+
+To find the version of python
+
+# readlink -f $(which python) | xargs -I % sh -c 'echo -n "%: "; % -V'

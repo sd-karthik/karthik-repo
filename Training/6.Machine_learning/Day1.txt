@@ -1,0 +1,141 @@
+<-------------------------------------- AI/ML--------------------------------------->
+TRIANER	:	VISHWANATH JHA
+Mail:
+vishwanath.jha@gamutdata.in
+vishwanath.jha@gamutanalytics.com
+<----------------------------------------------------------------------------------->
+REF	:	AndrewConway statistics one Princeton University
+
+1. Computer Vision
+2. Speech Recognition
+3. Natural Language Processing:->
+
+-> Perception
+-> syntax - rules
+-> semantic - meaning of word
+-> Pragmatic interpretation- how we speak
+
+
+-> Parses in a sentence?
+
+POS tagging -> Part of speech
+PN- > pronoun
+N- > noun
+Con -> Conjunction
+Det -> determiner (eg: the)
+Prep-> preposition
+
+V-> verb
+Pro-> pronoun
+
+
+Phrase chuncking:
+NP -> Noun Phrases: "NAtural Language Processing" : group of nouns
+VP -> Verb phrases
+PP-> Prepostion phrase
+Syntactic Parsing:
+
+Word Sense Disambiguation(WSD): word meaning changing on context
+
+SRL -> Semantic Role Labeling
+	"cose role analysis"
+	" thematic analysis"
+	" shallow semantic parsing"
+
+website: corsera, edx
+
+
+
+--------------------------------------
+steps:
+
+1.	install jupyter notebook
+2.	install pip
+3.	install nltk
+
+4. $python
+	>>> import nltk
+	>>> nltk.download()
+5. web opens a pop up, download "book"
+
+
+----------------------------------------------
+Project:
+1.	Extraction Twitter Sentiment Analysis using
+2.	Rottentomatoes movie Review
+3.	Demonitisation 
+4.	spam detection
+5.	Stemming=
+				{ large, larger} same meaning
+	POStagging
+
+-----------------------------------------------
+DAY2:
+
+
+print documents
+
+python things----------
+
+
+TFidfVectorizer -> Term frequency id 
+
+Interview
+-----------------------------------------------
+
+1. Text processing-> tokenising: term frequency ,term document matrix
+
+	( 0 - not present, 1 -present)
+	unigram
+	bigrams: collocations
+	trigram
+
+Predicting the target category:
+Convert text to lowercase
+1. Remove th stopword
+
+2. text normalisation: lematization-> computer takes groups as different words eg: boy or boys, Boy,BOY... takes as boy for lematising, lemmas are dictionary words. lematiser gives dictionary word
+-> stemming: only the root words Eg: reomve will return remov 
+
+3.predicting model: training documents is used for for predicting the category	: term documents matrix.	
+
+4.	tagging words based on POS: COunt of noun adjactive, noun...
+5. Count the +ve adjactive, +ve verb, +nouns
+	count of +ve words - count of -ve words -> to predict the +ve and negative reviews
+
+Precision, recall call as F1
+
+80%-20% rule:
+80% to create the module
+20% to predict
+-------------------------------------
+Machine learning types:
+1. supervised
+2.unsupervised
+3. reinforced
+
+
+
+
+----------------------
+Twitter:
+
+pandas library
+
+import pandas ad pd
+df = pd.read_csv("c:/......",index_cd = , parse_table("data"))
+(dataframe)
+
+bigram.find
+
+-----------------------
+sentiment analysis:
+
+PID |  Prod name|  Rating| review			|
+-> 80% dividing
+-> 20%
+
+
+cs.as.edu/~mduedze/datasets/
+
+

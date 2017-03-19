@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Dynamic Data</TITLE>
+<META NAME="description" CONTENT="Dynamic Data">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html403" HREF="node14.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node14.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html401" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html395" HREF="node12.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node12.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html405" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html404" HREF="node14.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node14.html">Problems and Pitfalls</A>
+<B>Up:</B> <A NAME="tex2html402" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<B> Previous:</B> <A NAME="tex2html396" HREF="node12.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node12.html">Arrays and Functions</A>
+<BR> <P>
+<H1><A NAME="SECTION00470000000000000000">Dynamic Data</A></H1>
+<P>
+When variables are declared in their normal fashion, space in memory
+is assigned at compile time for those variables. If an array is
+declared, enough space for the whole array is assigned, so:
+<P>
+<PRE>   int a[1000]</PRE>
+<P>
+would use 2000 bytes (for 2 byte ints). Obviously this is wasteful
+if only a few of them are used in a particular run of the program.
+And problematic if more than 1000 elements are needed. So there's
+a case for being able to dynamically assign memory as a program
+runs, based on the particular needs for this run.
+<P>
+This is possible using the `new' operator that explicitly assigns
+memory:
+<P>
+<PRE>   
+   int* a;
+   ....
+   cout &lt;&lt; &quot;How many entries are there going to be this time?&quot;;
+   cin &gt;&gt; n;
+   a = new int[n];</PRE>
+<P>
+results in space for n integers being dynamically assigned as
+the program runs. Just enough, and not too much, for that run.
+We could declare the variable at the same time:
+<P>
+<PRE>   int* a = new int[n];</PRE>
+<P>
+We can also dynamically de-allocate memory to free it up when we're
+done:
+<P>
+<PRE>   delete a;</PRE>
+<P>
+de-allocates all that space.
+<P>
+This can be useful for strings:
+<P>
+<PRE>   char* str = new char[n];</PRE>
+<P>
+could be used to create space for a string of length n, allowing
+us to deal with variable length strings efficiently.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

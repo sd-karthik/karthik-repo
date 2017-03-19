@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Run-Length Encoding</TITLE>
+<META NAME="description" CONTENT="Run-Length Encoding">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1453" HREF="node98.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node98.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1451" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1445" HREF="node96.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node96.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1455" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1454" HREF="node98.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node98.html">Variable-Length Encoding</A>
+<B>Up:</B> <A NAME="tex2html1452" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html">File Compression</A>
+<B> Previous:</B> <A NAME="tex2html1446" HREF="node96.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node96.html">Motivation</A>
+<BR> <P>
+<H2><A NAME="SECTION00762000000000000000">Run-Length Encoding</A></H2>
+<P>
+A simple compression method uses the fact that, in certain sorts of
+files, we often get `runs' of repeated characters. A sequence such as:
+<P>
+<BLOCKQUOTE> aaaaabbbbbbbbbccccc
+</BLOCKQUOTE>
+could be represented more concisely as:
+<P>
+<BLOCKQUOTE> 5a 9b 5c
+</BLOCKQUOTE>
+<P>
+For binary files we can be even more concise:
+<P>
+<BLOCKQUOTE> 11111111111000000011111111111111
+</BLOCKQUOTE>
+<P>
+could be represented simply as
+<P>
+<BLOCKQUOTE> 11 8 14
+</BLOCKQUOTE>
+<P>
+as we can assume that we are alternating between 1s and 0s. Of course,
+numbers take up more space (bits) than 1s/0s to represent, but
+we can still get good savings if we have quite long runs of 1s or 0s
+(as may be common in some simple image formats, for example).
+<P>
+Run-length encoding isn't much good for text files, as repeated
+sequences aren't that common. However, it is quite useful
+for images. Many standard image-file formats are essentially
+compressed versions of the simple bitmap representation - run-length
+encoding is one compression method used.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

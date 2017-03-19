@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Queues and Stacks derived from Lists</TITLE>
+<META NAME="description" CONTENT="Queues and Stacks derived from Lists">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html698" HREF="node37.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node37.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html696" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html690" HREF="node35.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node35.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html700" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html699" HREF="node37.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node37.html">Programming Style</A>
+<B>Up:</B> <A NAME="tex2html697" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html">Exploiting Inheritance when Defining </A>
+<B> Previous:</B> <A NAME="tex2html691" HREF="node35.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node35.html">Copy Constructors</A>
+<BR> <P>
+<H2><A NAME="SECTION00553000000000000000">Queues and Stacks derived from Lists</A></H2>
+<P>
+As another example, suppose we already have a list
+ADT (called mylist) with the following operations:
+<P>
+<PRE>int isempty();
+int isfull();
+void reset();
+  // Resets list `cursor' to be at front of list.
+void advance();
+  // advance list cursor
+int currentitem();
+  // return item at list cursor
+int atend();
+  // true if list cursor is at end of list.
+void insertbefore(int x);
+  // insert x before list cursor
+void insertafter(int x);
+  // insert x before list cursor
+void delete();
+  // delete item at list cursor
+  // List cursor now points to next item.</PRE>
+<P>
+How would we define a stack ADT which exploits the
+list ADT already developed and debugged?
+<P>
+This should be fairly straightforward.
+<P>
+<PRE>class stack: mylist {
+public:
+   stack();
+   ~stack();
+   push(int x);
+   int pop();
+   int isempty();
+   int isfull();
+private:
+  // no extra private data members
+};</PRE>
+<P>
+Stack is defined as a derived class of mylist. mylist is given
+as a <EM>private</EM> base class. This means that it's public operations
+won't be public in stack, but they will be private! Which means that
+we can use them to implement pop etc:
+<P>
+<PRE>stack::stack()
+{
+// Nothing extra to do
+}
+
+stack::~stack()
+{
+// Nothing extra to do
+}
+
+stack::push(int x)
+{
+   mylist::insertbefore(x);
+}
+
+int stack::pop()
+{
+   int temp;
+   temp = mylist::currentitem();
+   mylist::delete();   
+   return temp;
+}
+
+int stack::isempty()
+{
+   return mylist::isempty();
+}
+
+int stack::isfull()
+{
+   return mylist::isfull();
+};</PRE>
+<P>
+Very little extra work was required. We certainly didnt have to
+mess with linked lists, and indeed didnt have to know how
+mylist was implemented (could be using arrays).
+<P>
+As we explicitly DONT want most of the operations of mylist to
+be available in stack, we make mylist a private base class. However,
+we CAN use its public methods in the function definitions above.
+Isempty and Isfull just call the methods of the base class (effectively
+making them public).
+<P>
+A queue can be implemented very similarly. It's just mildly more fiddly
+to write the fn to add items to the queue, but still possible with the
+methods provided by the list class.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

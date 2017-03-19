@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Dynamic Programming</TITLE>
+<META NAME="description" CONTENT="Dynamic Programming">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1737" HREF="node123.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node123.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1735" HREF="node118.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node118.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1729" HREF="node121.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node121.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1739" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1738" HREF="node123.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node123.html">Genetic Algorithms</A>
+<B>Up:</B> <A NAME="tex2html1736" HREF="node118.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node118.html">General Methods for Developing </A>
+<B> Previous:</B> <A NAME="tex2html1730" HREF="node121.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node121.html">Greedy Algorithms</A>
+<BR> <P>
+<H1><A NAME="SECTION00940000000000000000">Dynamic Programming</A></H1>
+<P>
+The principle of dynamic programming is analogous to
+`divide and conquer'. In fact, dynamic programming
+can be viewed as this principle taken to extremes. If it is not possible
+to work out exactly how to divide up a problem into smaller problems, it
+is sometimes worth taking the approach of solving ALL the smaller problems,
+and storing them away to be combined and used when solving the larger
+problem. (This idea is illustrated to some extent by the shortest path
+algorithm we looked at: a table of shortest distances found so far
+to each node is
+maintained, and this used when working out new shortest paths.).
+<P>
+The basic idea of dynamic programming can be illustrated by looking
+at the `knapsack' problem. In this problem, a thief robbing a safe
+finds it filled with N items of various size and value. But his
+bag has only limited capacity (M). How does he choose which items to
+take to maximise his loot's value.
+<P>
+As an example, perhaps there are four objects in the safe of following
+sizes/values: size 12, value 20; size 5 value 8; size 3 value 10; size
+6 value 10. His bag's capacity is 12. He should clearly go for the first
+object and scrap the rest. But what if his bag has capacity 15. This
+time he should leave the big object, and go for the smaller ones.
+This problem is clearly of some practical relevance, for example in 
+real packing (e.g., shipping) applications.
+<P>
+In a dynamic programming approach we do a rather non-intuitive thing.
+We calculate the best combination of objects for ALL knapsack sizes up
+to M. This can be done very efficiently, as illustrated in the following
+program (which assumes that we have a potentially number of items of
+each given size/value, these sizes/values being stored in an array).
+<P>
+<PRE>for j:=1 to N do             {Go through each item}
+   for i := 1 to M do begin  {Consider each size knapsack}
+      if i &gt;= size[j] then
+         if (cost[i] &lt; cost[i-size[j]] + value[j]) then begin
+            cost[i] := cost[i-size[j]] + value[j];
+            best[i] := j
+         end;</PRE>
+<P>
+Cost[i] is the highest value that can be achieved with a knapsack of
+capacity i and is initialised to zero; best[i] is the last item that was added to achieve that
+maximum. First we calculate the best we can do only using objects of
+type 1 (j=1). Then we calculate the best considering
+items of type 1 and 2 (using our result for just type 1). And so on.
+<P>
+The revised calculation of 'cost' when considering a new item is
+very simple. We can find out the value (cost) of items that we'd be
+able to take of the other kinds considered so far IF we removed enough
+to leave room for our new kind of item (cost[i-size[j]]). If that value
+PLUS the value of the item we're considering adding is greater than
+the old cost just with all the old items then replacing the old item(s)
+with this new one is a good idea, and so cost (and best) are updated to
+reflect this. (We can see parallels with shortest path algorithms).
+<P>
+As an example, suppose we have the following items, and are looking to
+fill a bag of size 4:
+<P>
+<PRE>Item  Size  Value
+1     3     6
+2     2     5
+3     1     2</PRE>
+<P>
+Initially we just consider item 1. For a bag of size i=1 and 2 
+the item won't fit in the bag. For a bag of size 3, we can fit one
+item and as cost[3]&lt;cost[0]+value[1], that one is added. So cost[3]
+is now 6; best[3]=1. For a bag of size 4, we check if cost[4] &lt;
+cost[1]+value[1] - this is true, so for this size too we have item 1
+in the bag, and cost[4]=6; best[4]=1.
+<P>
+Now we consider item 2. For bag size 1, it won't fit. For bag size
+2 we check whether cost[2] &lt; cost[0] + value[2]. This is clearly the
+case (as cost[2] is zero, as item 1 wouldnt fit in the bag) so we
+make that the `last' (and only) item in this bag, and cost[2]=5. 
+However, for size
+3 we could fit a type 1 object - so when we check if cost[3] &lt; cost[1]+value[2]
+the answer is no. For size 4 we check if: cost[4] &lt; cost[2]+value[2].
+Now cost[4] is 6, cost[2] has just been calculated as 5, so the check
+succeeds, which means it is worth throwing out the previous contents
+of bag 4, and replacing the top item with item 2 (and assuming the rest
+of teh bag is te same as what is `best' for bags of size 2). 
+So now we have: cost[0]=0; cost[1]=0; cost[2]=5; cost[3]=6; cost[4]=10.
+<P>
+Now, considering item 3. Item 3 fits in a bag of size 1, so cost[1]=2.
+It is not worth using for bags of size 2, but for a bag of size
+3 we have: cost[3] &lt; cost[2]+value[3], so the top item in this
+bag is item 3 (and we assume the rest is the best we can get for a bag
+of size 2). For a bag of size 4, this is not worth doing, so at the end of
+the day we have:  cost[0]=0; cost[1]=2; cost[2]=5; cost[3]=7; cost[4]=10.
+We also have best[4]=2; best[3]=1; best[2]=2; best[1]=3.
+<P>
+It turns out that when the calculation is complete we can find out
+the contents of the knapsack using the 'best' array. Suppose best[M] is
+item k, of size size[k]. Then the next item in the bag must be
+the last item in a bag of size[M-size[k]]. And so on. So, in the
+above case, best[4]=2, so we have an item 2 in the bag. best[4-size[2]]=
+best[2]=2, so we have another item of type 2 in the bag.
+<P>
+All this can be proved correct by induction. ie, we assume that it
+gives the right result for N items, it gives the right result for N+1 items.
+Then we just check it is correct for 1 item. We check, for N items,
+that if it gives right result for bag of size M it gives right result
+for bag of size M+1. I'll leave that as an exercise for the reader.
+<P>
+This approach to the knapsack problem takes NxM steps, which isn't bad.
+Try thinking of other solutions to the problem. However, the approach
+does have a limitation - it only works for bags whose size
+can be represented as an integer (or where this is an acceptable
+approximation). The more fine-grained a result we want, in terms of
+bag sizes, the more partial solutions we need calculate and store for
+smaller sizes. For dynamic programming it is necessary to think hard about
+the time and space requirements of the approach. However, the general
+idea, of solving for simpler cases and then using these results to
+solve the harder case, is clearly a very widely applicable technique,
+and it should at least be viewed as a possible problem solving
+technique to be used for all sorts of hard problems.
+<P>
+<HR><A NAME="tex2html1737" HREF="node123.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node123.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1735" HREF="node118.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node118.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1729" HREF="node121.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node121.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1739" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1738" HREF="node123.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node123.html">Genetic Algorithms</A>
+<B>Up:</B> <A NAME="tex2html1736" HREF="node118.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node118.html">General Methods for Developing </A>
+<B> Previous:</B> <A NAME="tex2html1730" HREF="node121.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node121.html">Greedy Algorithms</A>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

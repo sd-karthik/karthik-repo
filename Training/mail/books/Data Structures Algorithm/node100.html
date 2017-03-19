@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>JPEG and MPEG</TITLE>
+<META NAME="description" CONTENT="JPEG and MPEG">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1486" HREF="node101.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node101.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1484" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1478" HREF="node99.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node99.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1488" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1487" HREF="node101.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node101.html">Summary</A>
+<B>Up:</B> <A NAME="tex2html1485" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html">File Compression</A>
+<B> Previous:</B> <A NAME="tex2html1479" HREF="node99.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node99.html">Substitutional Compressors</A>
+<BR> <P>
+<H2><A NAME="SECTION00765000000000000000">JPEG and MPEG</A></H2>
+<P>
+All the compression methods discussed so far are <EM>lossless</EM>,
+which means that you can restore an exact copy of the original.
+Although vital for texts, for images <EM>lossy</EM> compression
+may be acceptible, where some fine detail in the image may
+be lost. JPEG is a lossy compression method for images where
+very good compression may be achieved at the expense of losing
+some detail in the image. JPEG is designed so that the detail lost
+is normally not perceivable by the human eye.
+<P>
+JPEG allows you to vary the degree of ``lossiness''. If you want a
+very small file size, but can put up with a slightly poor quality image,
+you can set parameters appropriately.
+<P>
+JPEG is jolly complicated. However, there is one key idea that
+is worth explaining. The basic idea is that you transform (bits of)
+the image into <EM>frequency space</EM> by applying a kind of
+fourier transform. Then you throw away some of the details of
+the high (spatial) frequencies. The result of this is that
+gradual changes are kept, but fast or abrupt changes may be lost.
+(If you've never heard of
+fourier transforms this probably won't make much sense, but
+it would take to long to explain).
+<P>
+As an illustration, here's a Piglet before and after its been compressed
+with JPEG with quality set very low:
+<P>
+ <IMG  ALIGN=BOTTOM ALT="tex2html_wrap2868" SRC="img13.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img13.gif"  > 
+<P>
+ <IMG  ALIGN=BOTTOM ALT="tex2html_wrap2870" SRC="img14.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img14.gif"  > 
+<P>
+The size of the file has been reduced by a factor of 20, but the
+image quality is poor. With higher quality settings any decrease
+in quality may be barely perceivable by human eye, yet the image size
+may still be reduced by a factor of 5 or so.
+<P>
+MPEG is a lossy compression algorithm for video. Very roughly,
+it uses JPEG like compression for a frame, but does uses
+difference information between frames to reduce the information
+needed for each frame. (Two successive frames may be
+virtually identical).
+<P>
+Any lossy compression algorithm is useless for text. It's no
+good saving your essay, only to find your compression program
+has removed all the 'details'! However, typically lossy algorithms
+can give greater compression than lossless methods, and for
+video, audio or graphics the result may not be noticeably
+poorer than the original.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

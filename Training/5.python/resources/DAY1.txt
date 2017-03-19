@@ -1,0 +1,241 @@
+<------------------------------------ DAY 1-------------------------------->
+TAUGHT BY : VINOD KULKARNI
+FILE CREATED BY : KARTHIK SHETTY
+DATE: 08/03/2017 
+TIME: 09:30am
+----------------------------------------------------------------------------
+NOTE: set tabspace = 4 for reading this document with format
+------------------------------------------------------------------------
+---
+
+Python is an interpreted(not completely) portable language provided it doesn't access services related to a particular O.S
+
+1.	man python
+
+2.	Use of manual for python:
+	python --help
+
+	Eg: $ python -c 'print "hello"'
+
+3.	exit : ctrl+z + Enter
+
+
+4.	For windows installation website (active python):
+	#python.org->Downloads
+	#search: python win
+
+5. 3 modes of working: 
+			1.Terminal		-> for printing single line
+			2.Interactive	-> for understanding
+			3.File mode		-> Executing python and file.py is an input
+			4.Script mode	-> file.py is a file changed as executable
+
+	script: any file which start with '#!' indicates its a script.
+		EG: #! /usr/bin/python
+			print "hello"
+		->save script.py
+		-> change chmod 776 script.py
+		->./script.py
+
+	NOTE: To find a file especially for exe
+		a) locate -> used for database
+		b)Whereis -> source of file available
+		c) find -> to find a file
+		d) which -> to find the executable
+
+6.	print is not cmd, fun, statement but its a "KEYWORD"
+	but in 3.4 is a function
+
+-----------------------------------------------------------------------
+TIME: 11.30am
+-----------------------------------------------------------------------
+7. Limitations:
+
+	1.	 Execution time and interpretation will lead
+	to slower of execution.
+
+	2.	 Directly interact with hardware devices and 
+	system resources cannot be possible in scripting language.
+
+8.	Datatypes:
+		
+		integer i1 = 10
+		long	l1 = 1000
+		float	f1 = 10.555
+		string	str1 = 'abc'
+				or	 = "abcd"
+				or	 = '''abcd'''
+				or	 = """abcde"""
+
+9.	Operators:
+
+		All the operators used in any language is used.
+		eg:
+			2	^	3 	= 1			// Exor operation
+			2	+	3 	= 5			// addition
+			'2'	+	'3' = '23'		// string concatenation
+			'2' + 	3 	= NP		// Not possible=> TypeError
+			'2' * 	3 	= '222'		// * applicable on string integer string output
+			'2'*'3' = NP
+	Logical operators:
+		Logical operators are changed.
+			AND operator(&&) : and
+			OR operator	(||) : or
+			NOT operator(!)	 : not
+		Eg:
+			a = 3
+			b =	4
+			c =	(a or b)	// c = 
+			d = !a			// d = 0 boolean expression
+
+	NOTE:
+		Increment(++) and decrement(--) operators are not availbale in python
+
+	Q: logial and bitwise operators are available or not ?
+
+
+	verify:
+		row_input, input and all the input operations
+		dyamic typing: ' ', " " , ''' ''', """ """ 
+		operators :	 and or not
+--------------------------------------------------------------------------------------
+END TIME: 1.00pm
+--------------------------------------------------------------------------------------
+START: 1.45pm: 2.00pm
+--------------------------------------------------------------------------------------
+
+10. Program Control flow contructs:
+	
+		-> All the constructs must end with colon.
+		-> All the blocks must be indented i.e.,
+		the statements within the constructs must be indented
+	
+	conditional constructs:
+	if(exp1):
+			st1		// Spaces should be same within this block
+			st2
+	elif(exp2):
+			st3		/*	Can have 2 diffrent blocks with different space
+			st4		*	but within a block the statements should have
+					* 	same space */
+	else:
+			st5
+			st6
+	st7
+		
+	NOTE: switch , goto, do while are not available
+
+	Looping constucts:
+	while (exp1):
+			st1
+			st2
+	break
+
+-----------------------------------------------------------------------------
+EXP1: User will enter a number check whether the given number is equal to 100, < 100 or >100 and print the message accordingly
+
+EXP2: Print 1-10
+
+EXP3: Copy the code of prev exp , and print the output from 1 to 5
+		hint: dont change the expression only change the body part
+			(use of break)
+
+EXP4: copy EXp2, output 1-10 , except 5
+		hint : use continue
+
+EXP 5: user enters day of a week, if user enters monday, tuesday...
+		print "goto office"
+		if saturday
+			print " Play cricket"
+		if sunday
+			print "sleep well today"
+
+
+ASSign 1: all experiment should be in a file sample.py
+		but only one should be executed at once
+		-> ''' '''  is not a comment , dont use
+		-> use if statements,			can be
+		-> use choices: choice 1, choice 2,	can be
+
+		ex:
+		#exp no1
+		#experiments
+		if(1):
+			.......
+			.......
+		#exp no2
+		if(0):
+			.......
+			.......
+
+----------------------------------------------------------------------------
+
+DICTIONARY: attribute = data members
+			method	  = member functions/object
+			x.y => y is an attribute associated with the object x
+			i.j() => ()-> invoking; j is an method associated with the object i
+				or
+			i = j() => j is a class, i is an object of class j
+
+----------------------------------------------------------------------------
+
+'ls' equivalent in windows 'dir'
+----------------------------------------------------------------------------
+11. For attribute and method finding:
+
+>>> str1 = "hello"
+>>> dir(str1)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> type(str1.replace)
+<type 'builtin_function_or_method'>
+>>> 
+
+
+-> dir, type, help => helping things in python
+Usage:
+>>>dir(str1)
+>>>type(str1.replace)
+>>>help(str1.replace)
+
+-> if its other than 'builtin_function_or_method' its an attribute
+-> if its 'builtin_function_or_method' then its method
+-> apply help only for function argument
+
+eg: 
+	str1.replace("hello","bye")
+
+	-------------------------------------------------------------------------
+	|	very common - very frequent		- keywords	- print					|
+	|	very common - less frequent 	- builtins	- input					|
+	|	less common - less frequent 	- var/fn	- module pi	- math		|
+	|	specific  	- attribute/method	- object	- replace				|
+	|																		|
+	-------------------------------------------------------------------------
+
+12. LIST
+
+EXP6:
+lst1 = [10, "hi", "20"]
+
+a) print the whole list
+b) print ele by ele		using i) while ii)for
+c) insert 30 at the beg
+d) insert 40 at pos 1
+e) insert 50 at the end	(hint: insert)
+f) delete ele at pos1	(hint: remove,pop)
+g) delete ele at pos 1 and print the deleted item
+h) print number of ele of the list
+
+Assign2: 
+	1.	Study 2 builtins: range, cmp
+	2.	Study tuple		:	 tuple = (1,"hi",3)/* immutable*/
+	3.	Difference between list and tuple
+	4.	Create 	a) an empty
+				b) list with an element
+				c) empty tuple
+				d) tuple with an element
+	5.	Program to work on Fibbonacci series : 	1. numbers user defined
+												2. upper limit user defined
+---------------------------------------------------------------------------
+END TIME: 6.00pm
+<----------------------------- END OF DAY1 -------------------------------->

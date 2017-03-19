@@ -1,0 +1,3 @@
+tuple:
+	container a datatype
+eg: x=(1,2,3) /* immutable datatype */

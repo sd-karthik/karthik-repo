@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>File and Printing Systems</TITLE>
+<META NAME="description" CONTENT="File and Printing Systems">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html782" HREF="node44.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node44.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html780" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html774" HREF="node42.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node42.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html784" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html783" HREF="node44.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node44.html">Window and User Interface </A>
+<B>Up:</B> <A NAME="tex2html781" HREF="node41.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node41.html">Some Examples</A>
+<B> Previous:</B> <A NAME="tex2html775" HREF="node42.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node42.html">A Drawing Tool</A>
+<BR> <P>
+<H3><A NAME="SECTION00562200000000000000">File and Printing Systems</A></H3>
+<P>
+Almost all computer applications require facilities to save stuff to
+disk, and print things out (consider: spreadsheets, drawing packages,
+netscape, programming language compilers,..). Getting this right in
+all its details is very hard, and might take someone size months to
+program from scratch. Yet most print/save facilities are pretty much the
+same, with just minor details. So the programmer will want to re-use
+code from existing applications (or special purpose libraries).
+Program re-use is what OOP is good at. The programmer can import classes
+that have all the basic print/save functionality built in (procedures
+to save files while making various checks to ensure other files not 
+overwritten, or data lost if disk full or system crashes etc).
+Very little additional code will have to be written ( basically, code to
+covert the data format of the application into a form suitable for
+printing or writing to a disk). And if the application programmer doesn't
+like some of the functionality that the library provides (maybe
+they don't like having a dialogue box popping up asking if you REALLY want
+to print this file) then they can create subclasses of the library classes
+and <EM>override</EM> any procedures they don't like with new ones.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

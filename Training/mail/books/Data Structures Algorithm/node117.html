@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Range Searching</TITLE>
+<META NAME="description" CONTENT="Range Searching">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1677" HREF="node118.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node118.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1675" HREF="node111.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node111.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1671" HREF="node116.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node116.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1679" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1678" HREF="node118.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node118.html">General Methods for Developing </A>
+<B>Up:</B> <A NAME="tex2html1676" HREF="node111.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node111.html">Geometric Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1672" HREF="node116.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node116.html">Finding the Convex Hull</A>
+<BR> <P>
+<H1><A NAME="SECTION00860000000000000000">Range Searching</A></H1>
+<P>
+As a final example of geometric algorithms, consider the following
+problem. You have a database of objects, each with certain
+attributes (e.g., age, mileage, mpg, price!). You want to pick out from
+that database all those items that satisfy some criteria
+(e.g, price &lt; &#163;3000, age &lt; 4). Finding all the objects that
+satisfy range restrictions on attributes is called range searching, and
+is clearly an important practical problem.
+<P>
+If we have only ONE attribute to consider (e.g., 2 &lt; <I>age</I> &lt; 4), then
+an efficient technique is to represent the data as a binary tree, then
+do a binary search on the end points of the range:
+<P>
+ <IMG  ALIGN=BOTTOM ALT="tex2html_wrap2912" SRC="img23.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img23.gif"  > 
+<P>
+This requires pre-processing the data to create the tree, but once done
+searches are O(R log N) where N items in database and R is
+number of points falling in range. The goal of range
+searching algorithms is to achieve similar efficiency for ``multidimensional''
+range searching involving several attributes. We'll just consider
+two attributes/dimensions. In geometric terms we are looking for
+points (items) that lie inside a rectangle (e.g., capturing 3 &lt; <I>age</I> &lt; 6;
+2000 &lt; <I>price</I> &lt; 3000).
+<P>
+The simplest thing to do is to examine every item in the database, checking
+whether each ``point'' lies in the given rectangle.
+(giving O(N) complexity). However, there are more efficient methods,
+some of which  involve some pre-processing of the data.
+<P>
+The simplest extension is to first find all the items for which
+one criteria (e.g., age) is satisfied, and only check the other
+criteria for these items. But this won't give us much gain in efficiency.
+<P>
+A better method is to pre-process the data by dividing up the
+range into a grid of small squares. Say, one of those squares
+might be 0&lt;<I>age</I>&lt;1, 0 &lt; <I>price</I> &lt; 1000. You find out which points
+lie in each grid square. Then given a particular query, you can identify
+it with a number of grid squares, and rapidly retrieve the relevant items.
+If the size of the squares is carefully chosen then you can get
+good efficiency with this method.
+<P>
+Another method is to use ``two dimensional trees''. These are like
+ordinary binary trees, but alternate between the two attributes.
+So, the first division might be between <I>age</I> &lt; 5 and 5 &lt; <I>age</I>,
+and then at the next level in the tree we might have, for
+the first branch, a division <I>price</I> &lt; 3000 vs 3000 &lt; <I>price</I>.
+If these trees are carefully constucted then the complexity for
+searches is O(R+log N).
+<P>
+Both the grid method and the tree method generalise to more than
+two dimensions/attributes.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

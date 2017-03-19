@@ -1,0 +1,1 @@
+cmd_/home/karthik/Training/6.mm/page_dump_complete/kmod.ko := ld -r -m elf_i386 -T ../scripts/module-common.lds --build-id  -o /home/karthik/Training/6.mm/page_dump_complete/kmod.ko /home/karthik/Training/6.mm/page_dump_complete/kmod.o /home/karthik/Training/6.mm/page_dump_complete/kmod.mod.o ;  true

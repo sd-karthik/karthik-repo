@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>String Processing Algorithms</TITLE>
+<META NAME="description" CONTENT="String Processing Algorithms">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1100" HREF="node71.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node71.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1098" HREF="ds98.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1092" HREF="node69.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node69.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1102" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1101" HREF="node71.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node71.html">Introduction</A>
+<B>Up:</B> <A NAME="tex2html1099" HREF="ds98.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.html">Data Structures and Algorithms </A>
+<B> Previous:</B> <A NAME="tex2html1093" HREF="node69.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node69.html">Summary: Graph Algorithms</A>
+<BR> <P>
+<H1><A NAME="SECTION00700000000000000000">String Processing Algorithms</A></H1>
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1103" HREF="node71.html#SECTION00710000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node71.html#SECTION00710000000000000000">Introduction</A>
+<LI> <A NAME="tex2html1104" HREF="node72.html#SECTION00720000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node72.html#SECTION00720000000000000000">A String ADT</A>
+<LI> <A NAME="tex2html1105" HREF="node74.html#SECTION00730000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node74.html#SECTION00730000000000000000">String Searching</A>
+<UL> 
+<LI> <A NAME="tex2html1106" HREF="node75.html#SECTION00731000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node75.html#SECTION00731000000000000000">Motivation</A>
+<LI> <A NAME="tex2html1107" HREF="node76.html#SECTION00732000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node76.html#SECTION00732000000000000000">A Naive Algorithm</A>
+<LI> <A NAME="tex2html1108" HREF="node77.html#SECTION00733000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node77.html#SECTION00733000000000000000">The Knuth-Morris-Pratt Algorithm</A>
+<LI> <A NAME="tex2html1109" HREF="node78.html#SECTION00734000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node78.html#SECTION00734000000000000000">The Boyer-Moore Algorithm</A>
+<LI> <A NAME="tex2html1110" HREF="node79.html#SECTION00735000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node79.html#SECTION00735000000000000000">Tradeoffs and Issues</A>
+<LI> <A NAME="tex2html1111" HREF="node80.html#SECTION00736000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node80.html#SECTION00736000000000000000">Conclusion</A>
+<LI> <A NAME="tex2html1112" HREF="node81.html#SECTION00737000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node81.html#SECTION00737000000000000000">Exercise</A>
+<LI> <A NAME="tex2html1113" HREF="node82.html#SECTION00738000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node82.html#SECTION00738000000000000000">Further Reading</A>
+</UL> 
+<LI> <A NAME="tex2html1114" HREF="node83.html#SECTION00740000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node83.html#SECTION00740000000000000000">Pattern Matching</A>
+<UL> 
+<LI> <A NAME="tex2html1115" HREF="node84.html#SECTION00741000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node84.html#SECTION00741000000000000000">Motivation</A>
+<LI> <A NAME="tex2html1116" HREF="node85.html#SECTION00742000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node85.html#SECTION00742000000000000000">Representing Patterns</A>
+<LI> <A NAME="tex2html1117" HREF="node86.html#SECTION00743000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node86.html#SECTION00743000000000000000">A Simple Pattern Matcher</A>
+<LI> <A NAME="tex2html1118" HREF="node87.html#SECTION00744000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node87.html#SECTION00744000000000000000">Further Reading</A>
+</UL> 
+<LI> <A NAME="tex2html1119" HREF="node88.html#SECTION00750000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node88.html#SECTION00750000000000000000">Parsing</A>
+<UL> 
+<LI> <A NAME="tex2html1120" HREF="node89.html#SECTION00751000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node89.html#SECTION00751000000000000000">Motivation</A>
+<LI> <A NAME="tex2html1121" HREF="node90.html#SECTION00752000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node90.html#SECTION00752000000000000000">Context Free Grammars</A>
+<LI> <A NAME="tex2html1122" HREF="node91.html#SECTION00753000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html#SECTION00753000000000000000">Simple Parsing Methods</A>
+<UL> 
+<LI> <A NAME="tex2html1123" HREF="node92.html#SECTION00753100000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node92.html#SECTION00753100000000000000">A Top-Down Parser</A>
+<LI> <A NAME="tex2html1124" HREF="node93.html#SECTION00753200000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node93.html#SECTION00753200000000000000">A Bottom-Up Parser</A>
+</UL> 
+<LI> <A NAME="tex2html1125" HREF="node94.html#SECTION00754000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node94.html#SECTION00754000000000000000">Further Reading</A>
+</UL> 
+<LI> <A NAME="tex2html1126" HREF="node95.html#SECTION00760000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html#SECTION00760000000000000000">File Compression</A>
+<UL> 
+<LI> <A NAME="tex2html1127" HREF="node96.html#SECTION00761000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node96.html#SECTION00761000000000000000">Motivation</A>
+<LI> <A NAME="tex2html1128" HREF="node97.html#SECTION00762000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node97.html#SECTION00762000000000000000">Run-Length Encoding</A>
+<LI> <A NAME="tex2html1129" HREF="node98.html#SECTION00763000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node98.html#SECTION00763000000000000000">Variable-Length Encoding</A>
+<LI> <A NAME="tex2html1130" HREF="node99.html#SECTION00764000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node99.html#SECTION00764000000000000000">Substitutional Compressors</A>
+<LI> <A NAME="tex2html1131" HREF="node100.html#SECTION00765000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node100.html#SECTION00765000000000000000">JPEG and MPEG</A>
+<LI> <A NAME="tex2html1132" HREF="node101.html#SECTION00766000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node101.html#SECTION00766000000000000000">Summary</A>
+<UL> 
+<LI> <A NAME="tex2html1133" HREF="node102.html#SECTION00766100000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node102.html#SECTION00766100000000000000">Further Reading</A>
+</UL> 
+</UL> 
+<LI> <A NAME="tex2html1134" HREF="node103.html#SECTION00770000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node103.html#SECTION00770000000000000000">Cryptography</A>
+<UL> 
+<LI> <A NAME="tex2html1135" HREF="node104.html#SECTION00771000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node104.html#SECTION00771000000000000000">Motivation</A>
+<LI> <A NAME="tex2html1136" HREF="node105.html#SECTION00772000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node105.html#SECTION00772000000000000000">A Basic Outline and Terminology</A>
+<LI> <A NAME="tex2html1137" HREF="node106.html#SECTION00773000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node106.html#SECTION00773000000000000000">Simple Symmetric Methods</A>
+<LI> <A NAME="tex2html1138" HREF="node107.html#SECTION00774000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node107.html#SECTION00774000000000000000">Asymmetric Systems: Public Key CyptoSystems</A>
+<LI> <A NAME="tex2html1139" HREF="node108.html#SECTION00775000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node108.html#SECTION00775000000000000000">Summary</A>
+<LI> <A NAME="tex2html1140" HREF="node109.html#SECTION00776000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node109.html#SECTION00776000000000000000">Exercises</A>
+<LI> <A NAME="tex2html1141" HREF="node110.html#SECTION00777000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node110.html#SECTION00777000000000000000">Further Reading</A>
+</UL>
+</UL>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

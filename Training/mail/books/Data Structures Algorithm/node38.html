@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Some final points</TITLE>
+<META NAME="description" CONTENT="Some final points">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html718" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html716" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html712" HREF="node37.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node37.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html720" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html719" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html">Object Oriented Design</A>
+<B>Up:</B> <A NAME="tex2html717" HREF="node30.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node30.html">Exploiting Inheritance when Defining </A>
+<B> Previous:</B> <A NAME="tex2html713" HREF="node37.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node37.html">Programming Style</A>
+<BR> <P>
+<H2><A NAME="SECTION00555000000000000000">Some final points</A></H2>
+<P>
+To illustrate some final points, consider the following problem.
+You have a database of shapes, managed via an array of pointers to
+shape. Assume for now the code in section 3.3 defines the
+operations on shapes. You now want to set a given shape's size:
+<P>
+<PRE>shape* s[20];
+s[0] = new square;
+s[0]-&gt;setsize(3);</PRE>
+<P>
+But this will cause an error (the compiler would complain that there
+was no member function setsize for class shape).
+<P>
+How could we get round this? You could:
+<P>
+<UL><LI> Declare setsize in the definition of shape, as an empty
+virtual function.. but this could result in a very large
+`shape' definition, containing all of square's and circle's
+methods as well as those which logically belong to it.<LI> Avoid using setsize in the main code, but instead use more
+general methods, such as (maybe) ``setvalues''. This could be
+defined as a virtual method in shape, and the individual methods
+in square and circle could invoke shape-specific methods like
+``setsize''.. but sometimes that's not what you want.<LI> Use explicit typecasting.
+Although you can assign an object of a derived
+class to a pointer to a base class (e.g., square to pointer to
+shape), it is sometimes useful/necessary to do explicit typecasts.
+For example, in our `shapes' example,
+we can explicitly `cast' the pointer
+s[0] to a pointer to square:
+<P>
+<PRE>shape* s[20];
+s[0] = new square;
+((square*) s[0])-&gt;setsize(3);</PRE>
+<P>
+However, you have to somehow know that s[0] contains
+a square before doing this, which introduces more problems;
+and it may also result in over complex code.
+</UL><BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,174 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Login | Spandana | Global Edge Software Ltd.
+</title><link rel="icon" type="text/css" href="images/favicon4.png" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="coundtdownFiles/TimeCircles.js" type="text/javascript"></script>
+    <link href="coundtdownFiles/TimeCircles.css" rel="stylesheet" type="text/css" /><link href="css/login.css" media="all" type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+        window.history.forward(0);
+        if (parent.frames.length > 0) {
+            parent.location.href = self.document.location;
+        }
+        $(document).ready(function () {
+            $("#username").focus().attr("AutoComplete", "off").keydown(function (event) {
+                if (event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 190) {
+                }
+                else {
+                    //alert(event.keyCode);
+                    if (event.keyCode < 65 || event.keyCode > 90) {
+                        return false;
+                    }
+                }
+
+            }).bind("cut copy paste", function (e) {
+                e.preventDefault();
+            });
+            $("#password").bind("cut copy paste", function (e) {
+                e.preventDefault();
+            });
+
+            $("#DateCountdown").TimeCircles({
+                "count_past_zero": false,
+                "animation": "smooth",
+                "bg_width": "0.4",
+                "fg_width": "0.06666666666666667",
+                "circle_bg_color": "#6f716f",
+                "time": {
+                    "Days": {
+                        "text": "Days",
+                        "color": "#128023",
+                        "show": true
+                    },
+                    "Hours": {
+                        "text": "Hours",
+                        "color": "#16499A",
+                        "show": true
+                    },
+                    "Minutes": {
+                        "text": "Minutes",
+                        "color": "#1BA1E2",
+                        "show": true
+                    },
+                    "Seconds": {
+                        "text": "Seconds",
+                        "color": "#FA6800",
+                        "show": true
+                    }
+                }
+            });
+
+        });
+        function ValidateLogin() {
+            if ($("#username").val() == "") {
+                $("#username").removeClass();
+                $("#username").addClass("text-input-error");
+                $("#username").focus();
+                return false;
+            }
+            else {
+                $("#username").removeClass();
+                $("#username").addClass("text-input");
+            }
+            if ($("#password").val() == "") {
+                $("#password").removeClass();
+                $("#password").addClass("text-input-error");
+                $("#password").focus();
+                return false;
+            }
+            else {
+                $("#password").removeClass();
+                $("#password").addClass("text-input");
+            }
+            var logBtn = $("#loginBtn").html();
+            //alert(logBtn);
+            //return false;
+            $("#loginBtn").html("<img style='padding-top:10px' src='images/ajax-load.gif' alt='Validating, please wait ...' title='Validating, please wait ...' />");
+
+            $.ajax({
+                type: "POST",
+                url: "WebServiceLogin.asmx/validateUser",
+                data: JSON.stringify({ username: $("#username").val(), password: $("#password").val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    //alert(data.d);
+                    if (data.d == true) {
+                        window.location = "index.aspx";
+                    }
+                    else {
+                        $("#errorMsg").removeClass("error");
+                        $("#errorMsg").addClass("success");
+                        $("#loginBtn").html(logBtn);
+                        $("#password").val("");
+                    }
+
+                },
+                error: function (result) {
+                    alert("Sorry, Some Technical Problem. Please contact Spandana Team.");
+                }
+            });
+            return false;
+        }
+        
+    </script>
+</head>
+<body>
+    <form name="form1" method="post" action="./" id="form1" onsubmit="return ValidateLogin()">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTE5MDEwMTE5MWRkWgRpW61+/PgCqo60ghnBRQmFJVRl/zARqZUovykH3pA=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB" />
+    <div>
+        <table width="90%" style="border: 0px solid #ff0000">
+            <tr>
+                <td>
+                    <div id="login-wrapper" class="png_bg" >
+                        <div id="DateCountdown" data-date="2017-01-06 17:00:00" style="border: 0px solid red; width:550px;
+                            position: fixed; left: 0px; top: 10px; height: 150px; color: Black; visibility:hidden">
+                            <font style="color: #0067a9; font-family: Century-Gothic; font-size: 30px;">Global Edge Got Talent - 6th Jan 2017 <br /><font style="font-size: 14px"> <font style="color: #0988C8"></font> 
+                            </font></font>
+                        </div>
+                        <div id="login-top">
+                            <img src="images/spandanaLogoLogin.png" alt="spandana logo" title="Powered By Global Edge Software Ltd" />
+                        </div>
+                        <br />
+                        <div id="errorMsg" class="error" style="border: 0px solid red">
+                            Invalid Username OR Password</div>
+                        <div id="login-content">
+                            <p>
+                                <label>
+                                    Username</label>
+                                <input value="" name="username" id="username" class="text-input" type="text" autocompletetype="Disabled"
+                                    autocomplete="off" />
+                            </p>
+                            <br style="clear: both;" />
+                            <p>
+                                <label>
+                                    Password</label>
+                                <input name="password" id="password" class="text-input" type="password" autocompletetype="Disabled"
+                                    autocomplete="off" />
+                            </p>
+                            <br style="clear: both;" />
+                            <p>
+                                <div id="loginBtn" style="float: right; height: 50px;">
+                                    <input class="button" type="submit" value="Sign In" />
+                                </div>
+                            </p>
+                            <br style="clear: both;" />
+                        </div>
+                        <a style="font-family: MS Sans Serif; letter-spacing: .9px; font-weight: normal;
+                            color: Purple; text-decoration: none; cursor: pointer" href="forgot-password.aspx">
+                            Forgot your password? <font style="text-decoration: underline">Click here</font></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+    <div id="dummy">
+    </div>
+    <div id="dummy2">
+    </div>
+</body>
+</html>
+

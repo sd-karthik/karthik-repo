@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html337" HREF="node8.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node8.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html335" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html329" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html339" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html338" HREF="node8.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node8.html">Pointers</A>
+<B>Up:</B> <A NAME="tex2html336" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<B> Previous:</B> <A NAME="tex2html330" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<BR> <P>
+<H1><A NAME="SECTION00410000000000000000">Introduction</A></H1>
+<P>
+We can think of computer memory as just a contiguous
+block of cells:
+<P>
+<PRE>      --------------------------------------------
+       |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
+      --------------------------------------------</PRE>
+<P>
+each cell has a value (or contents) and an address, e.g.
+<P>
+<PRE>       12 13 14 15...
+      --------------------------------------------
+       |3 |7 |1 |  |  |  |  |  |  |  |  |  |  |  |  
+      --------------------------------------------</PRE>
+<P>
+So the cell with address 12 contains value 3. (Of course
+most addresses would be rather larger than 12! But big
+numbers wouldnt fit in my diagram).
+<P>
+Cells can be named, using variable names. If variable x
+refers to cell 12 then:
+<P>
+<PRE>  
+       x = 5</PRE>
+<P>
+results in
+<P>
+<PRE>       12 13 14 15...
+      --------------------------------------------
+       |5 |7 |1 |  |  |  |  |  |  |  |  |  |  |  |  
+      --------------------------------------------</PRE>
+<P>
+Well, actually, if a cell corresponds to 1 byte of memory,
+a variable might refer to a number of cells, starting
+at a particular memory address. For 2 byte (16 bit) integers
+the picture is more like:
+<P>
+<PRE>       12 13 14 15...
+      --------------------------------------------
+       |5    |1    |     |     |     |     |     |  
+      --------------------------------------------</PRE>
+<P>
+In languages like C++ we have to allocate memory for variables:
+<P>
+<PRE>    int x;</PRE>
+<P>
+will allocate a 2 byte space for x, and associate the address of
+the first byte with the variable name. If we don't allocate space
+correctly then we risk memory being overwritten and used for 
+something else.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

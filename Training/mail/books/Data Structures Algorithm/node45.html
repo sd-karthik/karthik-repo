@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Object Browsers</TITLE>
+<META NAME="description" CONTENT="Object Browsers">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html800" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html798" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html794" HREF="node44.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node44.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html802" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html801" HREF="node46.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node46.html">Conclusion</A>
+<B>Up:</B> <A NAME="tex2html799" HREF="node39.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node39.html">Object Oriented Design</A>
+<B> Previous:</B> <A NAME="tex2html795" HREF="node44.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node44.html">Window and User Interface </A>
+<BR> <P>
+<H2><A NAME="SECTION00563000000000000000">Object Browsers</A></H2>
+<P>
+One vital tool to support complex object oriented design and implementation
+is an object browser. An object browser will display graphically
+the hierarchy of objects in your compiled program (including any
+in included modules).
+<P>
+Object browsers display obejcts in a hierarchy. Typically
+you can click on any of the
+objects in the hierarchy, and get information about that object. The
+information would normally include the declarations for
+all the objects methods and data fields,
+with an indication of where they were inherited from (and perhaps further
+info, such as whether they are declared <EM>virtual</EM> methods). 
+If the source code was available, then by selecting one of the methods
+you should be taken directly to the place in the source code where that
+method is defined.
+<P>
+An object browser allows you to rapidly move within the text files
+defining a large object oriented system. If, say, you're editing
+a procedure which calls the `draw' method, and want to check out/modify
+that method, you need to go straight to just that version of the
+draw method that would be used there. Lets say the procedure you're editing
+is class1::display. You'd find class1 in the graphical class hierarchy, select that,
+find its draw method, select that, and then be at the appropriate draw
+method. Simple search tools (that may allow you to search for the procedure
+draw's definition) are just not adequate. There may be many versions of
+draw, and ob1 may inherit its version from any of its ancestors.
+<P>
+Object browsers allow static browsing of the classes. However, many systems
+also provide more run-time debugging tools, showing the object instances
+created at run-time, their inherited methods, and their location inthe
+hierarchy.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

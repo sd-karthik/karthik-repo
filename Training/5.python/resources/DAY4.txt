@@ -1,0 +1,290 @@
+<-------------------------------------- DAY4 -------------------------------->
+__________________________________________________________________________________
+DATE	: 
+TIME	:
+__________________________________________________________________________________
+NOTE: set tabspace = 4 for reading this document with format
+__________________________________________________________________________________
+
+
+	Python -> Core + Available Module + Downloadable Module
+
+1.	CLASS:
+
+	Eg:
+
+	------------------------------------------------------------------------------
+	class A:							# Class
+		def __init__(self):				# methods -> 4, __init__ is a constructor
+			print "In __init__ function"
+			self.x = 10						# Public
+			self._y	= 20					# Semi Private
+			self.__z = 30					# Fully Private
+		def fn1(self):					# self is similar to this pointer of c++
+			print "In fn1 function"
+		def _fn2(self):
+			print "In _fn2 function"
+		def __fn3(self):
+			print "In __fn3 function"
+
+	m = A()				# A.__init__(m); Creating an object
+	print m.x			# Printing an attribute
+	print m._y
+	print m.__z
+	m.fn1()
+	m._fn2()
+	m.__fn3()
+
+	-----------------------------------------------------------------------------
+	-> constructor	: __init__
+	-> destructor	: __del__
+	-> One parameter in method is compulsory to catch the newly created object.
+	-> self is meaningful name used
+	 _______________________________________________________________
+	|																|
+	| Access specifiers:											|
+	|  -> Public		: Doesn't start with underscore. Eg: x		|
+	|  -> Semi private	: Starts with 1 underscore. 	 Eg: _y		|
+	|  -> Fully private	: Starts with Double underscore. Eg: __z	|
+	|_______________________________________________________________|
+
+	NOTE:
+	->	Names which starts and ends with double underscore are the standard names available.
+		Eg: __builtins__
+	-> Fully Private cannot be accessed directly outside the class.
+	-> Thus nothing is totally private in python.
+-----------------------------------------------------------------------------
+TIME	: 11.30am
+----------------
+
+	str = "abcd"
+	dir(str)
+	str(12)			# str has lost its class property (LE'G'B)
+	-------------------------------------------------------
+
+2. INHERITANCE:
+
+	BASE and DERIVED CLASS
+	Eg:
+		
+	---------------------------------------------
+	|	class Shape():							|# Base Class
+	|		def __init__(self,x,y):				|
+	|			self.x = x						|
+	|			self.y = y						|
+	|		def area(self):						|
+	|			return self.x * self.y			|
+	|		def perimeter(self):				|
+	|			return 2 * (self.x+self.y)		|
+	|											|
+	|	class Sqaure(Shape):					|# Derived class
+	|		def __init__(self,x)				|
+    |   		#(1) Shape.__init__(self,x,x)	|
+    |  			self.x = x						|
+    |  			self.y = x						|
+	|											|
+	|	myShape = Shape(10,20)					|
+	|	print myShape.area()					|
+	|	print myShape.perimeter()				|
+	|											|	
+	|	mySquare = Square(25)					|
+	|	print mySquare.area()					|
+	|	print mySquare.perimeter()				|
+	|											|
+	---------------------------------------------
+
+	-> Base class should be called inside derived class to inherit the 
+		attributes.
+	->	If you want to add additional parameter in the derived class
+		explicitly as shown #(1).
+
+	Multi Level Inheritance:
+
+	---------------------------------------------
+    |   class Shape():                          |# Base Class
+    |       def __init__(self,x,y):             |
+    |           self.x = x                      |
+    |           self.y = y                      |
+    |       def area(self):                     |
+    |           return self.x * self.y          |
+    |											|
+    |   class Sqaure(Shape):              	    |# Derived from shape
+    |       def __init__(self,x)                |
+    |           #(1) Shape.__init__(self,x,x)   |
+    |           self.x = x                      |
+    |           self.y = x 						|
+	|											|                       
+    |   class DoubleSqaure(Shape):              |# Derived from square
+    |       def __init__(self,y)                |
+    |           self.x = y                      |
+    |           self.y = 2*y                    |
+    |       def perimeter(self):                |
+    |           return 2 *self.x+ 3*self.y      |   
+	|											|                   
+    |   myDoubleSquare = DoubleSquare(45)       |
+    |   print myDoubleSquare.area()             |
+    |   print myDoubleSquare.perimeter()        |
+    |                                           |
+    ---------------------------------------------
+---------------------------------------------------------------------------------
+TIME:	2.00pm
+-------------------------------------------------------------------------------
+3. OPERATOR OVERLOADING:
+
+	Eg:
+
+	(1)
+	
+	class Employee():
+		empcount = 0
+		def __init__(self):
+			Employee.empcount += 1
+		def displaycount(self):
+			return Employee.empcount
+
+	emp1 = Employee()
+	emp1.displaycount()
+	emp2 = Employee()
+	emp2.displaycount()
+	emp1.displaycount()
+
+	(2)
+
+	class Number():
+		def __init__(self,start):
+			self.data=start
+		def __sub__(self,other):
+			return Number(self.data - other)
+		def displaydata(self):
+			return self.data
+
+	X = Number(7)
+	Y = X - 4
+	print Y.displaydata()
+
+4. Create Exception:
+	
+	class myException(Exception):
+		pass
+	try:
+		raise myException
+	exception myException:
+		print "myException occurred"
+
+5. Conversion from list<->tuple
+
+	------------------
+	lst1 = [10,20,30]
+	lst2 = (30,40)
+	------------------
+	tup1 = (10,30,20)
+	lst1 = list(tup1)
+	lst1.append(40)
+	tup1 = tuple(lst1)
+	------------------
+	lst1 = [10,20,30]
+	lst2 = lst1			// new object is created and is an alias 
+	lst3 = lst[:]
+	lst4 = list(lst1)
+	------------------
+
+6. REGULAR EXPRESSION:
+
+	->	macthing for the particular pattern.
+	->	pattern is collection of characters.
+
+	NOTE:
+
+	->	glob: another styl of pattern matching, applied to shell level like file.
+	-> Regular Expressions are latest ones.
+	-> globs typically are applied on the shell on the file
+		Eg: ls
+	-> regular expressions are applied on contents of the files
+		Eg: grep 
+
+
+	for finding os.:
+	-> print os.name( posix- linux; nt = windows)
+	->	sys-> platform == windows
+		os.system("cls")
+	-> os.system == nt windows
+
+Assign:
+
+1. WAP to print .py files in a folder
+	import os
+	os.system("ls *.py")
+	--------------------
+	import glob
+	print glob.glob("*.py)
+
+2. str1 = "abc aabv abc"
+	print str1.count("abc")
+	
+	import re
+	re.findall("abc",str1)
+
+---------------------------------
+	GLOB EXPRESSION:
+	----------------------------------------
+	*	*.py	a.py	xy.py	mnop.py....
+	?	?.py	a.py	???.py
+	----------------------------------------
+	REGULAR EXPRESSION:
+	 ___________________________________________________________________________
+	|						|				|									|
+	|	SYMBOLS				|	PATTERN		|	MATCHING STRING					|
+	|-----------------------|---------------|-----------------------------------|
+	| '.' a char(except \n)	|	i.j			|	iaj izj iAj iZj i0j i_j			|
+	|'.all' (including \n)	|				|									|
+	|-----------------------|---------------|-----------------------------------|
+	| '?' 0 or 1 occurence 	|	a?b			|	b ab 							|
+	| of prev RE exp		|				|									|
+	|-----------------------|---------------|-----------------------------------|
+	| '*' 0 or more occ of	|				|									|
+	|	prev RE exp			|	ab*cd		|	acd	abbcd	abbcd	......		|
+	|-----------------------|---------------|-----------------------------------|
+	|+ 1 or more			|  ab+cd		|	abcd abbcd						| // acd must be there
+	|-----------------------|---------------|-----------------------------------|
+	|[] range				|	 i[a]j		|	iaj								|// a must be there one times	
+	|	only one character	|  	 i[aA]j		|	iaj	iAj							|
+	|	atleast one ch		|   i[aA]+j		|	iaj	iAj	iaaj	iAAj	iaAj	|
+	|						|	i[a-z]j		|	iaj .... izj					|
+	|						|   i[a-zA-Z]	|	iaj ... izj		iAj .. iZj		|
+	|						| i[a-zA-Z0-9]j	|									|
+	|-----------------------|---------------|-----------------------------------|
+	|[^] Negated range		|	i[^a]j		|	ibj icj idj ...					|// except a anything can be in between
+	|						|	i[^aA]j		|	ibj iBj icj ...					|
+	|						|		:		|			:						|
+	|						| i[a-zA-Z0-9]j	|	i@j i!j i#j ...					|		
+	|-----------------------|---------------|-----------------------------------|	
+	|{ , }	{min, max}		|	a{1,2}b		|	ab aab 							|// a must be there one times maximum 2 times
+	|-----------------------|---------------|-----------------------------------|
+	|()		grouping		|	(ab)+cd		|	abcd ababcd abababcd ..			|	
+	|-----------------------|---------------|-----------------------------------|
+	|ANCHOR ELEMENTS		|				|									|	
+	|-----------------------|---------------|-----------------------------------|
+	|^	at the beg			|^Global		| 	GlobalEdge						|//Should start with Global
+	|-----------------------|---------------|-----------------------------------|						
+	|$ at the end			|edge$			|	globaledge$						|//Should end with edge
+	|-----------------------|---------------|-----------------------------------|
+	|MISCELLANIOUS			|				|									|
+	|-----------------------|---------------|-----------------------------------|
+	|\s 	white space		|				|									|
+	|\d		digit			|				|									|
+	|\S		non white space	|				|									|
+	|_______________________|_______________|___________________________________|
+
+
+EXERCISE EXTENDED:
+	1. 	UPADATE Calculator using classes
+	
+	2.	wc to work on one or more spaces, new lines : [\s,:]
+	
+	Eg: for a.b compulsory: a\.b a[.]b
+
+	3.	Match the IP address using regular expression(try this)
+
+--------------------------------------------------------------------------------------------------
+TIME :	5.15pm
+<--------------------------------------------------- DAY4 --------------------------------------->

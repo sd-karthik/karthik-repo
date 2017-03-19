@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Terminology and Definitions</TITLE>
+<META NAME="description" CONTENT="Terminology and Definitions">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html902" HREF="node53.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node53.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html900" HREF="node50.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node50.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html894" HREF="node51.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node51.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html904" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html903" HREF="node53.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node53.html">A Graph ADT</A>
+<B>Up:</B> <A NAME="tex2html901" HREF="node50.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node50.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html895" HREF="node51.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node51.html">Motivation</A>
+<BR> <P>
+<H2><A NAME="SECTION00612000000000000000">Terminology and Definitions</A></H2>
+<P>
+There is alot of terminology associated with graphs that needs to
+be introduced. Figure ? shows examples of two graphs, illustrating
+some of the main ideas:
+<P>
+<P><A NAME="1660">&#160;</A> <IMG  ALIGN=BOTTOM ALT="figure1658" SRC="img4.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img4.gif"  > <BR>
+<STRONG>Figure 4.1:</STRONG> Example Graphs<BR>
+<P>
+<P>
+Graphically we can think of a graph as a collection of points, some
+of which are connected. These connections can be two way or one way
+(illustrated by arrows, for one way connections). Graphs with one
+way connections are referred to as <EM>directed</EM>. In an <EM>undirected</EM> graph, 
+if there 
+is a connection from vertex 1 to vertex 2, there also is from node 2 to node 1.
+Directed graphs may be <EM>cyclic</EM> or <EM>acyclic</EM> depending on
+whether it is possible to get back to a vertex by following arrowed
+links. Two nodes are <EM>adjacent</EM> if an edge connects them, and
+a <EM>path</EM> is a sequence of adjacent vertices. Graphs may be <EM>connected</EM>
+or <EM>unconnected</EM> as illustrated in the figure. Vertices may be <EM>labelled</EM> as illustrated in the first example in the figure, where the labels are
+just integers.
+<P>
+We often use family tree terminology for graphs. The <EM>children</EM> of a node
+n1 are those nodes such that there is an edge from n1 to the child node.
+(These are also sometimes called the <EM>neighbours</EM> of the node, particularly
+when talking about general graphs rather than trees).
+The <EM>parents</EM> of a node is the reverse. <EM>Ancestors</EM>, <EM>siblings</EM>
+and <EM>descendants</EM> are what you might expect.
+<P>
+Formally, a graph G = (V, E) where V is a set of vertices, E is a set of
+edges, where each edge is a pair of vertices from V. 
+Definitions for paths, cycles, adjacency, connectivity etc can be stated
+in terms of this formal description.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

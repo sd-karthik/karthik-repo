@@ -1,0 +1,11 @@
+Methods to get keywords:
+-------------------
+METHOD 1:
+>>>help()
+>>>keywords
+
+METHOD 2:
+>>>help("keyword")
+-------------------
+continue
+break

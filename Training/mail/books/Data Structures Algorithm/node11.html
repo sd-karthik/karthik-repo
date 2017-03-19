@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Pointers, Functions and Call by Reference</TITLE>
+<META NAME="description" CONTENT="Pointers, Functions and Call by Reference">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html381" HREF="node12.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node12.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html379" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html373" HREF="node10.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node10.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html383" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html382" HREF="node12.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node12.html">Arrays and Functions</A>
+<B>Up:</B> <A NAME="tex2html380" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<B> Previous:</B> <A NAME="tex2html374" HREF="node10.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node10.html">Copying Pointer Variables</A>
+<BR> <P>
+<H1><A NAME="SECTION00450000000000000000">Pointers, Functions and Call by Reference</A></H1>
+<P>
+We can pass a pointer to a function:
+<P>
+<PRE>   void myfn(int* ptr)
+   {
+     *ptr = 1;
+   }</PRE>
+<P>
+The result is that &quot;the int ptr points to&quot; is set to 1.
+If we call it with:
+<P>
+<PRE>   int* p1;
+   ......
+   myfn(p1);</PRE>
+<P>
+*p1 will now have the value 1. When myfn is called,
+ptr is a new integer variable, a copy of p1, pointing to the same
+place as p1. So when *ptr is set, that sets the
+memory cell also pointed to by p1.
+<P>
+We could also call the fn with, say:
+<P>
+<PRE>   int p1;
+   ......
+   myfn(&amp;p1)</PRE>
+<P>
+which calls myfn with a pointer to (address of) p1.
+When myfn finishes p1 will have the value 1.
+<P>
+Call by reference arguments are much the same, but
+avoid the need to `dereference' pointers in the
+body of the function or call, so can be less messy.
+<P>
+<PRE>   void myfn(int&amp; ptr)
+   {
+     ptr = 1;
+   }
+   ...
+   int p1;
+   myfn(p1);</PRE>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

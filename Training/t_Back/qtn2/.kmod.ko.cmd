@@ -1,0 +1,1 @@
+cmd_/home/anusha/training/c_assignments/task_management/qtn2/kmod.ko := ld -r -m elf_i386 -T ../scripts/module-common.lds --build-id  -o /home/anusha/training/c_assignments/task_management/qtn2/kmod.ko /home/anusha/training/c_assignments/task_management/qtn2/kmod.o /home/anusha/training/c_assignments/task_management/qtn2/kmod.mod.o ;  true

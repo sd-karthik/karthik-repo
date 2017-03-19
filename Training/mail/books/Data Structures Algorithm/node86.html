@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Simple Pattern Matcher</TITLE>
+<META NAME="description" CONTENT="A Simple Pattern Matcher">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1323" HREF="node87.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node87.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1321" HREF="node83.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node83.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1315" HREF="node85.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node85.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1325" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1324" HREF="node87.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node87.html">Further Reading</A>
+<B>Up:</B> <A NAME="tex2html1322" HREF="node83.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node83.html">Pattern Matching</A>
+<B> Previous:</B> <A NAME="tex2html1316" HREF="node85.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node85.html">Representing Patterns</A>
+<BR> <P>
+<H2><A NAME="SECTION00743000000000000000">A Simple Pattern Matcher</A></H2>
+<P>
+Using this special representation it turns out that we can check
+if a string matches a pattern using the following simple algorithm:
+The following assumes that choice nodes have the character '?'
+in them, and that the double ended queue data structure has the
+operations 'empty', 'push', 'put', and 'pop' available. 'Put'
+puts an item at the end of the queue, 'push' at the front.
+<P>
+<PRE>N = strlen(str); state = next[0][0];
+dq.put('+');               // put + at END of dq
+j = 0;
+while( !state == endstate &amp;&amp; j &lt;= N &amp;&amp; ! dq.empty())
+  {
+    if (state == '+')
+      { j++; dq.put('+'); }
+    else if (ch[state] == str[j])
+       dq.put(next[state][0]);
+    else if (ch[state] == '?')
+       {
+         dq.push(next[state][0]);  // put next states at
+         dq.push(next[state][1]);  // START of dq
+       }
+    state = dq.pop();
+  }</PRE>
+<P>
+A match succeeds if we reach the final state. The position in the string
+when the loop exits will indicate the shortest initial substring
+matching the pattern (we'd need slightly different exit conditions to
+check if the complete string matched the pattern).
+<P>
+As an illustration, consider what would happen given the network above
+if we try to match the pattern against 'abcz'. To simplify things
+we'll not show 'State', but just assume it is the first element of the
+previous list (which is 'popped off' after each iteration):
+<P>
+<PRE>String position   List of states to process
+0                 (1 +)        Choice point: put next states at front
+0                 (2 4 +)      State 2 contains 'a', so put next state at end
+0                 (4 + 3)      State 4 doesnt match 'b' so no action.
+0                 (+ 3)        '+', so increment string pointer, put + at end
+1                 (3 +)        State 3 contains 'b', so put next state at end
+1                 (+ 5)        '+', so increment string pointer etc
+2                 (5 +)        Choice: put next states at front
+2                 (1 6 +)      Choice: Put next states at front
+2                 (2 4 6 +)    State 2  doesnt match 'c' so no action
+2                 (4 6 +)      .. but State 4 does, so put next state at end
+2                 (6 + 5)      no action..
+2                 (+ 5)        increment string pointer
+3                 (5 +)        Choice: put next states at front
+3                 (1 6 +)      Choice: Put next states at front
+3                 (2 4 6 +)    State 2  doesnt match 'z' so no action
+3                 (4 6 +)      State 2 doesnt..
+3                 (6 +)        but state 6 does, so put next state at end
+3                 (+ 7)        increment string pointer..
+4                 (7 +)        REACHED END! Must match pattern.</PRE>
+<P>
+Think for a minute what one of the lists corresponds to. The list (6 + 5) given string position 2 means: another node to check
+for the 3rd character is '6'; but there's a next node 5 corresponding to
+a path we've already found containing the third character (1 2 3 5 1 4).
+<P>
+The algorithm outlined works reasonably efficiently: with a small
+modification to avoid the possibility of having redundant repeats of the same
+state, we have a worst case on  <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2856" SRC="img10.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img10.gif"  >  where M is the number of states
+and N the length of the string.
+<P>
+To complete our pattern matcher we need code to translate our
+regular expressions into a finite-state machine (our network).
+This is a non-trivial problem in itself.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Asymmetric Systems: Public Key CyptoSystems</TITLE>
+<META NAME="description" CONTENT="Asymmetric Systems: Public Key CyptoSystems">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1565" HREF="node108.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node108.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1563" HREF="node103.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node103.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1557" HREF="node106.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node106.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1567" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1566" HREF="node108.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node108.html">Summary</A>
+<B>Up:</B> <A NAME="tex2html1564" HREF="node103.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node103.html">Cryptography</A>
+<B> Previous:</B> <A NAME="tex2html1558" HREF="node106.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node106.html">Simple Symmetric Methods</A>
+<BR> <P>
+<H2><A NAME="SECTION00774000000000000000">Asymmetric Systems: Public Key CyptoSystems</A></H2>
+<P>
+Symmetric cryptosystems have a problem: how do you transport the secret 
+key from the sender to the
+recipient securely and in a tamperproof fashion? If you could send the 
+secret key securely, you wouldn't
+need the symmetric cryptosystem in the first place (because you would 
+simply use that same secure
+channel to send your message). Frequently, trusted couriers are used 
+as a solution to this problem.
+Another, more efficient and reliable solution is a public key cryptosystem.
+<P>
+In a public key system, different keys are used to encrypt and decrypt.
+The receiver has a <EM>private key</EM> that can be used to
+decode any message encoded using his <EM>public key</EM>. But the
+public key is NOT enough to decode the message. To send a message
+to someone, you look up their public key (which is, as you might
+expect, quite public), encode your message with it, and sent it.
+The receiver can decode it using his private key. We can express
+this semi-formally as follows. If P(M) is the encoding of M using the
+public key, S(M) is the decoding using the private key, we want a
+system where S(P(M))=M (for all M), but where S cannot be (easily)
+derived from P.
+<P>
+A method that enables this is RSA public-key encryption.
+Here, the public and private keys are just pairs of BIG numbers. Let
+the public key be (N, p) and the private key (N, s).
+The plain text is broken up and translated into numbers (by whatever method),
+then encryption is just:  <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2872" SRC="img15.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img15.gif"  > , decryption  <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2874" SRC="img16.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img16.gif"  > .
+For this to work we want keys such that  <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2876" SRC="img17.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img17.gif"  >  (and
+such that S cant be derived easily from P). It turns out that
+if we generate 3 random prime numbers x,y,and z, make S be the largest
+(say z), N the product of x and y, and P a number such that
+PS mod (X-1)(Y-1)=1, then we have suitable keys. (You can try this
+out with small primes, but really we'd use prime numbers with hundreds of
+digits!). Finding suitable keys (and trying to break codes!) using this
+system requires number theory algorithms, such as algorithms for
+finding greatest common divisors, large primes, prime factors etc.
+<P>
+Encryption and decryption using this method is relatively time
+consuming, compared with other methods. It is therefore
+common to effectively use public key encryption just to
+encode a <EM>session key</EM> to be passed with the message to the receiver, and
+to encode the message itself using simpler methods (using the session
+key).
+<P>
+Netscape (a WWW browser) uses RSA public-key encryption to encode
+session keys that are then used in less costly symmetric encryption
+algorithms. If, say, a bookstore wanted to setup so that people
+could securely send orders which included their credit card
+details and address, they would get hold of suitable public
+and private keys, then tell their customers their public key
+(or rather, incorporate the key in the electronic order form so that it is 
+automatically used at the client end to encode messages sent with 
+forms from the server). Now, if a client sends a message using that
+public key, that message can (in principle) only be read by
+the bookstore, so it is only the store which has the credit card
+details.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

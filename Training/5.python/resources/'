@@ -1,0 +1,266 @@
+<---------------------------------- DAY 2 ---------------------------------->
+DATE : 09 / 03 / 17
+TIME : 09:15am
+----------------------------------------------------------------------------
+
+1. TUPLE:
+
+	Eg: tup1 = (10,20,30)
+		tup1 = (10,20,30,40)	
+	
+	-> Possible, elements of the tuple is immutable, but the tuple is mutable. 
+	-> New tuple is created and old one is deleted.
+	
+	Eg: (1)
+		lst1 = [10,20,30]
+		print lst1[0],lst1[1],lst1[2]
+		print lst1[-1],lst1[-2],lst1[-3]
+		
+		(2)
+		a = 3,4,5
+	-> Also possibble
+	-> A list may have homogenious elements, ordering is present
+	-> tuple may likely to have heterogenious
+
+2.	SEQUENCE of containers:
+		-> Container within the container.
+		-> Combintion of list and tuple is also called as sequence .
+	Eg:
+		lst1 = [10,20,(30,40)]
+		>>> print lst1
+		[10, 20, (30, 40)]
+		>>> print lst1[2]
+		(30, 40)
+		>>> print lst1[2][0]
+		30
+		
+		>>> tup1 = (10,20,[30,40])
+		>>> print tup1[2]
+		[30, 40] 
+		
+		>>> tup1[2] = 20
+		TypeError: 'tuple' object does not support item assignment
+				>>> tup1[2][0] = 20
+		irint lst1[0],lst[1],lst[2]
+		>>> print tup1[2]
+		[20, 40]
+
+3. 	SLICING:
+	
+		lst1 = [10,20,30,40,50]
+		print lst1[1:4] = [20,30,40]
+		print lst1[:3] = [10,20,30]
+		print lst1[2:] = [30,40,50]
+		print lst1[:] = [10,20,30,40,50]
+
+		Generic form:
+		lst1[start:end:step]
+
+4.	DICTIONARY:
+
+		Eg:
+		dct1 = {10:20, 30:40}
+				pair	pair
+			key:value	key:value
+
+		>>> print dct1
+		{10: 20, 30: 40}
+
+	->	Other names of Dictionary in other field: Hash, associative array
+	->	The pairs  must be intact however the internal storages are doest matter how they are arranged.
+	
+	methods:
+	->	dct1.keys
+	->	dct1.values
+	->	dct1.has_keys(key_val)
+	->	del				//its a keyword 
+	-> Keys are immutable object: strings,
+	
+EXP1: dictinary within a dictionary
+------------------------------------------------------------------------
+TIME: 11:30am
+------------------------------------------------------------------------
+
+5. EVALUATION:
+
+EXP1:
+	a = 4
+	b = 2
+	
+	a,b=a+b,a
+	
+	print a
+	print b
+
+	o/p: 6 4
+
+EXP2:
+
+	1.	a = 3,4			->	(3,4)
+	2.	a,b=5,6			->	a=5,b=6
+	3.	a,b=5,6,7		->	NP,ValueError
+	4.	a,b,c=5,6		->	NP,ValueError
+	5.	a,b=5,(6,7)		->	a=5, b=(6,7)
+	6.	a,b=(5,6),7,8	->	NP,ValueError
+
+	 ___________________________________________________________________
+	|	NOTE:															|
+	|	print "var1 is",var1,"var2 is", var2		//recommended		|
+	|	print "var1 is %d var2 is %d" %(var1,var2)	//not recommended	|
+	|___________________________________________________________________|
+
+EXP 3:
+	
+	>>> v1=10.5
+	>>> v2=34
+	>>> print "v1 = %d \t v2 = %f"%(v1,v2)
+	v1 = 10 	 v2 = 34.000000
+
+6. MODULE:
+	
+	Eg:
+	->	import the module first.
+	-> import math
+	->	dir(math)
+	->	type(math.pi)
+	->	print math.pi
+
+----------------------------------------------------------------------------------------------------
+EXP:
+	1.	User enters a number in decimal form, print the value in different number system. (math)
+	2.	Print the value of	(math)
+	a) pi
+	b) sin(90)
+	3.	Write a program to clear the screen , the code should work on both on win and linux.	(os)
+	4.	Write a program to print the version of python (sys)
+	5.	WAP to change the directory (os)
+	6.	Print Prime numbers: a)	Limit	
+							 b) Count
+	7.	Command-line-argument : Eg: calc	(python)
+
+(hint: math realted -> math, os related -> os(clrscr), python related -> sys)
+
+-----------------------------------------------------------------------------------------------------
+TIME : 4.00pm
+-----------------------------------------------------------------------------------------------------
+TIME : 4.15pm
+-----------------------------------------------------------------------------------------------------
+7. NESTED FUNCTION AND RECURSION:
+	
+	->	990 is the limitation of recursion
+
+(*)	NESTED FUNCTION:
+		Python supports but not recommended. Use it only if necessary.
+	EG:
+	(1)	 def Ofn():
+			print "Outside"
+			def Ifn():
+				print "Inside"
+			Ifn()
+		Ofn()
+
+		O/P: Outside
+			 Inside
+
+	(2)	 def fn():
+			print "Outside"
+            def fn():
+                print "Inside"	
+            fn()				// Local function will be called due to priority 
+        fn()
+
+        O/P: Outside
+             Inside
+	 ___________________________________________________________
+	|	NOTE:													|
+	|		same name in same scope			->	overwriting		|
+	|		same name in different scope	->	apply LEGB rule	|
+	|___________________________________________________________|
+
+	(3)	
+		dct1={10:20, "Sachin": 99}
+		print dct1
+		def dcttest(dct2):
+			dct2[10] = 50
+			dct2["Sachin"] += 3
+			print dct2
+		dcttest(dct1)
+		print dct1
+	
+	O/P: {10: 20, 'Sachin':99}
+		 {10: 50, 'Sachin':102}
+		 {10: 50, 'Sachin': 102}
+
+	(4)	File: int_immutable.py
+
+		int1 = 10
+		print int1
+		def t(int2):
+			int2 = 20
+			print int2
+		t(int1)
+		print int1
+
+	O/P: 10 20 10	// integer is not updated since its immutable
+
+	# Two solution to update the integer values
+
+	SOL 1:
+		Global integer use("global" keyword) when you need to update integer in every function.
+
+	SOL 2:
+		Return the integer from the function and recieve in the same variable which you passed to the function as an arguments.
+
+(*)	FUNCTION VARIABLE LENGTH:
+		
+	Eg:
+	(5)	def tset(*pos, **kwd):
+			print "positional",pos	//tuple
+			print "keyword", kwd	//dictionary
+		tset(10,20,a=30,b=40)
+		tset(10,20)					//Empty dictinary
+		tset(a=10,b=20)				//Empty tuple
+		tset()						//Empty tuple and dictionary
+
+	(6)
+		def fun():
+			return 1,2	// tuple is returned
+			x = fun()
+
+	(7)
+	# python is not fully interpreted because of this program
+	# before execution the program is fully parsed for syntaxes
+
+	if(1):
+	    print "hi"
+	if(0):
+	#   pass    // pass(keyword) will show that its a statement,
+
+	
+-----------------------------------------------------------
+EXCERCISE:
+
+1. Simple Calculator: with menu (3 option):  in 2 files; documentation string; 
+	(1) calc_menu.py -> input and display  
+	(2) calc_operations.py-> perform ops and return 
+	----------------------
+	a.simple calulator
+	1.add
+	2.sub
+	3.mul
+	4.div
+	5.go back
+	-----------------------
+	b.scientific calulator
+	3.exit
+	1. sin
+	2. cos
+	3. sqrt
+	4. power of
+	5. go back
+	-----------------------
+hint:	clearscreen function use
+	string functions
+
+2. Verify all codes in windows: especially clearscreen
+<------------------------------------- DAY 2 ---------------------------->

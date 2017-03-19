@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>The Algorithm</TITLE>
+<META NAME="description" CONTENT="The Algorithm">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1069" HREF="node68.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node68.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1067" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1063" HREF="node66.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node66.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1071" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1070" HREF="node68.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node68.html">Graphs ADTs and OOP</A>
+<B>Up:</B> <A NAME="tex2html1068" HREF="node65.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node65.html">Topological Sort</A>
+<B> Previous:</B> <A NAME="tex2html1064" HREF="node66.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node66.html">Motivation</A>
+<BR> <P>
+<H2><A NAME="SECTION00642000000000000000">The Algorithm</A></H2>
+<P>
+A straightforward approach to finding this order would be first to
+find the nodes each node depends on, e.g.,:
+<P>
+<PRE>Node     Depends on:
+1        none
+2        1
+3        1
+4        2,3</PRE>
+<P>
+You would first remove any node that has NO dependencies, as an
+acceptable first node. That node could then be removed from the dependency
+lists of the other nodes:
+<P>
+<PRE>Node order: 1
+
+Node     Depends on:
+2        none
+3        none
+4        2,3</PRE>
+<P>
+The process then repeats, with either node 2 or 3 being chosen. Let's say
+node 2.
+<P>
+<PRE>Node Order: 1,2
+
+Node     Depends on
+3        none
+4        3</PRE>
+<P>
+This continues in the obvious manner, with the final order being 1,2,3,4.
+<P>
+In fact, to implement this we don't even need to store lists of nodes that
+a node depends on, just the NUMBER of such nodes. So you start by finding
+the number of such nodes, for each node. Then when a node n (with zero
+nodes depending on it) is removed, you decrement the number associate with
+each of the nodes m depending on it (ie, with edge from node m to n).
+<P>
+ie,
+<P>
+<PRE>Node     Depends on
+1        none
+2        1
+3        1
+4        2
+
+remove 1, then 2 and 3 have 0 nodes depending on it.
+remove 2, then 4 has 1 
+remove 3, then 4 has 0 
+remove 4</PRE>
+<P>
+To implement this, we can use a list datastructure L to return the
+topologically sorted nodes, and a queue data structure Q to hold
+the nodes will zero dependent nodes waiting to be processed.
+When a node N is removed from Q and added to L, all of N's dependent
+naighbours have their number decremented, and any that are then
+zero are added to Q. Something like:
+<P>
+<PRE>Q               L
+1               1
+2 3             1 2
+3               1 2 3
+4               1 2 3 4</PRE>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

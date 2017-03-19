@@ -1,0 +1,4 @@
+Python gurus:
+1.Raymond Hettinger
+2.David Breasley
+3.Guiddo von Rossum

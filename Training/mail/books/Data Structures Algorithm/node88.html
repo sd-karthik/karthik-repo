@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Parsing</TITLE>
+<META NAME="description" CONTENT="Parsing">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1343" HREF="node89.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node89.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1341" HREF="node70.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node70.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1335" HREF="node87.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node87.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1345" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1344" HREF="node89.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node89.html">Motivation</A>
+<B>Up:</B> <A NAME="tex2html1342" HREF="node70.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node70.html">String Processing Algorithms</A>
+<B> Previous:</B> <A NAME="tex2html1336" HREF="node87.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node87.html">Further Reading</A>
+<BR> <P>
+<H1><A NAME="SECTION00750000000000000000">Parsing</A></H1>
+<P>
+[rewrite to use -&gt; notation and single unified example grammar]
+<P>
+Parsing is the process of taking a sequence (e.g., of characters), 
+and checking whether it is a legal sequence in a given ``language''.
+The sequence may also be decomposed into a structure which allows
+further processing.
+<P>
+As a very simple example, we might parse an expression ``1 + 2 * 3'',
+determine that it is a legal arithmetic expression, and return a
+tree structure such as:
+<P>
+<PRE>                / \
+               / | \
+              /  |  \
+             1   +  / \
+                   / | \
+                  2  *  3</PRE>
+<P>
+In this section we will give a very brief introduction to parsing.
+However, it is a very large subject, and so the introduction here
+will be somewhat superficial, and the methods presented should
+not be blindly adopted for more serious applications without
+further study of the subject.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME="tex2html1346" HREF="node89.html#SECTION00751000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node89.html#SECTION00751000000000000000">Motivation</A>
+<LI> <A NAME="tex2html1347" HREF="node90.html#SECTION00752000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node90.html#SECTION00752000000000000000">Context Free Grammars</A>
+<LI> <A NAME="tex2html1348" HREF="node91.html#SECTION00753000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html#SECTION00753000000000000000">Simple Parsing Methods</A>
+<UL> 
+<LI> <A NAME="tex2html1349" HREF="node92.html#SECTION00753100000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node92.html#SECTION00753100000000000000">A Top-Down Parser</A>
+<LI> <A NAME="tex2html1350" HREF="node93.html#SECTION00753200000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node93.html#SECTION00753200000000000000">A Bottom-Up Parser</A>
+</UL> 
+<LI> <A NAME="tex2html1351" HREF="node94.html#SECTION00754000000000000000" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node94.html#SECTION00754000000000000000">Further Reading</A>
+</UL>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

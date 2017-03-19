@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>A Graph ADT</TITLE>
+<META NAME="description" CONTENT="A Graph ADT">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html913" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html911" HREF="node50.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node50.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html905" HREF="node52.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node52.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html915" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html914" HREF="node54.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node54.html">Implementing a Graph ADT</A>
+<B>Up:</B> <A NAME="tex2html912" HREF="node50.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node50.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html906" HREF="node52.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node52.html">Terminology and Definitions</A>
+<BR> <P>
+<H2><A NAME="SECTION00613000000000000000">A Graph ADT</A></H2>
+<P>
+An abstract datatype for a graph should provide operations for
+constructing a graph (adding and removing edges and vertices) and
+for checking connections in a graph. If we allow labelled nodes
+then there will be additional operations to add, access and remove labels.
+Nodes can be just indicated by integers.
+Assuming that we have suitable type declarations for label and graph, the following
+is a reasonable minimal set of operations:
+<P>
+<PRE>Graph(int n)
+// Creates and initialises a graph of given size (no. of nodes)
+
+void AddEdge(int n1, int n2) 
+// Adds edge from N1 to N2
+// Pre: N1 and N2 are nodes in graph
+
+void RemoveEdge(int n1, int n2)
+// Removes an edge}
+// Pre: There is an edge in graph from N1 to N2
+
+int EdgeExists(int n1, int n2)
+// 1 if there is an edge in graph from N1 to N2, else 0 //
+
+void SetLabel(graphlabel l, int n)
+// Adds a label L to node N
+// Pre: N is a node in Graph
+
+Label GetLabel(int n)
+// Returns the label of a node
+// Pre: N is node of Graph
+
+
+We might also want:
+
+owllist Neighbours(int n);
+// Returns a linear list containing all the neighbours of node N
+// Pre: N is a node in graph</PRE>
+<P>
+(This assumes type definitions for Graphlabel and owllist; GraphLabel
+could be a fixed length string)
+<P>
+Other operations might be useful, but this provides a reasonable
+minimal set.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

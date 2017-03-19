@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Pointers</TITLE>
+<META NAME="description" CONTENT="Pointers">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html348" HREF="node9.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node9.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html346" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html340" HREF="node7.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node7.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html350" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html349" HREF="node9.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node9.html">Pointers and Arrays</A>
+<B>Up:</B> <A NAME="tex2html347" HREF="node6.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node6.html">Brief Revision of Pointers </A>
+<B> Previous:</B> <A NAME="tex2html341" HREF="node7.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node7.html">Introduction</A>
+<BR> <P>
+<H1><A NAME="SECTION00420000000000000000">Pointers</A></H1>
+<P>
+A pointer is basically like an address. In the above example, if ptr is
+a pointer variable, ptr might contain the value 14.
+<P>
+Pointers are declared as follows:
+<P>
+<PRE>    int* ptr;</PRE>
+<P>
+declares that ptr is a pointer to an integer (int *ptr; is also OK). It 
+allocates space for a pointer but does NOT allocate space for
+the thing pointed to.
+<P>
+Generally the syntax is:
+<P>
+<PRE>   &lt;type&gt;* &lt;identifier&gt;</PRE>
+<P>
+We can find out what a pointer ptr points to (ie, the value in
+the cell with the address ptr) using the notation:
+<P>
+<PRE>   *ptr</PRE>
+<P>
+and set this value using e.g.,:
+<P>
+<PRE>   *ptr = 6</PRE>
+<P>
+From our last diagram, with ptr=14 this would result in:
+<P>
+<PRE>       12 13 14 15...
+      --------------------------------------------
+       |5    |6    |     |     |     |     |     |  
+      --------------------------------------------</PRE>
+<P>
+We can modify what a pointer points to in various ways.
+<P>
+<PRE>       ptr = &amp;x;</PRE>
+<P>
+modifies ptr so it points to the same cell that the
+ordinary integer variable x points to. In our example
+above this was memory cell 12, so the result would
+be that the value pointed to by ptr (*ptr) would now
+be 5. If two things point to the same cell weird things
+can happen. If we now say:
+<P>
+<PRE>      x = 2</PRE>
+<P>
+then of course *ptr will = 2 too. But sometimes that's
+what we want.
+<P>
+We'll (virtually) never want to refer to the `actual'
+address locations. So we'd never want to do:
+<P>
+<PRE>     ptr = 16.</PRE>
+<P>
+We just don't want to know (or mess with) where in real memory 
+things are being stored.
+<P>
+Pointers are often represented using diagrams like the following,
+which avoid explicitly referring to a particular memory cell
+address:
+<P>
+<PRE>    ---       ----
+   |ptr|---&gt; | 5  |       pointer ptr points to a cell containing 5
+    ---       ----</PRE>
+<P>
+Pointers should always point to something and `know' what sort of
+thing they point to (hence are more than just an address..).
+If we increment a pointer, this results in it pointing to the
+NEXT object in memory, not just the next memory address.
+So if it was pointing to a 2 byte integer, and we increment it,
+it points to the next 2 byte integer. If it was pointing to a
+4 byte float, and we add one, it points to the next float.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,160 @@
+<------------------------------------------- DAY 5 --------------------------------------->
+DATE : 13 / 03 / 17
+TIME : 9.40am
+------------------------------------------------------------------------------------------
+NOTE: set tabspace = 4 for reading this document with format
+---------------------------------------------------------------------------
+
+1. USE OF REGULAR EXPRESSION:
+
+	>>> str1 = "abc def abc"
+	>>> import re
+	>>> re.findall("abc", str1)
+	['abc', 'abc']
+	>>> re.findall("aBc", str1)
+	[]
+	>>> re.findall("aBc", str1, re.I)
+	['abc', 'abc']
+	>>> re.sub("abc", "mno", str1)
+	'mno def mno'
+	>>> re.sub("aBc", "mno", str1, 1, re.I)
+	'mno def abc'
+
+	>>> items = [1,2,3]
+	>>> def sqr(x):
+	...	return x*x
+
+	>>> map(sqr, items)	# MOst used function returns a list
+	[1, 4, 9]
+
+	>>> map(lambda x:x*x, items)	#lambda is keyword used to create a function or functionality	
+	[1, 4, 9]
+
+	>>> filter(lambda x:x>1, items)	#filter for the condition
+	[2, 3]
+
+	>>> reduce(lambda x,y:x+y, items)	#returns one value
+
+	>>> [x for x in range(10) if(x%2)]
+	[1, 3, 5, 7, 9]
+	-> 3 portions are there x, for, if
+	-> also called as list comprehention , since they are generated on the fly.
+	-> list with portions of iteratives (eg: for) are called as generator	
+	-> decorator
+
+-----------------------------------------------------------------------------
+TIME	: 11.40am
+-----------------------------------------------------------------------------
+
+2.	DOCTEST:
+
+	(1)
+
+	def myAverage(a,b):
+	"""
+	>>> myAverage(10, 30)
+	20
+	>>> myAverage(40,60)
+	5
+	"""
+		return (a+b)/2
+	import doctest
+	doctest.testmod()
+
+
+	(2)
+
+	import unittest
+	
+	def multiply(x,y):
+		return
+	class TestStringMethods(unittest.TestCase):	
+		def test_multiply_integers(self):
+			self,.assertEqual(multiply(3,4), 12)
+	
+		def test_multiply_strings(self):
+			self.assertEqual(multiply('a',3),'aa)
+
+	if __name__ == '__main__':
+		unittest.main()
+
+	unit test -> frameworks
+	doc test -> modules
+----------------------------------------------------------------------------
+TIME : 2.10pm
+----------------------------------------------------------------------------
+	__doc__ -> documentation string , the string written first before any definition is stored in __doc__
+	__name__ -> name of the module/file
+	__main__ -> When a file is imported the file which is invoking will have __main__, the file which is invoking avoid duplication 
+
+
+Builtin:
+	set
+Keyword:
+	with, in,
+
+Module: 
+	shutil	(shell utility)
+	image(may be module or package or downloadable)
+	socket (socket programming)
+	thread	(function)
+	threading	(class)
+	subprocess(ipc,pipe...)
+	moreprocess
+	multiprocessing(process management)
+	tkinter(for gui interface, basic but faster )
+	wxpython(gui interface, advanced)
+	xlrd,xlwt( xl file)
+	xmlparse,xmllib, sax,dom, xml (xml file)
+
+	for windows/linux:
+	win32api(best used with a tool pythonwin, especilly for windows)
+	dump( similar to read)
+	load( similar to write)
+	htmllib
+	htmlpath
+	urllib2(most used)
+	smtp (email works)
+	pexpect(ssh,)
+	django(framework for)
+
+	-------------------------------------------------
+	|	numpi(downloadable)							|
+	|	sci-pi(machine learning)					|
+	|	panda()										|
+	|	sci-kit(language processing)				|
+	|	nltk(natural language processing)			|
+	|												|
+	-------------------------------------------------
+	email(mail accessing to gmail and password)
+	sqlite (for database)
+project based:
+
+	embeddicpython
+	extendingpython
+	creating stand alone application
+
+	py_init(),
+	py_run() ,
+	py_exit/clean()
+
+->	PYTON.H
+
+	Dealing with .so file:
+
+	->	create a c file
+	->	create function
+	->	create a .so file
+	->	import that library in the python program
+	-> 	use in program
+
+	without interpreter the utiliser which converts python to exe file:
+	distutil
+
+	---------------------------------------------------------
+	|	Other Modules:		|	std		|	Tools			|
+	|-----------------------|-----------|-------------------|
+	|	profile,cprofile	|	pep8	|	pip				|
+	|	opt parse, argparse	|			|	pylint			|
+	|	loggev				|			|	pep8-checkev	|
+	---------------------------------------------------------

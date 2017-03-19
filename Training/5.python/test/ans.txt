@@ -1,0 +1,208 @@
+<------------------------------------------------------------------->
+DATE : 13 / 03 / 2017
+--------------------------------------------------------------------
+
+1. 12/(4+1) -> integer division
+
+---------------------------------------------------------------------
+
+2. 26**100 ->3142930641582938830174357788501626427282669988762475256374173175398995908420104023465432599069702289330964075081611719197835869803511992549376L
+
+---------------------------------------------------------------------
+
+3. ['Monty','Python']*20:
+
+['Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python', 'Monty', 'Python']
+
+The list gets appended by 'Monty'  and 'Python' 20 times
+
+	3 *sent1:
+>>> sent1 = "good evening"
+>>> 3*sent1
+'good eveninggood eveninggood evening'
+
+	returns string with the string sent1 3 times.
+
+----------------------------------------------------------------------
+
+4.
+	>>> text4 = "abcabc"
+	>>> len(set(text4))
+	3
+
+	-> set returns the set of charcaters used in the strings as a list
+	-> len calculates length of that set list
+
+	-> set is class, len is a builtin_function
+	-> the above combination of len with set returns the number of letters used in the string(non-repeated)
+
+----------------------------------------------------------------------
+
+5.
+a.	>>> my_string = 'I am writing exam'
+	>>> my_string
+	'I am writing exam' 	#method1
+	>>> print my_string
+	I am writing exam		#method2
+
+b. Strings are joined without spaces in both cases
+	i)my_string *3
+	ii)my_string+my_string2
+
+	>>> my_string2 = 'I am still writing'
+	>>> my_string+my_string2
+	'I am writing examI am still writing'
+	>>> my_string * 3
+	'I am writing examI am writing examI am writing exam'
+
+	solution:
+	i) my_string + ' ' + my_string2
+	ii) (my_string + ' ') * 3
+
+----------------------------------------------------------------------
+
+6. 
+
+	>>> my_sent = [ "My", "Answers"]
+	>>> ' '.join(my_sent)
+	'My Answers'
+
+	>>> my_joined = ' '.join(my_sent)
+	>>> my_joined.split()
+	['My', 'Answers']
+
+	-> join will join the string with the mentioned space while joining
+	-> split will split the string 
+
+-----------------------------------------------------------------------
+
+7.
+
+>>> phrase1 = "hai"
+>>> phrase2 = "hello"
+	
+>>> phrase1+phrase2
+'haihello'
+
+>>> len(phrase1+phrase2)
+8
+>>> len(phrase1)+len(phrase2)
+8
+
+->len(phrase1+phrase2) : calculate the length after joining the string
+->len(phrase1)+len(phrase2): calculates the length individually and adds
+ 
+-----------------------------------------------------------------------
+8.	text1 = "welcomE"
+	text2 = "globaledge"
+	sorted(set([text1.lower() for e in text1]))
+	sorted([text1.lower() for e in set(text1)])
+
+-----------------------------------------------------------------------
+
+9.	w = "case checking"
+	w.isupper()
+	not w.islower()
+
+-----------------------------------------------------------------------
+
+10.	text2 = "hi mams gud morning and welcome"
+	x = text2.split()
+	x[-2:]
+
+-----------------------------------------------------------------------
+
+11.	Sent = ['she', 'sells', 'sea', 'shells', 'by', 'the', 'sea', 'shore']
+
+	for words in Sent:
+
+		if words.startswith ('sh'):
+
+			print words 
+	
+		
+	for words in Sent:
+
+		if len (words)> 4:
+
+			print words 
+
+-----------------------------------------------------------------------
+
+12.	text = "size prize pt path zebra"
+	text6 = text.split()
+	Speclist = []
+
+	for eachword in text6:
+
+		if eachword.endswith ('ize'):
+			Speclist.append (eachword)
+			
+	print Speclist
+
+	for eachword in text6:
+
+		if 'z' in eachword:
+
+			Speclist.append (eachword)
+	print Speclist
+
+-----------------------------------------------------------------------
+
+13.
+	text1 = "what is this and why"
+	sum([len(w)for w in text])
+	average = sum([len(w)for w in text]) / len(text1)
+	print average
+
+-----------------------------------------------------------------------
+
+14.
+	def vocab_size(text):
+		count = 0
+		text = text.split()
+#		return len(text.split())
+		for word in text:
+			count += len(word)
+		return count
+
+	text = raw_input("enter the text:")
+	print vocab_size(text)
+
+-----------------------------------------------------------------------
+15.	
+		def fun_percent(word,text):
+		a = len(text.split())
+		print a
+		b = text.count(word)
+		print b
+		return ((float(b)/float(a)) * 100)
+	
+	text = raw_input ("enter the text")
+	word = raw_input ("enter the word")
+	print fun_percent(word,text)
+
+-----------------------------------------------------------------------
+
+16. 	text1 = "hiiii everyone"
+	text2 = "hiiii everyone gud evening"
+	x = set(text1) < set(text2)
+	print x
+
+-----------------------------------------------------------------------
+
+17.	s  = 'colorless'
+	a = s[0:4]
+	b = s[4:]
+	print a + 'u' + b	
+-----------------------------------------------------------------------
+
+18.	word = raw_input("enter the word")
+	n = word.index('-')
+	word  = word[0:n] + word[(n+1):]
+	print word
+
+-----------------------------------------------------------------------
+
+19.
+

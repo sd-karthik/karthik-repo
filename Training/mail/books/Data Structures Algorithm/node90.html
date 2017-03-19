@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Context Free Grammars</TITLE>
+<META NAME="description" CONTENT="Context Free Grammars">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1371" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1369" HREF="node88.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node88.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1363" HREF="node89.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node89.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1373" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1372" HREF="node91.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node91.html">Simple Parsing Methods</A>
+<B>Up:</B> <A NAME="tex2html1370" HREF="node88.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node88.html">Parsing</A>
+<B> Previous:</B> <A NAME="tex2html1364" HREF="node89.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node89.html">Motivation</A>
+<BR> <P>
+<H2><A NAME="SECTION00752000000000000000">Context Free Grammars</A></H2>
+<P>
+Parsers presuppose that there is some <EM>grammar</EM> that defines
+the legal expressions in a language. For parsing natural language this
+will just be a grammar of English. For parsing expressions of a
+programming language this will be the grammar defining legal constructs of
+that language.
+<P>
+Programming languages are often described using a particular type of
+grammar known as a context free grammar. For example, the following
+grammar rules define legal arithmetic expressions involving * and +:
+<P>
+<PRE>&lt;expression&gt; ::= &lt;term&gt; | &lt;term&gt; + &lt;expression&gt;       (rule 1)
+&lt;term&gt;       ::= &lt;factor&gt; | &lt;factor&gt; * &lt;term&gt;         (rule 2)
+&lt;factor&gt;     ::= ( &lt;expression&gt; ) | v                 (rule 3)</PRE>
+<P>
+Note, other slightly different notations are often used, such as:
+<PRE>expression --&gt; term | term + expression       (rule 1)
+term --&gt; factor | factor `*' term             (rule 2)
+factor --&gt; `(' expression `)' | v             (rule 3)</PRE>
+<P>
+This grammar is meant to allow expressions like `1 + (1 + 3) * 6',
+but NOT expressions like `1 + * 2 ('. The grammar is such that
+the right <EM>structure</EM> will be assigned to the expression, as
+well as invalid expressions rejected.
+<P>
+The rules above can be read as follows: ``An <EM>expression</EM> consists of
+a <EM>term</EM> OR a <EM>term</EM> followed by a `+' followed by an <EM>expression</EM>.
+A <EM>term</EM> consists of a <EM>factor</EM> OR a <EM>factor</EM> followed by
+a `*' followed by a <EM>term</EM>. A <EM>factor</EM> consists of an <EM>expression</EM>
+in brackets OR a single letter/digit.'' (`v' stands for any letter or digit).
+So in the notation above, `::=' can be read as `consists of' or 'is a' and
+` <IMG  ALIGN=BOTTOM ALT="tex2html_wrap_inline2826" SRC="img1.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img1.gif"  > ' means OR. In the above grammar, '+' and '*' are examples of
+<EM>terminal symbols</EM> corresponding to symbols in the language
+described, while 'expression' and 'term' are examples of <EM>non-terminal</EM>
+symbols, which are internal to the grammar. One non-termal is distinguished
+as the <EM>start symbol</EM> (in this case `expression'). A sequence is
+<EM>recognised</EM> by the grammar if we can <EM>rewrite</EM> it into 
+a sequence containing just the start symbol, by repeatedly replacing
+sequences matching the right hand side of a rule with sequences matching
+the left hand side of the rule.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

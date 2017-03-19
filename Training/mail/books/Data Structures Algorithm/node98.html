@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Variable-Length Encoding</TITLE>
+<META NAME="description" CONTENT="Variable-Length Encoding">
+<META NAME="keywords" CONTENT="ds98">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ds98.css" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/ds98.css">
+</HEAD>
+<BODY LANG="EN">
+ <A NAME="tex2html1464" HREF="node99.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node99.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="next_motif.gif"></A> <A NAME="tex2html1462" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="up_motif.gif"></A> <A NAME="tex2html1456" HREF="node97.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node97.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="previous_motif.gif"></A> <A NAME="tex2html1466" HREF="node1.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html1465" HREF="node99.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node99.html">Substitutional Compressors</A>
+<B>Up:</B> <A NAME="tex2html1463" HREF="node95.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node95.html">File Compression</A>
+<B> Previous:</B> <A NAME="tex2html1457" HREF="node97.html" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/node97.html">Run-Length Encoding</A>
+<BR> <P>
+<H2><A NAME="SECTION00763000000000000000">Variable-Length Encoding</A></H2>
+<P>
+Variable-length encoding exploits the fact that some characters
+in a string are more common than others. So, rather than using,
+say, a full 8 bits to represent each character, we encode common
+characters using a smaller number of bits. Consider the string 'the'.
+Using an ASCII file representation, we might encode 't' as 116, h as 104,
+e as 101, or in binary: 1110100 1101000 1100101. However, we might say that
+as 'e' is most common, followed by 't', we'll encode these as '1' and '10'.
+If, say, 'h' was '101' then we'd have the shorter encoding: 10 101 1.
+<P>
+One problem with this is that we have to include spaces between the codes
+somehow, in order to tell where one code begins and another ends.
+If we had an encoding such as 101 we wouldnt know whether this
+represented 'h' or 'te'. 
+One way to avoid this problem is if we avoid using two codes such that
+one code consists of the first few characters of another (e.g., 101
+10).
+<P>
+An acceptable set of codes can be represented as leaves in a binary tree:
+<P>
+ <IMG  ALIGN=BOTTOM ALT="tex2html_wrap2866" SRC="img12.gif" tppabs="http://www.cee.hw.ac.uk/~alison/ds98/img12.gif"  > 
+<P>
+A code for a letter corresponds to the path from the root to the leaf
+labelled with the letter. So, we have T: 00, H: 010, A: 011, E: 1.
+If we have an encoding such as '000101' we can uniquely determine
+what it represents and translate back to the uncompressed form.
+The decoding can even be done efficiently, using the binary tree
+as a datastructure to traverse to find the decoding of a given bit sequence.
+<P>
+To actually construct an optimal tree, we can use data on the
+frequencies of difference characters. A general method for
+finding optimal codes was developed by D. Huffman, and the coding
+scheme is referred to as Huffman encoding.
+<P>
+The method involves building up a binary tree, bottom up, storing
+in each node the total frequency count for the characters below that node.
+Lets say we're only dealing with the letters t, a, e and h, and the
+frequencies are 10, 5, 15 and 3. We start off by creating leaf nodes
+for each of these:
+<P>
+<PRE>      t:10       a:5          e:15         h:3</PRE>
+<P>
+Then we pick the two with lowest frequency, and combine them, creating
+a new node with a combined frequency count:
+<P>
+<PRE>         *:8
+       /     \
+     h:3      a:5       e:15         t:10</PRE>
+<P>
+We then repeat this, but now the nodes we consider are the new one, e and t:
+<P>
+<PRE>                *:18
+             /      \
+         *:8         \
+       /     \        \
+     h:3      a:5      t:10     e:15</PRE>
+<P>
+and finally:
+<P>
+<PRE>                       *:33
+                     /    \
+                *:18       \
+             /      \       \
+         *:8         \       \
+       /     \        \       \
+     h:3      a:5      t:10     e:15</PRE>
+<P>
+We now have an efficient encoding scheme where the most common letter 'e' has
+a single bit code (1), the next most common 't' has a 2 bit code,
+<P>
+The code to construct such a tree, and use it in encoding/decoding
+is fairly simple, and described in Sedgewick, ch 22.
+<P>
+Huffman encoding is worth doing for text files, though you won't get
+any very dramatic compression (maybe 20-30%). It may also be useful
+for image files, where (for example) a small range of colours may
+be much more common than others.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Alison Cawsey <BR>
+Fri Aug 28 16:25:58 BST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>
